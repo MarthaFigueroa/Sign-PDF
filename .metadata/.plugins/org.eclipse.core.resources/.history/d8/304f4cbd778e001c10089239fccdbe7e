@@ -1,0 +1,37 @@
+package Controllers;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+//import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import lombok.extern.slf4j.Slf4j;
+//import Services.FileService;
+
+@Slf4j
+@RestController
+@RequestMapping("/")
+public class FileController {
+    
+    @GetMapping(path = "/files")
+    public void signFile() throws Exception {
+        // log.info("UsersController:  list users");
+        System.out.println("File Controller: signFile GET");
+        
+    }
+    
+    @PostMapping(path = "/files")
+    public ResponseEntity<?> signFile2() throws Exception {
+        System.out.println("File Controller: signFile");
+        return ResponseEntity.ok("File Signed");
+    }
+    
+//    @PostMapping(path = "/")
+//    public ResponseEntity<?> signFile(@RequestBody String filename) throws Exception {
+//        System.out.println("File Controller: signFile");
+//        FileService.addSignature(filename);
+//        return ResponseEntity.ok("File Signed");
+//    }
+}

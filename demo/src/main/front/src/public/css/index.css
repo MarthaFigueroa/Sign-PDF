@@ -1,0 +1,27 @@
+body{
+    background-color: rgb(32, 32, 61) !important
+}
+
+input[type="text"], input[type="file"] {
+    box-sizing: border-box;
+    padding: 10px 5px;
+    width: 100%;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+
+.contacts-header{
+    background-color: rgba(223, 108, 0, 0.753) !important;
+}
+
+.card{
+    border: none !important;
+}
+
+.close-card{
+    cursor: pointer;
+}
+
+.icon{
+    margin-bottom: 30px;
+}
