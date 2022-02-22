@@ -1,5 +1,7 @@
 package Controllers;
 
+import java.io.File;
+
 import org.json.simple.JSONObject;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -41,8 +43,19 @@ public class FileController {
     public ResponseEntity<?> signFile(@RequestBody JSONObject requestObject) throws Exception {
         System.out.println("File Controller: signFile gg");
         String filename = (String) requestObject.get("filename");
-        JSONObject responseObject = FileService.addSignature(filename);
+        String certName = (String) requestObject.get("certName");
+        String certPass = (String) requestObject.get("certPass");
+        
+        JSONObject responseObject = FileService.addSignature(filename, certName, certPass);
         responseObject.put("message", "Signed File");
+        return ResponseEntity.ok(responseObject);
+    }
+    
+    @GetMapping("/file")
+    public ResponseEntity<?> signFile(@RequestBody File requestObject) throws Exception {
+        System.out.println("File Controller: signFile gg");
+        
+        File responseObject = FileService.getFile(requestObject);
         return ResponseEntity.ok(responseObject);
     }
 }
