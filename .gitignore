@@ -6,11 +6,11 @@ target/
 
 # dependencies
 /node_modules
-/certificate369258.pfx
-/Aspose.Total_for_Java
-/pdfonej_t_p2
-/Spire.Pdf_5.1.1
-.pdf
+*.pdf
+*.pfx
+/demo/Aspose.Total_for_Java/**
+/demo/pdfonej_t_p2/**
+/demo/Spire.Pdf_5.1.1/**
 
 ### STS ###
 .apt_generated
