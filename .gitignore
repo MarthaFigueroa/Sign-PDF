@@ -8,7 +8,7 @@ target/
 /node_modules
 *.pdf
 *.pfx
-Aspose.Total_for_Java/**
+Aspose.Total_for_Java/aspose.pdf-22.1-java/**
 pdfonej_t_p2/**
 Spire.Pdf_5.1.1/**
 
