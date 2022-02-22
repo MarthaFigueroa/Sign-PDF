@@ -4,19 +4,19 @@ const UploadFilesForm = (props) => {
 
     const [image , setImage] = useState('');
 
-    let metadata = {
-        name: image.name !== undefined ? image.name : "",
-        contentType: image.type !==undefined? image.type : "",
-        lastModified: image.lastModified !==undefined? image.lastModified : "",
-        size: image.size !==undefined? image.size : ""
-    };
-    const [values, setValues] = useState(metadata);
+    // let metadata = {
+    //     name: image.name !== undefined ? image.name : "",
+    //     contentType: image.type !==undefined? image.type : "",
+    //     lastModified: image.lastModified !==undefined? image.lastModified : "",
+    //     size: image.size !==undefined? image.size : ""
+    // };
+    // const [values, setValues] = useState(metadata);
 
-    const handleSubmit = async(e) =>{
-        e.preventDefault();
-        setValues({...metadata});
-        await props.notify(values);
-    }
+    // const handleSubmit = async(e) =>{
+    //     e.preventDefault();
+    //     setValues({...metadata});
+    //     await props.notify(values);
+    // }
     
     // useEffect(() => {
     //     const fileSelector = document.getElementById('file-selector');
@@ -27,15 +27,14 @@ const UploadFilesForm = (props) => {
     // })
     
     const upload = ()=>{
-        console.log("Image: ",image);
         if(image == null)
         return;
-        console.log("GG",image," Metadata:", metadata);
+        console.log("Image: ",image);
         const req = {
             filename: image.name,
-            metadata: metadata
+            metadata: image
         }
-        console.log("Req: ",req);
+        console.log("Req: ",image);
         axios.post(`http://localhost:8080/file`, req)
         .then(async res => {
             console.log("Response Data",res.data);
@@ -60,13 +59,13 @@ const UploadFilesForm = (props) => {
     }
     return(
         <>            
-         {/*  */}
-            <form onSubmit={handleSubmit}>
+         {/* onSubmit={handleSubmit} */}
+            {/* <form > */}
                 <div className="form-group input-group formField">
-                    <input type="file" id='file-selector' onChange={(e)=>{setImage(e.target.files[0])}}/>
+                    <input type="file" id='file-selector' onChange={(e) => { setImage(e.target.files[0])}} accept=".pdf"/>
                     <button className='btn btn-info' onClick={upload}>Upload</button>
                 </div>
-            </form>
+            {/* </form> */}
         </>
     )
 }

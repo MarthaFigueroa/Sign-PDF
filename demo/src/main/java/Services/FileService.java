@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 import org.apache.pdfbox.contentstream.operator.Operator;
@@ -29,14 +31,17 @@ public class FileService {
 
     // Load an existing PDF document
     PdfDocument doc = new PdfDocument();
-    String path = new File(".").getCanonicalPath();
+//    String path = new File(".").getCanonicalPath();
+	Path path = Paths.get(filename).toRealPath();
 //    String filePath = filename.split(".")[0];
-//    System.out.println(filePath);
+    System.out.println(path);
     File file = new File(filename);
-    String inputFilePath = path+"/"+filename;
-    String outputFilePath = path+"/Signed_"+filename;
+    String inputFilePath = path+"";
+    Path outPath = Paths.get(inputFilePath).getParent();
+    System.out.println(outPath);
+    String outputFilePath = outPath+"/Signed_"+filename;
     doc.load(inputFilePath);
-    String certificate = path + "/certificate369258.pfx";
+    String certificate = outPath + "/certificate369258.pfx";
     PDDocument document = null;
 
     String[] csv = GenerateCSV.getCSV("CSV", 2018l, file);

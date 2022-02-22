@@ -1,0 +1,393 @@
+<html>
+ <head>
+  <LINK REL ="stylesheet" TYPE="text/css" HREF="../stylesheet.css" TITLE="Style">
+  <LINK REL ="stylesheet" TYPE="text/css" HREF="example.css" TITLE="Style">
+ </head>
+ <body>
+<pre>
+import java.io.IOException;
+
+import com.gnostice.pdfone.PDFOne;
+import com.gnostice.pdfone.PdfCustomPlaceholderHandler;
+import com.gnostice.pdfone.PdfDocument;
+import com.gnostice.pdfone.PdfException;
+import com.gnostice.pdfone.PdfReader;
+import com.gnostice.pdfone.PdfSaveAsImageHandler;
+
+public class PdfProDocument_Examples implements
+    PdfCustomPlaceholderHandler, PdfSaveAsImageHandler
+{
+    	static {
+		PDFOne.activate("T95VZE:W8HBPVA:74VQ8QV:LO4V8",
+				"9B1HRZAP:X5853ERNE:5EREMEGRQ:TX1R10");
+	}
+
+	public static void main(String[] args) throws IOException, PdfException {
+		<span class="cc">// Create an object of this class</span>
+		PdfProDocument_Examples obj = new PdfProDocument_Examples();
+		<span class="cc">// Execute example method of the above instance</span>
+		obj.saveAsImage_Example(args[0]);
+	}
+
+
+    <a name="addFormField_List_int"></a>
+    <span class="cc">// This code snippet illustrates how to add a list of form fields
+    // to a page in a document.</span>
+    public void addFormField_List_int_Example()
+        throws IOException, PdfException
+    {
+        <span class="cc">// Create a blank PDF document with a single page</span>
+        PdfWriter wrtr = 
+            PdfWriter.fileWriter(
+                "addFormField_List_int_example.pdf");
+        PdfDocument doc = new PdfDocument(wrtr);
+        PdfPage pg = new PdfPage(PdfPageSize.A4);
+        doc.add(pg);
+
+        <span class="cc">// Create a new form field </span>
+        PdfFormTextField ftf1 = 
+            new PdfFormTextField(
+                new PdfRect(250,100, 200, 18),
+                "ftf_Name");
+        ftf1.setBorderColor(Color.BLACK);
+        ftf1.setName("ftf_Name");
+        ftf1.setNameAsUnicode(false);
+        ftf1.setValue("John Doe");
+        
+        <span class="cc">// Create another form field</span>
+        PdfFormTextField ftf2 = (PdfFormTextField) ftf1.clone();
+        ftf2.setRect(250, 125, 200, 18);
+        ftf2.setName("ftf_Occupation");
+        ftf2.setValue("");
+        
+        <span class="cc">// Add the form fields to a list</span>
+        ArrayList lst = new ArrayList();
+        lst.add(ftf1);
+        lst.add(ftf2);
+        
+        <span class="cc">// Add the list of form fields to page 1</span>
+        doc.<span class="ck">addFormFieldList(</span>lst, 1<span class="ck">)</span>;
+
+        doc.writeText("Enter name:", 150, 100);        
+        doc.writeText("Enter occupation:", 150, 125);
+        doc.setOpenAfterSave(true);
+
+        <span class="cc">// Write document to file</span>
+        doc.write();
+        wrtr.dispose();        
+    }
+
+    <a name="addFormField_PdfFormField_int"></a>
+    <span class="cc">// This code snippet illustrates how to add a form field to a
+    // document</span>
+    public void addFormField_PdfFormField_int_Example()
+        throws IOException, PdfException
+    {
+        <span class="cc">// Create a blank PDF document with 5 pages</span>
+        PdfWriter wrtr =
+            PdfWriter.fileWriter(
+                "addFormField_PdfFormField_int_example.pdf");
+        PdfDocument doc = new PdfDocument(wrtr);
+        PdfPage pg = new PdfPage(PdfPageSize.A4);
+        doc.add(pg);
+
+
+        <span class="cc">// Create a new form field</span>
+        PdfFormTextField ftf =
+            new PdfFormTextField(
+                new PdfRect(250,100, 200, 18),
+                "ftf_Name");
+        ftf.setBorderColor(Color.BLACK);
+        ftf.setName("ftf_Name");
+        ftf.setNameAsUnicode(false);
+        ftf.setValue("John Doe");
+
+        <span class="cc">// Adds the form field to page 1 of the document</span>
+        doc.<span class="ck">addFormField(</span>ftf, 1<span class="ck">)</span>;
+
+        doc.writeText("Enter name:", 150, 100);
+        doc.setOpenAfterSave(true);
+
+        <span class="cc">// Write document to file</span>
+        doc.write();
+        wrtr.dispose();
+    }
+
+
+    <a name="addAnnotationList_List_String_boolean_int"></a>
+    <span class="cc">// This code snippet illustrates how to add a list of annotations
+    // to a document and also remove existing annotations in the
+    // document. The annotation location are specified in inches.</span>
+    public void addAnnotationList_List_String_boolean_int_Example()
+        throws IOException, PdfException
+    {
+        <span class="cc">// Create a document with several annotations on page 1</span>
+        addAnnotationList_List_int_Example(false);
+
+        <span class="cc">// Read the above document</span>
+        PdfReader rdr = PdfReader.fileReader(
+            "addAnnotationList_List_int_example.pdf",
+            "addAnnotationList_List_String_boolean_int_Example1.pdf");
+        PdfDocument doc = new PdfDocument(rdr);
+
+        <span class="cc">// Add some extra pages to the document</span>
+        PdfPage pg2 = new PdfPage(PdfPageSize.A4);
+        PdfPage pg3 = new PdfPage(PdfPageSize.A4);
+        PdfPage pg4 = new PdfPage(PdfPageSize.A4);
+        doc.add(pg2);
+        doc.add(pg3);
+        doc.add(pg4);
+
+        <span class="cc">// Create several new annotations</span>
+        PdfTextAnnot ta1 = new PdfTextAnnot(2, 1,
+            "addAnnotationList Example",
+            "This annotation was part of a list.", "New annotation 1");
+        PdfTextAnnot ta2 = new PdfTextAnnot(3, 2,
+            "addAnnotationList Example",
+            "This annotation was part of a list.", "New annotation 2");
+        PdfTextAnnot ta3 = new PdfTextAnnot(4, 3,
+            "addAnnotationList Example",
+            "This annotation was part of a list.", "New annotation 3");
+
+        <span class="cc">// Add the annotations to a list</span>
+        ArrayList lst = new ArrayList();
+        lst.add(ta1);
+        lst.add(ta2);
+        lst.add(ta3);
+
+        String[] pr = new String[1];
+        pr[0] = "1,3,4";
+
+        <span class="cc">// Add the list of annotations to pages 1, 3, and 4 and remove
+        // existing annotations (in page 1)</span>
+        doc.addAnnotationList(
+             lst, 
+             pr, 
+             true,
+             PdfMeasurement.MU_INCHES);
+
+        doc.setOpenAfterSave(true);
+
+        <span class="cc">// Write document to file</span>
+        doc.write();
+        rdr.dispose();
+    }    
+
+
+    <a name="addAnnotationList_List_int_boolean"></a>
+    <span class="cc">// This code snippet illustrates how to add a list of annotations</span>
+    <span class="cc">// to a page and at the same time remove or keep existing</span>
+    <span class="cc">// annotations</span>
+    public void addAnnotationList_List_int_boolean_Example()
+        throws IOException, PdfException
+    {
+        <span class="cc">// Create a document with several annotations</span>
+        addAnnotationList_List_int_Example(false);   
+        
+        <span class="cc">// Read the above document</span>
+        PdfReader rdr = 
+            PdfReader.fileReader(
+                "addAnnotationList_List_int_example.pdf", 
+                "addAnnotationList_List_int_boolean_Example1.pdf");        
+        PdfDocument doc = new PdfDocument(rdr);
+        
+        <span class="cc">// Create several new annotations</span>
+        PdfTextAnnot ta1 = 
+            new PdfTextAnnot(200, 100,
+                "addAnnotationList Example",
+                "This annotation was part of a list.",
+                "New annotation 1");
+        PdfTextAnnot ta2 = 
+            new PdfTextAnnot(200, 200,
+                "addAnnotationList Example",
+                "This annotation was part of a list.",
+                "New annotation 2");
+        PdfTextAnnot ta3 = 
+            new PdfTextAnnot(300, 300,
+                "addAnnotationList Example",
+                "This annotation was part of a list.",
+                "New annotation 3");
+        
+        <span class="cc">// Add the annotations to a list</span>
+        ArrayList lst = new ArrayList();
+        lst.add(ta1);
+        lst.add(ta2);
+        lst.add(ta3);
+        
+        <span class="cc">// Add the list of annotations to the document and remove</span>
+        <span class="cc">// existing annotations</span>
+        doc.<span class="ck">addAnnotationList(</span>lst, 1, true<span class="ck">)</span>;
+
+        doc.setOpenAfterSave(true);
+
+        <span class="cc">// Write document to file</span>
+        doc.write();
+        rdr.dispose();
+        
+        <span class="cc">// Read the original document with annotations</span>
+        rdr = PdfReader.fileReader(
+                "addAnnotationList_List_int_example.pdf", 
+                "addAnnotationList_List_int_boolean_Example2.pdf");
+        doc = new PdfDocument(rdr);
+        
+        <span class="cc">// Add the list of annotations to the document but do not</span>
+        <span class="cc">// remove existing annotations</span>
+        doc.<span class="ck">addAnnotationList(</span>lst, 1, false<span class="ck">)</span>;
+        
+        doc.setOpenAfterSave(true);
+
+        <span class="cc">// Write document to file</span>
+        doc.write();        
+        rdr.dispose();        
+    }
+
+    <a name="addAnnotationList_List_int"></a>
+    <span class="cc">// This code snippet illustrates how to add a list of annotations</span>
+    <span class="cc">// to a document</span>
+    public void addAnnotationList_List_int_Example(boolean openAfterCreate)
+        throws IOException, PdfException
+    {
+
+        <span class="cc">// Create a blank PDF document</span>
+        PdfWriter wrtr = PdfWriter
+            .fileWriter("addAnnotationList_List_int_example.pdf");
+        PdfDocument doc = new PdfDocument(wrtr);
+
+        <span class="cc">// Add a new page to the document</span>
+        PdfPage pg1 = new PdfPage(PdfPageSize.A4);
+        doc.add(pg1);
+
+        <span class="cc">// Create several new annotations</span>
+        PdfTextAnnot ta1 = 
+            new PdfTextAnnot(100, 100,
+                "addAnnotationList Example",
+                "This annotation was part of a list.",
+                "Annotation 1");
+        PdfTextAnnot ta2 = 
+            new PdfTextAnnot(100, 200,
+                "addAnnotationList Example",
+                "This annotation was part of a list.",
+                "Aannotation 2");
+        PdfTextAnnot ta3 = 
+            new PdfTextAnnot(200, 300,
+                "addAnnotationList Example",
+                "This annotation was part of a list.",
+                "Annotation 3");
+        
+        <span class="cc">// Add the annotations to a list</span>
+        ArrayList lst = new ArrayList();
+        lst.add(ta1);
+        lst.add(ta2);
+        lst.add(ta3);
+
+        <span class="cc">// Add list of annotations to page 1</span>
+        doc.<span class="ck">addAnnotationList(</span>lst, 1<span class="ck">)</span>;
+
+        doc.setOpenAfterSave(openAfterCreate);
+
+        <span class="cc">// Write document to file</span>
+        doc.write();
+        wrtr.dispose();
+    }
+
+    <a name="addAnnotation"></a>
+    <span class="cc">// This code snippet illustrates how to add an annotation to a</span>
+    <span class="cc">// page</span>
+    public void addAnnotation_Example() throws IOException,
+        PdfException
+    {
+
+	<span class="cc">// Create a blank PDF document</span>
+        PdfWriter wrtr =
+        	PdfWriter.fileWriter("addAnnotation_example.pdf");
+        PdfDocument doc = new PdfDocument(wrtr);
+
+        <span class="cc">// Add a new page to the document</span>
+        PdfPage pg1 = new PdfPage(PdfPageSize.A4);
+        doc.add(pg1);
+
+        <span class="cc">// Create a new annotation</span>
+        PdfTextAnnot ta1 =
+        	new PdfTextAnnot(
+        			100,
+        			100,
+        			"This is an example",
+        			"This annotation was added to the document",
+        			"addAnnotation Example");
+
+        <span class="cc">// Add the annotation to page 1</span>
+        doc.<span class="ck">addAnnotation(</span>ta1, 1<span class="ck">)</span>;
+
+        doc.setOpenAfterSave(true);
+
+        <span class="cc">// Write document to file</span>
+        doc.write();
+        wrtr.dispose();
+    }
+
+	<a name="saveAsImage"></a>public void saveAsImage_Example(String inputDoc) throws IOException,
+			PdfException {
+		PdfReader r = PdfReader.fileReader(inputDoc);
+		PdfDocument d = new PdfDocument(r);
+
+		<span class="cc">// Specify instance that implements
+		// PdfCustomPlaceholderHandler</span>
+		d.<span class="ck">setCph(</span>this<span class="ck">)</span>;
+		<span class="cc">// Specify instance that implements
+		// PdfSaveAsImageHandler</span>
+		d.<span class="ck">setSaveAsImageHandler(</span>this<span class="ck">)</span>;
+
+		<span class="cc">// Save pages 1 and 2 as images</span>
+		d.<span class="ck">saveAsImage(</span>
+				<span class="cc">// format</span>
+				"jpg",
+				<span class="cc">// pages</span>
+				"1,2",
+				<span class="cc">// file name of image
+				// - contains a custom placeholder</span>
+				"Image_<% myvar1 %>",
+				<span class="cc">// path of image
+				// - contains a pre-defined placeholder
+				// that refers to the input file path</span>
+				"<% InputFilePath %>"<span class="ck">)</span>;
+		r.dispose();
+	}
+
+	public void <span class="ck">onSaveAsImage(PdfDocument pdfDocument, int pageNum,
+			StringBuffer imageName, StringBuffer outputFilepath)</span> {
+		if ((<span class="ck">imageName</span> != null)
+			&& !<span class="ck">imageName</span>.toString().trim().equals("")
+			&& (<span class="ck">outputFilepath</span> != null)
+			&& !<span class="ck">outputFilepath</span>.toString().trim().equals("")) {
+			<span class="cc">// Save image to a folder named "images" in
+			// the original output folder</span>
+			<span class="ck">outputFilepath</span>.append("\\images\\");
+			<span class="cc">// Write console information about extraction of image</span>
+			System.out.println(imageName + " extracted from" + " page #"
+					+ <span class="ck">pageNum</span> + " saved to " + <span class="ck">outputFilepath</span>);
+
+		}
+	}
+
+	public String <span class="ck">onCustomPlaceHolder(String variable, PdfDocument d,
+			int pagenumber)</span> {
+		<span class="cc">// Provide value for custom placeholder "myVar1"</span>
+		if (variable.equalsIgnoreCase("<span class="ck">myVar1</span>")) {
+			return "from_page" + <span class="ck">pagenumber</span>;
+		}
+		return null;
+	}
+	
+        public void onSaveAsImage(PdfDocument pdfDocument, int pageNum,
+               Integer imageWidth, Integer imageHeight,
+               Float compressionLevel, StringBuffer imageName,
+	       StringBuffer outputPath)
+       {
+        <span class="cc">// Remains to be implemented</span>
+       }
+
+
+}
+</pre>
+ </body>
+</html>

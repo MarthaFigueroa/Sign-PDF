@@ -1,0 +1,235 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+
+    <meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+    <style>
+body { margin: 0 30% 0 5%;  }
+h1, h2, h3, h4, h5, h6 { font-family: Arial Narrow, Georgia, Times, serif; margin: 30px 0 2px 0; }
+h1 { font-size: 1.5cm; }
+h2 { font-size: 1cm; }
+h3 { font-size: 0.7cm; }
+p, ul, ol, td { font-family: Tahoma, Verdana, Helvetica, sans-serif; font-size: 0.45cm; }
+p { margin: 2px 0 0.45cm 0; }
+ </style>
+  </head>
+  <body>
+    <h1>Gnostice PDFOne (for Java&#8482;)</h1>
+    <p>&copy; 2002-2021 Gnostice Information Technologies Private
+      Limited</p>
+    <ul>
+      <li>Support: <a href="mailto:support@gnostice.com">support@gnostice.com</a></li>
+      <li>Sales: <a href="mailto:sales@gnostice.com">sales@gnostice.com</a></li>
+      <li>Web: <a href="http://www.gnostice.com">http://www.gnostice.com</a></li>
+    </ul>
+    <h2>Contents</h2>
+    <ol>
+      <li><a href="#introduction">Introduction</a></li>
+      <li><a href="#getting_started">Getting Started</a></li>
+      <li><a href="#activate">Activate the PDFOne license</a></li>
+      <li><a href="#known_issues">Known Issues / Limitations / Changes</a></li>
+      <li><a href="#order">Ordering the Professional version</a></li>
+      <a href="#order">
+      </a>
+    </ol>
+    <a href="#order">
+    </a>
+    <h3><a href="#order"></a><a name="introduction"></a>Introduction</h3>
+    <p>Gnostice PDFOne is a PDF document creation, transformation and
+      management library for Java developers. PDFOne can create and
+      manage PDF documents from within application programs and web
+      services. PDFOne supports creating, filling and reading of PDF
+      forms, compressing, securing, appending and merging of multiple
+      PDF documents, stamping, managing bookmarks, creating tables,
+      creating and reading PDF annotations and much more. PDFOne
+      operates on existing PDF documents and can even create new ones
+      from scratch. For detailed features please visit
+      <a href="http://www.gnostice.com/PDFOne_Java.asp">www.gnostice.com/PDFOne_Java.asp</a>.</p>
+    <p>This README file contains late-breaking information that may not
+      be contained anywhere else. The README file also contains
+      information on where to start and get access to additional
+      resources to get the best out of Gnostice PDFOne. We strongly
+      recommend that you read this README file before you get started.</p>
+    <h3><a name="getting_started"></a>Getting Started</h3>
+    <p>Extract the downloaded zip file (pdfonej_*.zip) to the desired
+      location. The following files/folders should get extracted:</p>
+    <style>
+table#dl_contents { border-collapse: collapse; border: 1px solid lightgrey; margin: 0.3cm;  }
+thead { font-weight: bold; }
+table#dl_contents td { border-bottom: 1px solid lightgrey; margin: 0px; padding: 0.3cm 0.3cm 0.1cm 0.3cm; }
+
+</style>
+    <table id="dl_contents">
+      <thead> <tr>
+          <td>Content</td>
+          <td>Type</td>
+          <td>Description</td>
+        </tr>
+      </thead> <tbody>
+        <tr>
+          <td><a href="./bin/">bin</a></td>
+          <td>Directory</td>
+          <td>Contains PDFOne.jar and other executables</td>
+        </tr>
+        <tr>
+          <td><a href="./docs/index.html">docs</a></td>
+          <td>Directory</td>
+          <td>Contains documentation</td>
+        </tr>
+        <tr>
+          <td><a href="./GettingStarted/index.html">GettingStarted</a></td>
+          <td>Directory</td>
+          <td>Contains Getting Started Tutorials</td>
+        </tr>
+        <tr>
+          <td><a href="./Demos">Demos</a></td>
+          <td>Directory</td>
+          <td>Contains code samples, viewer application demo and viewer
+            applet demo</td>
+        </tr>
+		<tr>
+          <td><a href="./credits.html">credits.html</a></td>
+          <td>File</td><td>Licences of third-party components</td>
+        </tr>
+        <tr>
+          <td><a href="./license.html">license.html</a></td>
+          <td>File</td>
+          <td>Contains licensing information.</td>
+        </tr>
+        <tr>
+          <td><a href="./readme.html">readme.html</a></td>
+          <td>File</td>
+          <td>Contains important and late-breaking information</td>
+        </tr>
+        <!--
+   <tr><td><a href="./credits.html">credits.html</a></td><td>File</td><td>Licences of third-party components</td></tr>
+   -->
+      </tbody>
+    </table>
+    <p><b>NOTE</b>: At present user system properties (e.g. CLASSPATH)
+      are not updated automatically. Hence to start using PDFOne.jar
+      follow one of these instructions based on the project need.</p>
+    <ol>
+      <li>For console based projects, to compile, set CLASSPATH manually
+        to the location where PDFOne.jar is located.</li>
+      <li>For IDE based projects, to compile, add a reference to
+        PDFOne.jar in your project. This is an IDE dependent action.
+        Please refer to IDE manual/help to know how to add external JAR.</li>
+    </ol>
+    <h3><a name="activate"></a>Activate the PDFOne license</h3>
+    <p>To activate PDFOne (PDFOne.jar) in your applications, include the
+      following method from the class <code>com.gnostice.pdfone.PDFOne</code>
+      in your main classes. By activating the product, you can remove
+      trial marks in output documents, and viewing and printing
+      components.</p>
+    <pre>static {
+ PDFOne.activate("your authorization key", "your product key");
+}
+</pre>
+    <p>Please use the
+      license keys you received after ordering from the Gnostice online
+      store.</p>
+
+    <h3><a name="known_issues"></a>Known Issues / Limitations / Changes</h3>
+    <p>The following are a list of features or functionalities that were
+      changed, not supported or have limitations in this release of
+      PDFOne.</p>
+    <ol>
+      <li>Only TrueType fonts (.TTF) can be embedded in PDF file.</li>
+      <li>Right-to-Left language texts are not supported.</li>
+      <li>Annotations and Formfields may not appear on rotated pages.</li>
+      <li>Opening and Printing document after saving (with
+        setOpenAfterSave and setPrintAfterSave method call) may not work
+        as expected on some Operating Systems.</li>
+      <li>Call to extractPagesTo, appendPagesFrom and insertPagesFrom
+        methods, removes all page level actions, link annotation actions
+        and form fields actions.</li>
+      <li>Addition of new actions, when reading a document, removes all
+        existing page level actions.</li>
+      <li>Named tree merging is not implemented.</li>
+      <li>Addition of same instance of annotation list to multiple pages
+        having inconsistent measurement units shows unexpected behavior.</li>
+      <li>Viewer and printer do not support the following features:
+        <ul>
+          <li>Fonts
+            <ul>
+              <li>Exact substitution of 14 types of Adobe Standard Type
+                1 fonts</li>
+            </ul>
+          </li>
+          <li>Color spaces
+            <ul>
+              <li>DeviceN (with Type 3 and Type 4 functions; and non-RGB
+                and non-CMYK colors)</li>
+              <li>Separation (with Type 3 and Type 4 functions; and
+                non-RGB and non-CMYK colors)</li>
+            </ul>
+          </li>
+          <li>Image-decoding algorithms
+            <ul>
+              <li>Any supported image format but only in rare
+                circumstances</li>
+            </ul>
+          </li>
+          <li>All graphics patterns except tiling</li>
+          <li>Annotations
+            <ul>
+              <li>All types of annotations except link annotations</li>
+              <li>Highlighting modes for links annotations</li>
+              <li>All types of PDF actions of link annotations other
+                than go-to, named, and URI</li>
+            </ul>
+          </li>
+          <li>Using page margins less than those specified in the
+            physical printer.</li>
+          <li>Printing with a custom page size not supported by the
+            physical printer - prints to a nearest standard dimension
+            supported by the physical printer.</li>
+        </ul>
+      </li>
+      <li>Viewer performance may become slow if a large number of pages
+        are set to be viewed in a single screen.</li>
+      <li>If you load a digitally signed document and make changes to
+        it, the existing signature(s) will become invalid. This is
+        because support for incrementally updating a document is not yet
+        available. You may, if you wish, call the
+        PdfDocument.removeAllSignature() method (which removes all
+        existing signatures) and then sign the document to keep the
+        modified document free of any invalidated signatures.</li>
+      <!--
+ <li>PDFOne uses Bouncy Castle Crypto package, a Java implementation of
+ cryptographic algorithms, to decrypt PDF document encrypted using AES algorithm.
+ The jar file should be available in the classpath of the application. Currently
+ PDFOne supports only decryption, not encryption, using AES algorithm.
+ Hence, if an AES-encrypted document is loaded and modified, then final document
+ will be encrypted using RC4. The document will retain only the owner or user
+ password that was provided for loading the document. The other password will 
+ be set as blank.</li>
+ -->
+      <li>Content assist in eclipse IDE does not show argument names for
+        methods as source is not included. Follow this link for more
+        info <a
+          href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=28426">https://bugs.eclipse.org/bugs/show_bug.cgi?id=28426</a>.</li>
+    </ol>
+    <h3><a name="order"></a>Ordering the Professional edition</h3>
+    <p>To use advanced features of PDFOne, buy the <i>Professional</i>
+      edition from our Secure Online Store (links available on our <a
+        href="http://www.gnostice.com/PDFOne_Java.asp?show=buy+page">buy
+        page</a>.) Special pricing and volume discounts are available.</p>
+    <p>Gnostice PDFOne Professional is delivered electronically. As soon
+      as your payment is authorized, you will receive an email with
+      details on how to get access to the <i>Professional</i> edition.
+      IMPORTANT: When you make your order, please make sure the email
+      address you have provide is valid and active.</p>
+    <p>Gnostice PDFOne is also available for OEM Licensing. Please send
+      your enquiries about OEM licensing to <a
+        href="mailto:sales@gnostice.com">sales@gnostice.com</a>.</p>
+    <hr style="margin-top: 200px; ">
+    <p>Copyright &copy; 2002-2021 Gnostice Information Technologies
+      Private Limited. All rights reserved.
+      All Gnostice brand and product names are trademarks or registered
+      trademarks of Gnostice Information Technologies Private Limited.
+      All other names and trademarks are the property of their
+      respective owners.</p>
+  </body>
+</html>
