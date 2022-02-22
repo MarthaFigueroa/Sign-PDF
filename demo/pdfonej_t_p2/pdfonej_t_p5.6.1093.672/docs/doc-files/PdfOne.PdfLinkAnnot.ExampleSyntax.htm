@@ -1,0 +1,403 @@
+<html>
+ <head>
+  <LINK REL ="stylesheet" TYPE="text/css" HREF="../stylesheet.css" TITLE="Style">
+  <LINK REL ="stylesheet" TYPE="text/css" HREF="example.css" TITLE="Style">
+ </head>
+ <body>
+  <pre>
+import java.awt.Color;
+import java.io.File;
+import java.io.IOException;
+
+import com.gnostice.pdfone.PDFOne;
+import com.gnostice.pdfone.PdfAction;
+import com.gnostice.pdfone.PdfAnnot;
+import com.gnostice.pdfone.PdfBookmark;
+import com.gnostice.pdfone.PdfDocument;
+import com.gnostice.pdfone.PdfException;
+import com.gnostice.pdfone.PdfLinkAnnot;
+import com.gnostice.pdfone.PdfPage;
+import com.gnostice.pdfone.PdfRect;
+import com.gnostice.pdfone.PdfWriter;
+import com.gnostice.pdfone.encodings.PdfEncodings;
+import com.gnostice.pdfone.fonts.PdfFont;
+
+
+public class PdfLinkAnnot_Examples
+{
+    <span class="cc">// Activates the component PDFOne.jar</span>
+    static
+    {
+        PDFOne.activate("T95VZE:W8HBPVA:74VQ8QV:LO4V8",
+            "9B1HRZAP:X5853ERNE:5EREMEGRQ:TX1R10");
+    }
+
+    public static void main(String[] args) throws IOException,
+        PdfException
+    {
+        PdfLinkAnnot_Examples obj = new PdfLinkAnnot_Examples();
+        obj.PdfLinkAnnot_CONSTRUCTORS();
+    }
+
+    <span class="cc">// This code segment creates several link annotation using
+    // overloaded methods. It also adds several actions to the
+    // annotations with methods of the PdfLinkAnnot class.</span>
+    public void PdfLinkAnnot_CONSTRUCTORS() throws IOException,
+        PdfException
+    {
+        PdfWriter writer = PdfWriter.fileWriter(
+            "PdfLinkAnnot_CONSTRUCTORS.pdf");
+        PdfDocument document = new PdfDocument(writer);
+        <span class="cc">// Creates two pages</span>
+        PdfPage page1 = new PdfPage();
+        PdfPage page2 = new PdfPage();
+        <span class="cc">// Creates a PdfFont object and sets it to a hyperlink color</span>
+        PdfFont fontCourier = PdfFont.create(
+            "COURIER", 10, PdfEncodings.WINANSI);
+        fontCourier.setColor(Color.BLUE);
+</pre><a name="HIGHLIGHT_MODE_PUSH"></a><pre>
+</pre><a name="addActionGoTo_int"></a><pre>
+</pre><a name="PdfLinkAnnot"></a><pre>
+        <span class="cc">// Creates a rectangle</span>
+        PdfRect rectangle = new PdfRect(150, 50, 300, 20);
+        <span class="cc">// Creates a link annotation using the default constructor</span>
+        PdfLinkAnnot lAnnot1 = new <span class="ck">PdfLinkAnnot()</span>;
+        <span class="cc">// Specifies the above rectangle as the annotation rectangle</span>
+        lAnnot1.setRect(rectangle);
+        <span class="cc">// Adds an action to the annotation linking it to page 2</span>
+        lAnnot1.<span class="ck">addActionGoTo(2)</span>;
+        <span class="cc">// Makes the annotation look like it has been pushed from
+        // below the surface of page</span>
+        lAnnot1.setHighlightMode(PdfLinkAnnot.<span class="ck">HIGHLIGHT_MODE_PUSH</span>);
+        <span class="cc">// Writes text inside the annotation rectangle</span>
+        page1.writeText("Go to page 2", fontCourier, rectangle);
+        <span class="cc">// Adds the link annotation to the page</span>
+        page1.addAnnotation(lAnnot1);
+</pre><a name="HIGHLIGHT_MODE_INVERT"></a><pre>
+</pre><a name="addActionGoTo_int_double_double_double_double"></a><pre>
+</pre><a name="PdfLinkAnnot_PdfRect_Color"></a><pre>
+        rectangle = new PdfRect(150, 100, 300, 20);
+        <span class="cc">// Creates a link annotation with specified annotation
+        // rectangle. Also specifies the color of the annotation
+        // rectangle.</span>
+        PdfLinkAnnot lAnnot2 = new <span class="ck">PdfLinkAnnot(rectangle,
+                                                Color.RED)</span>;
+        <span class="cc">// Enables the display of the annotation rectangle</span>
+        lAnnot2.setShowRect(true);
+        <span class="cc">// Adds action to the annotation linking it to a specified
+        // rectangular area on page 2</span>
+        lAnnot2.<span class="ck">addActionGoTo(
+                 2,                   <span class="cc">// page number</span>
+                 100, 400, 500, 100)</span>; <span class="cc">// left, bottom, right, and top</span>
+        <span class="cc">// Makes the contents of the annotation inverted when
+        // highlighted</span>
+        lAnnot2.setHighlightMode(PdfLinkAnnot.<span class="ck">HIGHLIGHT_MODE_INVERT</span>);
+        page1.writeText(
+            "Go to specified rectangular area on page 2.",
+            fontCourier, rectangle);
+        page1.addAnnotation(lAnnot2);
+        page2.drawRect(100, 100, 400, 300);
+</pre><a name="HIGHLIGHT_MODE_NONE"></a><pre>
+</pre><a name="addActionGoTo_int_double_double_double"></a><pre>
+</pre><a name="PdfLinkAnnot_PdfRect_int"></a><pre>
+        rectangle = new PdfRect(150, 150, 300, 40);
+        <span class="cc">// Creates a link annotation with specified annotation
+        // rectangle and flag</span>
+        PdfLinkAnnot lAnnot3 = new <span class="ck">PdfLinkAnnot(
+                                   rectangle,
+                                   PdfAnnot.FLAG_LOCKED)</span>;
+        <span class="cc">// Adds action to annotation linking it to position
+        // (200, 100) on page 2. Also specifies that page 2 is to
+        // be zoomed to 200%.</span>
+        lAnnot3.<span class="ck">addActionGoTo(2,          <span class="cc">// page</span>
+                              200, 100,   <span class="cc">// position</span>
+                              200)</span>;       <span class="cc">// zoom</span>
+        <span class="cc">// Makes the annotation remain unchanged when highlighted</span>
+        lAnnot3.setHighlightMode(PdfLinkAnnot.<span class="ck">HIGHLIGHT_MODE_NONE</span>);
+        page1.writeText(
+            "Go to position (200, 100) on page 2 and zoom 200%.",
+            fontCourier, rectangle);
+        page1.addAnnotation(lAnnot3);
+        <span class="cc">// Marks position (200, 100) on page 2</span>
+        page2.writeText(". (200, 100)", 200, 100);
+</pre><a name="HIGHLIGHT_MODE_OUTLINE"></a><pre>
+</pre><a name="addActionGoTo_int_double_int"></a><pre>
+</pre><a name="PdfLinkAnnot_PdfRect_int_Color"></a><pre>
+        rectangle = new PdfRect(150, 200, 300, 40);
+        <span class="cc">// Creates a link annotation with specified annotation
+        // rectangle, flag, and annotation rectangle color</span>
+        PdfLinkAnnot lAnnot4 = new <span class="ck">PdfLinkAnnot(
+                                   rectangle,
+                                   PdfAnnot.FLAG_LOCKED,
+                                   Color.RED)</span>;
+        lAnnot4.setShowRect(true);
+        <span class="cc">// Adds action to annotation linking it to position 50 points
+        // down from the top of page 2</span>
+        lAnnot4.<span class="ck">addActionGoTo(2, 50, PdfLinkAnnot.FITH)</span>;
+        <span class="cc">// Makes the annotation to display an outline when
+        // highlighted</span>
+        lAnnot4.setHighlightMode(
+            PdfLinkAnnot.<span class="ck">HIGHLIGHT_MODE_OUTLINE</span>);
+        page1.writeText(
+            "Scroll down 50 points on page2 and zoom the page to "
+            + "tightly fit its entire width inside the window",
+            fontCourier, rectangle);
+        page1.addAnnotation(lAnnot4);
+        <span class="cc">// Marks position 50 points down from the top of page 2</span>
+        page2.writeText(". (200, 50)", 200, 50);
+
+</pre><a name="addActionJavaScript"></a><pre>
+</pre><a name="PdfLinkAnnot_PdfRect_String_String_String"></a><pre>
+        rectangle = new PdfRect(150, 250, 300, 20);
+        <span class="cc">// Creates a link annotation with specified annotation
+        // rectangle, subject, contents and title</span>
+        PdfLinkAnnot lAnnot5 = new <span class="ck">PdfLinkAnnot(
+            rectangle,  <span class="cc">// annotation rectangle</span>
+            "Demo",     <span class="cc">// subject</span>
+            "Execute Javascript statement",    <span class="cc">// contents</span>
+            "PdfLinkAnnot.addActionJavascript" <span class="cc">// title</span>
+            + "(String script)")</span>;
+        <span class="cc">// Adds action to the annotation making it display a
+        // Javascript alert message</span>
+        lAnnot5.<span class="ck">addActionJavaScript("app.alert('Hello, world!')")</span>;
+        lAnnot5.setHighlightMode(PdfLinkAnnot.HIGHLIGHT_MODE_PUSH);
+        page1.writeText(
+            "Select this link for a Javascript message",
+            fontCourier, rectangle);
+        page1.addAnnotation(lAnnot5);
+
+
+
+        <span class="cc">// Creates a test PDF file for use it with code segments
+        // below</span>
+        char pathSeparator = File.separatorChar;
+        String testFile = "."
+                          + pathSeparator
+                          + "InputDocs"
+                          + pathSeparator
+                          + "test_pdf_file.pdf";
+        PdfWriter writer2 = PdfWriter.fileWriter(testFile);
+        PdfDocument document2 = new PdfDocument(writer2);
+        for (int i =1; i <=5; i++) {
+            PdfPage page = new PdfPage();
+            if (i == 2) {
+                page.writeText(". (200, 100)", 200, 100);
+                page.writeText(". (200, 50)", 200, 50);
+            }
+            page.writeText(
+                "This is page #" + i + " of " + testFile);
+            document2.add(page);
+        }        
+        document2.write();
+        writer2.dispose();
+        
+</pre><a name="addActionLaunch"></a><pre>
+</pre><a name="PdfLinkAnnot_PdfRect_String_String_String_Color"></a><pre>
+        rectangle = new PdfRect(150, 300, 300, 40);
+        <span class="cc">// Creates a link annotation with specified annotation
+        // rectangle, subject, contents, title, and annotation
+        // rectangle color</span>
+        PdfLinkAnnot lAnnot6 = new <span class="ck">PdfLinkAnnot(
+            rectangle,           <span class="cc">// annotation rectangle  </span>
+            "Demo",              <span class="cc">// subject</span>
+            "Launch an application or document with an optional print"
+            + "command setting", <span class="cc">// contents</span>
+            "addActionLaunch(String applicationToLaunch, "
+            + "boolean print)",  <span class="cc">// title  </span>
+            Color.RED)</span>;          <span class="cc">// annotation rectangle color</span>
+        lAnnot6.setShowRect(true);
+        <span class="cc">// Adds action to the annotation to have the test PDF file
+        // printed</span>
+        lAnnot6.<span class="ck">addActionLaunch(
+                    testFile,    <span class="cc">// applicationToLaunch</span>
+                    true)</span>;       <span class="cc">// print</span>
+        lAnnot6.setHighlightMode(PdfLinkAnnot.HIGHLIGHT_MODE_PUSH);
+        page1.writeText("Select this link to print "
+                        + testFile,
+                        fontCourier,
+                        rectangle);
+        page1.addAnnotation(lAnnot6);
+
+</pre><a name="addActionNamed"></a><pre>
+</pre><a name="PdfLinkAnnot_PdfRect_String_String_String_int"></a><pre>
+        rectangle = new PdfRect(150, 350, 300, 20);
+        <span class="cc">// Creates a link annotation with specified annotation
+        // rectangle, subject, contents, title, and flag</span>
+        PdfLinkAnnot lAnnot7 = new <span class="ck">PdfLinkAnnot(
+            rectangle,                        <span class="cc">// annotation rectangle</span>
+            "Demo",                           <span class="cc">// subject</span>
+            "Execute a named action",         <span class="cc">// contents</span>
+            "addActionNamed(int actionType)", <span class="cc">// title </span>
+            PdfAnnot.FLAG_LOCKED)</span>;            <span class="cc">// flag</span>
+        <span class="cc">// Adds a named action to the annotation linking it to the
+        // last page</span>
+        lAnnot7.<span class="ck">addActionNamed(PdfAction.NAMED_LASTPAGE)</span>;
+        lAnnot7.setHighlightMode(PdfLinkAnnot.HIGHLIGHT_MODE_PUSH);
+        page1.writeText("Go to last page in document",
+                        fontCourier, rectangle);
+        page1.addAnnotation(lAnnot7);
+
+</pre><pre>
+</pre><a name="PdfLinkAnnot_PdfRect_String_String_String_int_Color"></a><pre>
+        rectangle = new PdfRect(150, 400, 300, 20);
+        <span class="cc">// Creates a link annotation with specified, subject,
+        // contents, title, flag, and annotation rectangle color</span>
+        PdfLinkAnnot lAnnot8 = new <span class="ck">PdfLinkAnnot(
+            rectangle,                   <span class="cc">// annotation rectangle</span>
+            "Demo",                      <span class="cc">// subject</span>
+            "Execute an URI",            <span class="cc">// contents</span>
+            "addActionURI(String uri)",  <span class="cc">// title </span>
+            PdfAnnot.FLAG_LOCKED,        <span class="cc">// flag</span>
+            Color.RED)</span>;                  <span class="cc">// color</span>
+        lAnnot8.setShowRect(true);
+<a name="addActionURI"></a>        <span class="cc">// Adds action to the annotation making it link to Gnostice
+        // website</span>
+        lAnnot8.<span class="ck">addActionURI("http://www.gnostice.com/")</span>;
+        lAnnot8.setHighlightMode(PdfLinkAnnot.HIGHLIGHT_MODE_PUSH);
+<a name="setShowRect"></a>        <span class="cc">// Sets border to be displayed</span>
+        lAnnot8.<span class="ck">setShowRect(true)</span>;
+<a name="setBorderStyle"></a>        <span class="cc">// Sets border style to dashed</span>
+        lAnnot8.<span class="ck">setBorderStyle(PdfAnnot.BORDERSTYLE_DASHED)</span>;
+<a name="setDashPattern"></a>        <span class="cc">// Sets dash pattern to have 3-point dashes and 2-point gaps</span>
+        lAnnot8.<span class="ck">setDashPattern(new int [] {3, 2})</span>;
+        page1.writeText("Go to Gnostice website",
+                        fontCourier, rectangle);
+        page1.addAnnotation(lAnnot8);
+
+</pre><a name="PdfLinkAnnotation_PdfRect_String_String_String_int_Color_int"></a><pre>
+</pre><a name="getRemoteGoToInstance_int"></a><pre>
+        rectangle = new PdfRect(150, 450, 300, 40);
+        <span class="cc">// Creates a link annotation with specified annotation
+        // rectangle, subject, contents, title, flag, annotation
+        // rectangle color, and highlight mode</span>
+        PdfLinkAnnot lAnnot9 = new <span class="ck">PdfLinkAnnot(
+            rectangle,                 <span class="cc">// annotation rectangle </span>
+            "Demo",                    <span class="cc">// subject</span>
+            "Go to a bookmark in an external file",    <span class="cc">// contents</span>
+            "addActionRemoteGoTo(String pdfFilePath, " <span class="cc">// title</span>
+            + "PdfBookmark.RemoteGoTo rGoTo, boolean newWindow)",
+            PdfAnnot.FLAG_LOCKED,      <span class="cc">// flag</span>
+            Color.RED,                 <span class="cc">// annotation rectangle color</span>
+            PdfLinkAnnot.HIGHLIGHT_MODE_PUSH)</span>; <span class="cc">// highlight mode</span>
+        lAnnot9.setShowRect(true);
+        <span class="cc">// Creates a remote Go-To action for navigating to page 2
+        // of the test PDF file</span>
+        PdfBookmark.RemoteGoTo remoteBookmark =
+            PdfLinkAnnot.<span class="ck">getRemoteGoToInstance(2)</span>;
+        <span class="cc">// Sets the the annotation to performs the remote Go-To action
+        // on the test PDF file in a new window</span>
+        lAnnot9.addActionRemoteGoTo(
+            testFile,
+            remoteBookmark,
+            true);
+        page1.writeText("Display page 2 of "
+                        + testFile
+                        + "a new Window",
+                        fontCourier, rectangle);
+        page1.addAnnotation(lAnnot9);
+
+</pre><a name="addActionRemoteGoTo"></a><pre>
+</pre><a name="getRemoteGoToInstance_int_double_double_double_double"></a><pre>
+        rectangle = new PdfRect(150, 500, 300, 40);
+        PdfLinkAnnot lAnnot10 = new PdfLinkAnnot();
+        lAnnot10.setRect(rectangle);
+        <span class="cc">// Creates a remote Go-To action for navigating to a
+        // rectangular area specified with reference to the
+        // bottom-left corner of the test PDF file</span>
+        remoteBookmark = <span class="ck">PdfLinkAnnot.getRemoteGoToInstance(
+            2,                     <span class="cc">// page</span>
+            100, 100, 600, 600)</span>;   <span class="cc">// left, bottom, right, and top</span>
+        lAnnot10.<span class="ck">addActionRemoteGoTo(
+                        testFile,
+                        remoteBookmark,
+                        true);</span>;
+        lAnnot10.setHighlightMode(PdfLinkAnnot.HIGHLIGHT_MODE_PUSH);
+        page1.writeText(
+            "Display specified rectangular area on page 2 of "
+            + testFile
+            + "in a new Window",
+            fontCourier, rectangle);
+        page1.addAnnotation(lAnnot10);
+
+
+</pre><a name="getRemoteGoToInstance_int_double_int"></a><pre>
+        rectangle = new PdfRect(150, 550, 300, 40);
+        PdfLinkAnnot lAnnot11 = new PdfLinkAnnot();
+        lAnnot11.setRect(rectangle);
+        <span class="cc">// Creates a remote Go-To action for navigating to 50 points
+        // up from the bottom of page 2 of another PDF file</span>
+        remoteBookmark = PdfLinkAnnot.<span class="ck">getRemoteGoToInstance(
+                                2,
+                                50,
+                                PdfLinkAnnot.FITH)</span>;
+        lAnnot11.addActionRemoteGoTo(
+            testFile,
+            remoteBookmark,
+            true);
+        page1.writeText(
+            "Scroll up 50 points from bottom of page2 of "
+            + ".\\InputDocs\\test_pdf_file.pdf and zoom the page "
+            + "to tightly fit its entire width inside a new window",
+            fontCourier, rectangle);
+        page1.addAnnotation(lAnnot11);
+
+
+</pre><a name="getRemoteGoToInstance_int_int"></a><pre>
+        rectangle = new PdfRect(150, 600, 300, 40);
+        PdfLinkAnnot lAnnot12 = new PdfLinkAnnot();
+        lAnnot12.setRect(rectangle);
+        <span class="cc">// Creates a remote Go-To action for navigating to page 2 of
+        // the test PDF. Specifies that the page is to be displayed
+        // with its entire height and width accommodated inside a
+        // window.</span>
+        remoteBookmark =
+            PdfLinkAnnot.<span class="ck">getRemoteGoToInstance(2, PdfLinkAnnot.FITB)</span>;
+        lAnnot12.addActionRemoteGoTo(
+            testFile,
+            remoteBookmark,
+            true);
+        page1.writeText(
+            "Fit entire width and height of page 2 of "
+            + testFile
+            + " in a new Window",
+            fontCourier, rectangle);
+        page1.addAnnotation(lAnnot12);
+
+
+</pre><a name="getRemoteGoToInstance_int_PdfRect"></a><pre>
+        rectangle = new PdfRect(150, 650, 300, 40);
+        PdfLinkAnnot lAnnot13 = new PdfLinkAnnot();
+        lAnnot13.setRect(rectangle);
+        <span class="cc">// Creates a remote Go-To action for navigating to a
+        // rectangle that has specified with reference to the
+        // bottom-left corner of page 2 of another PDF file</span>
+        remoteBookmark = PdfLinkAnnot.<span class="ck">getRemoteGoToInstance(
+                            2,
+                            new PdfRect(200, 200, 100, 100))</span>;
+        lAnnot13.addActionRemoteGoTo(
+            testFile,
+            remoteBookmark,
+            true);
+        page1.writeText(
+            "Display rectangle (200, 200, 100, 100) on page 2 of "
+            + testFile
+            + " in a new Window",
+            fontCourier, rectangle);
+        page1.addAnnotation(lAnnot13);
+
+
+
+        document.add(page1);
+        document.add(page2);
+
+        <span class="cc">// Sets the file to be opened after it is written to</span>
+        document.setOpenAfterSave(true);
+        <span class="cc">// Writes the document object to file</span>
+        document.write();
+        <span class="cc">// Closes all I/O streams associated with this writer object</span>
+        writer.dispose();
+    }
+}
+  </pre>
+ </body>
+</html>

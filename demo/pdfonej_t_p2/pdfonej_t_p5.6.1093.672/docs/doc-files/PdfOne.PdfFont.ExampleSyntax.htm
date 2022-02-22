@@ -1,0 +1,213 @@
+<html>
+ <head>
+  <LINK REL ="stylesheet" TYPE="text/css" HREF="../stylesheet.css" TITLE="Style">
+  <LINK REL ="stylesheet" TYPE="text/css" HREF="example.css" TITLE="Style">
+ </head>
+ <body>
+  <pre>
+import java.awt.Color;
+import java.io.IOException;
+
+import com.gnostice.pdfone.PDFOne;
+import com.gnostice.pdfone.PdfDocument;
+import com.gnostice.pdfone.PdfException;
+import com.gnostice.pdfone.PdfMeasurement;
+import com.gnostice.pdfone.PdfWriter;
+import com.gnostice.pdfone.encodings.PdfEncodings;
+import com.gnostice.pdfone.fonts.PdfFont;
+
+public class PdfFont_Examples
+{
+    <span class="cc">// Activates the component PDFOne.jar</span>
+    static
+    {
+        PDFOne.activate("T95VZE:W8HBPVA:74VQ8QV:LO4V8",
+            "9B1HRZAP:X5853ERNE:5EREMEGRQ:TX1R10");
+    }
+
+    <span class="cc">// Takes pathname of a font file as an argument</span>
+    public static void main(String[] args) throws IOException,
+        PdfException
+    {
+        PdfFont_Examples obj = new PdfFont_Examples();
+
+        <span class="cc">// To try other examples, add the obj.&lt;example_method&gt;
+        // accordingly. For example, try:
+        // obj.GETTERS_AND_SETTERS_Example();</span>
+        obj.create_Example(args[0]);
+    }
+
+    <span class="cc">// This code segment creates several PdfFont objects using
+    // overloaded methods</span>
+    public void create_Example(String fontPathname) throws IOException,
+        PdfException
+    {
+        PdfWriter writer = PdfWriter.fileWriter(
+                               "PdfFont_create_Example.pdf");
+        PdfDocument document = new PdfDocument(writer);
+
+        <span class="cc">// Creates PdfFonts objects.
+        // If fontPathname is an Unicode font, use
+        // PdfEncodings.UTF_16BE for the encoding arguments.</span>
+<a name="create_String_int_int"></a>        PdfFont font1 = PdfFont.<span class="ck">create("Courier",
+                                       21, 
+                                       PdfEncodings.WINANSI)</span>;
+<a name="create_String_int_int_byte"></a>        PdfFont font2 = PdfFont.<span class="ck">create(fontPathname,
+                                       21, 
+                                       PdfEncodings.WINANSI, 
+                                       PdfFont.EMBED_SUBSET)</span>;
+<a name="create_String_int_int_int"></a>        PdfFont font3 = PdfFont.<span class="ck">create("Courier",
+                                       PdfFont.BOLD | PdfFont.ITALIC,
+                                       21,
+                                       PdfEncodings.WINANSI)</span>;
+<a name="create_String_int_int_int_byte"></a>        PdfFont font4 = PdfFont.<span class="ck">create(fontPathname,
+                                       PdfFont.UNDERLINE,
+                                       21,
+                                       PdfEncodings.WINANSI,
+                                       PdfFont.EMBED_FULL)</span>;
+
+        String pangram =
+            " - The five boxing wizards jump quickly";
+
+        <span class="cc">// Write text using the above fonts</span>
+        document.writeText(font1.getName() + pangram, font1, 100, 100);
+        document.writeText(font2.getName() + pangram, font2, 100, 200);
+        document.writeText(font3.getName() + pangram, font3, 100, 300);
+        document.writeText(font4.getName() + pangram, font4, 100, 400);
+
+        <span class="cc">// Sets the file to be opened after it is written to</span>
+        document.setOpenAfterSave(true);
+
+        <span class="cc">// Writes the document object to file</span>
+        document.write();
+
+        <span class="cc">// Closes all I/O streams associated with this writer object</span>
+        writer.dispose();
+    }
+
+    <span class="cc">// This code segment prints the return values of getWidth methods
+    // for the font supplied as the main() argument</span>
+    public void GetWidth_Example(String fontPathname)
+        throws IOException, PdfException
+    {
+        <span class="cc">// Creates a font using console argument</span>
+        PdfFont font = PdfFont.create(
+            fontPathname,
+            PdfFont.STROKE_AND_FILL,
+            11,
+            PdfEncodings.CP1252,
+            PdfFont.EMBED_SUBSET);
+</pre><a name="getWidth_char"></a><pre>
+        System.out.println(
+            "getWidth('a') = "
+            + font.<span class="ck">getWidth('a')</span>);
+</pre><a name="getWidth_char_int"></a><pre>
+        System.out.println(
+            "getWidth('a', PdfMeasurement.MU_PIXELS) = "
+            + font.<span class="ck">getWidth('a', PdfMeasurement.MU_PIXELS)</span>);
+</pre><a name="getWidth_String"></a><pre>
+        System.out.println(
+            "getWidth(\"One two buckle my shoe\") = "
+            + font.<span class="ck">getWidth("One two buckle my shoe")</span>);
+</pre><a name="getWidth_String_int"></a><pre>
+        System.out.println(
+            "getWidth(\"One two buckle my shoe\", "
+            + "PdfMeasurement.MU_PIXELS)"
+            + font.<span class="ck">getWidth(<span class="cy">"One two buckle my shoe"</span>,
+                            PdfMeasurement.MU_PIXELS)</span>);
+</pre><a name="getWidth_String_int_boolean"></a><pre>
+        System.out.println(
+            "font.getWidth(\"One two buckle my shoe   \", "
+            + "PdfMeasurement.MU_PIXELS, excludeEndSpaces=true)"
+            + font.<span class="ck">getWidth(<span class="cy">"One two buckle my shoe   "</span>,
+                            PdfMeasurement.MU_PIXELS,
+                            true)</span>);
+
+    }
+
+    <span class="cc">// This code segment demonstrates get and set methods of PdfFont
+    // class</span>
+    public void GETTERS_AND_SETTERS_Example(String fontPathname)
+        throws IOException, PdfException
+    {
+        PdfWriter writer = PdfWriter.fileWriter(
+                    "PdfFont_GETTERS_AND_SETTERS_Example.pdf");
+        PdfDocument document = new PdfDocument(writer);
+
+        <span class="cc">// Creates a PdfFont object for the font supplied as the
+        // main() argument</span>
+        PdfFont font = PdfFont.create(
+            fontPathname,
+            PdfFont.STROKE_AND_FILL,
+            21,
+            PdfEncodings.CP1252,
+            PdfFont.EMBED_SUBSET);
+
+        <span class="cc">// Specifies font properties</span>
+        font.<span class="ck">setColor(Color.YELLOW)</span>;<a name="setColor"></a>
+        font.<span class="ck">setSize(24)</span>;<a name="setSize"></a>
+        font.<span class="ck">setStrokeColor(Color.RED)</span>;<a name="setStrokeColor"></a>
+        font.<span class="ck">setStrokeWidth(1)</span>;<a name="setStrokeWidth"></a>
+        font.<span class="ck">setStyle(PdfFont.BOLD | PdfFont.ITALIC)</span>;<a name="setStyle"></a>
+
+        <span class="cc">// Writes text using the font</span>
+        document.writeText(
+            "THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG",
+            font,
+            150, 100);
+
+        <span class="cc">// Creates a string with return values of the get methods of
+        // PdfFont class</span>
+        String s =
+            "[ getAscent() = " + font.getAscent()
+            + "] [ getAvgWidth() = " + font.getAvgWidth()
+            + "] [ getCapHeight() = " + font.getCapHeight()
+            + "] [ getColor() = " + font.<span class="ck">getColor()</span><a name="getColor"></a>
+            + "] [ getDescent() = " + font.getDescent()
+            + "] [ getEmbedType() = " + font.<span class="ck">getEmbedType()</span><a name="getEmbedType"></a>
+            + "] [ getEncoding = " + font.<span class="ck">getEncoding()</span><a name="getEncoding"></a>
+            + "] [ getFirstChar() = " + font.getFirstChar()
+            + "] [ getFlags() = " + font.<span class="ck">getFlags()</span><a name="getFlags"></a>
+            + "] [ getHeight() = " + font.<span class="ck">getHeight()</span><a name="getHeight"></a>
+            + "] [ getItalicangle() = " + font.<span class="ck">getItalicangle()</span><a name="getItalicangle"></a>
+            + "] [ getLastChar() = " + font.getLastChar()
+            + "] [ getMaxWidth = " + font.getMaxWidth()
+            + "] [ getName() = " + font.<span class="ck">getName()</span><a name="getName"></a>
+            + "] [ getSize() = " + font.getSize()
+            + "] [ getStemH() = " + font.getStemH()
+            + "] [ getStemV() = " + font.getStemV()
+            + "] [ getStrokeWidth() = " + font.<span class="ck">getStrokeWidth()</span><a name="getStrokeWidth"></a>
+            + "] [ getStyle() = " + font.<span class="ck">getStyle()</span><a name="getStyle"></a>
+            + "] [ getStrokeColor() = " + font.<span class="ck">getStrokeColor()</span><a name="getStrokeColor"></a>
+            + "] [ getType() = " + font.getType()
+            + "] [ getUnderlinePosition() = "
+            + font.getUnderlinePosition()
+            + "] [ getUnderlineThickness() = "
+            + font.getUnderlineThickness() + "]";
+
+        <span class="cc">// Writes the string</span>
+        document.writeText(s, 150, 175);
+
+        <span class="cc">// Sets the file to be opened after it is written to</span>
+        document.setOpenAfterSave(true);
+
+        <span class="cc">// Writes the document object to file</span>
+        document.write();
+
+        <span class="cc">// Closes all I/O streams associated with this writer object</span>
+        writer.dispose();
+    }
+}
+
+
+
+
+
+
+
+
+
+
+  </pre>
+ </body>
+</html>

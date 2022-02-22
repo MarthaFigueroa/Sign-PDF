@@ -1,0 +1,37 @@
+body { font: normal 1em Liberation Sans, Calibri, Tahoma, Verdana, Arial, sans-serif;
+}
+
+.cc {
+ color: green;
+ font-weight: normal;
+}
+
+.ck {
+  color: purple;
+  font-weight: bold;
+}
+
+.cy {
+  background-color: yellow;
+}
+
+.cn {
+  color: red;
+}
+
+pre.gd {
+ background-color: lavender;
+ border: 1px dashed lightslategray;
+ font-family: Consolas, Lucida Console, Courier New, Courier, monospace;
+ font-size: small;
+ padding: 10px 15px;
+ margin: 10px 7%;
+}
+
+blockquote.old_doc {
+  background-color: rgb(245,245,245);
+  border: dotted 1px lightgrey;
+  font-style: italic;
+  margin: 1em 10%;
+  padding: 1em;
+}
