@@ -2,12 +2,19 @@ package Services;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
+
+import javax.crypto.Cipher;
+import javax.crypto.SecretKey;
+import javax.crypto.SecretKeyFactory;
+import javax.crypto.spec.PBEKeySpec;
+import javax.crypto.spec.SecretKeySpec;
 
 import org.apache.pdfbox.contentstream.operator.Operator;
 import org.apache.pdfbox.cos.COSArray;
@@ -27,7 +34,7 @@ import com.gnostice.pdfone.*;
 
 public class FileService {
 
-  public static JSONObject addSignature(String filename) throws Exception {
+  public static JSONObject addSignature(String filename, String certName, String certPass) throws Exception {
 
     // Load an existing PDF document
     PdfDocument doc = new PdfDocument();
@@ -36,14 +43,25 @@ public class FileService {
 //    String filePath = filename.split(".")[0];
     System.out.println(path);
     File file = new File(filename);
+<<<<<<< HEAD
     String inputFilePath = path+"";
     Path outPath = Paths.get(inputFilePath).getParent();
     System.out.println(outPath);
     String outputFilePath = outPath+"/Signed_"+filename;
     doc.load(inputFilePath);
     String certificate = outPath + "/certificate369258.pfx";
+=======
+//    String path = file.getAbsolutePath();
+//    System.out.println(path);
+    String inputFilePath = path+"/"+filename;
+    String outputFilePath = path +"/Signed_"+filename;
+    doc.load(inputFilePath);
+    String certificate = path +"/"+certName; 
+>>>>>>> 514ebf65b270ab9a692d7746a87432662f505c38
     PDDocument document = null;
-
+    
+    certPass = decryptText(certPass);
+    
     String[] csv = GenerateCSV.getCSV("CSV", 2018l, file);
     double[] dimensions = GetPDFPageSize(inputFilePath);
     double width = dimensions[0];
@@ -54,7 +72,7 @@ public class FileService {
 	   for (int i = 1; i <= doc.getPageCount(); i++) {
 		    // Add signature to the  document
 		    doc.addSignature(certificate,  					// pathname of PFX 
-		            "369258",                               // password for PFX
+		    		certPass,                               // password for PFX
 		            csv[1],                  					// reason
 		            getHostName(),                          // location
 		            signersInfo,                            // contact info
@@ -73,16 +91,22 @@ public class FileService {
     // Close IO resources
     doc.close();
     document.close();
-    return jsonConverter(csv);
+    return jsonConverter(csv, signersInfo);
     
     // verifySignature(outputFilePath	);
   }
   
-  public static JSONObject jsonConverter(String[] csv) throws Exception {
+  public static File getFile(File file) {
+	  System.out.println(file);
+	  return file;
+  }
+  
+  public static JSONObject jsonConverter(String[] csv, String signersInfo) throws Exception {
   	JSONObject responseObject = new JSONObject();
   	responseObject.put("id", 1);
   	responseObject.put("Hex", csv[0]);
   	responseObject.put("CSV", csv[1]);
+  	responseObject.put("Signers", signersInfo);
 	
 //	String id = (String) sampleObject.get("id");
 	String hex = (String) responseObject.get("Hex");
@@ -100,6 +124,23 @@ public class FileService {
 	
 	System.out.println("gg: "+ responseObject);
 	return responseObject;
+  }
+  
+  public static String decryptText(String cipherText) throws Exception {
+      // AES defaults to AES/ECB/PKCS5Padding in Java 7
+          Cipher aesCipher = Cipher.getInstance("AES");
+          String password = "validacionesKey";
+          byte[] saltBytes = {0, 1, 2, 3, 4, 5, 6};
+          int pswdIterations = 65536;
+          int keySize = 128;
+          SecretKeyFactory factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
+          PBEKeySpec spec = new PBEKeySpec(password.toCharArray(), saltBytes, pswdIterations, keySize);
+          SecretKey secretKey = factory.generateSecret(spec);
+          SecretKeySpec secret = new SecretKeySpec(secretKey.getEncoded(), "AES");
+          aesCipher.init(Cipher.DECRYPT_MODE, secret);
+          byte[] byteCipherText = cipherText.getBytes();
+          byte[] bytePlainText = aesCipher.doFinal(byteCipherText);
+          return new String(bytePlainText);
   }
   
   public static PDDocument replaceText(PDDocument document, String searchString, String replacement) throws IOException {
