@@ -6,6 +6,8 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 import javax.crypto.Cipher;
@@ -36,16 +38,26 @@ public class FileService {
 
     // Load an existing PDF document
     PdfDocument doc = new PdfDocument();
-    String path = new File(".").getCanonicalPath();
+//    String path = new File(".").getCanonicalPath();
+	Path path = Paths.get(filename).toRealPath();
 //    String filePath = filename.split(".")[0];
-//    System.out.println(filePath);
+    System.out.println(path);
     File file = new File(filename);
+<<<<<<< HEAD
+    String inputFilePath = path+"";
+    Path outPath = Paths.get(inputFilePath).getParent();
+    System.out.println(outPath);
+    String outputFilePath = outPath+"/Signed_"+filename;
+    doc.load(inputFilePath);
+    String certificate = outPath + "/certificate369258.pfx";
+=======
 //    String path = file.getAbsolutePath();
 //    System.out.println(path);
     String inputFilePath = path+"/"+filename;
     String outputFilePath = path +"/Signed_"+filename;
     doc.load(inputFilePath);
     String certificate = path +"/"+certName; 
+>>>>>>> 514ebf65b270ab9a692d7746a87432662f505c38
     PDDocument document = null;
     
     certPass = decryptText(certPass);
