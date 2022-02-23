@@ -49,7 +49,12 @@ public class GenerateCSV {
 	// Randomness Map 
 	// @SuppressWarnings("serial")
 	private static final Map<Integer, Integer[]> uuidCharsPos = Collections.unmodifiableMap(
-		    new HashMap<Integer, Integer[]>() {{
+		    new HashMap<Integer, Integer[]>() {/**
+				 * 
+				 */
+				private static final long serialVersionUID = 1L;
+
+			{
 		        put( 0, new Integer[] { 0,  1,  2,  3,  4,  5,  6});
 		        put( 1, new Integer[] { 2,  3,  5,  7,  9,  11, 13});
 		        put( 2, new Integer[] { 4,  5,  7,  9,  11, 13, 15});

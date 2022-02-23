@@ -25,15 +25,22 @@ const UploadFilesForm = (props) => {
         if(file == null)
         return;
         console.log("file: ",file);
-        const req = {
-            filename: file.name,
-            certName: cert.name,
-            certPass: certPass,
-            metadata: file
-        }
-        console.log("Req: ",req);
+        // const req = {
+        //     filename: file.name,
+        //     certName: cert.name,
+        //     certPass: certPass,
+        //     metadata: file
+        // }
+
         let formData = new FormData();
         formData.append("file", file);
+        formData.append("cert", cert);
+        
+        const req = {
+            formData: formData,
+            certPass: certPass
+        }
+        console.log("Req: ",req);
         // axios.post(`http://localhost:8080/file`, req)
         // .then(async res => {
         //     console.log("Response Data",res.data);
@@ -41,9 +48,10 @@ const UploadFilesForm = (props) => {
         //     await props.notify(file);
         // })
 
-        axios.post(`/file`, formData, {
+        axios.post(`/upload`, formData, {
             headers: {
-                "Content-Type": "multipart/form-data",
+                // "Content-Type": "multipart/form-data",
+                Accept: "application/json ,text/plain, */*"
             },
         })
         .then(async res => {

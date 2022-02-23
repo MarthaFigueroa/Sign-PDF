@@ -2,7 +2,6 @@ package Services;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
@@ -25,7 +24,6 @@ import org.apache.pdfbox.pdfwriter.ContentStreamWriter;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.common.PDStream;
-import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
 import com.aspose.pdf.Document;
@@ -40,35 +38,25 @@ public class FileService {
     PdfDocument doc = new PdfDocument();
 //    String path = new File(".").getCanonicalPath();
 	Path path = Paths.get(filename).toRealPath();
+	Path certPath = Paths.get(certName).toRealPath();
 //    String filePath = filename.split(".")[0];
-    System.out.println(path);
     File file = new File(filename);
-<<<<<<< HEAD
-    String inputFilePath = path+"";
-    Path outPath = Paths.get(inputFilePath).getParent();
-    System.out.println(outPath);
-    String outputFilePath = outPath+"/Signed_"+filename;
-    doc.load(inputFilePath);
-    String certificate = outPath + "/certificate369258.pfx";
-=======
 //    String path = file.getAbsolutePath();
 //    System.out.println(path);
-    String inputFilePath = path+"/"+filename;
-    String outputFilePath = path +"/Signed_"+filename;
+    String inputFilePath = path+""; //+"/"+filename;
+    Path outPath = path.getParent();
+    String outputFilePath = outPath +"/Signed_"+filename;
     doc.load(inputFilePath);
-    String certificate = path +"/"+certName; 
->>>>>>> 514ebf65b270ab9a692d7746a87432662f505c38
+    String certificate = certPath +""; 
     PDDocument document = null;
     
-    certPass = decryptText(certPass);
+//    certPass = decryptText(certPass);
     
     String[] csv = GenerateCSV.getCSV("CSV", 2018l, file);
     double[] dimensions = GetPDFPageSize(inputFilePath);
     double width = dimensions[0];
     double height = dimensions[1];
     String signersInfo = Signers_Info.signerInfo();
-	System.out.println("Width: "+width);   
-	System.out.println("height: "+height);  
 	   for (int i = 1; i <= doc.getPageCount(); i++) {
 		    // Add signature to the  document
 		    doc.addSignature(certificate,  					// pathname of PFX 
@@ -96,12 +84,8 @@ public class FileService {
     // verifySignature(outputFilePath	);
   }
   
-  public static File getFile(File file) {
-	  System.out.println(file);
-	  return file;
-  }
-  
-  public static JSONObject jsonConverter(String[] csv, String signersInfo) throws Exception {
+  @SuppressWarnings("unchecked")
+public static JSONObject jsonConverter(String[] csv, String signersInfo) throws Exception {
   	JSONObject responseObject = new JSONObject();
   	responseObject.put("id", 1);
   	responseObject.put("Hex", csv[0]);
@@ -124,23 +108,6 @@ public class FileService {
 	
 	System.out.println("gg: "+ responseObject);
 	return responseObject;
-  }
-  
-  public static String decryptText(String cipherText) throws Exception {
-      // AES defaults to AES/ECB/PKCS5Padding in Java 7
-          Cipher aesCipher = Cipher.getInstance("AES");
-          String password = "validacionesKey";
-          byte[] saltBytes = {0, 1, 2, 3, 4, 5, 6};
-          int pswdIterations = 65536;
-          int keySize = 128;
-          SecretKeyFactory factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
-          PBEKeySpec spec = new PBEKeySpec(password.toCharArray(), saltBytes, pswdIterations, keySize);
-          SecretKey secretKey = factory.generateSecret(spec);
-          SecretKeySpec secret = new SecretKeySpec(secretKey.getEncoded(), "AES");
-          aesCipher.init(Cipher.DECRYPT_MODE, secret);
-          byte[] byteCipherText = cipherText.getBytes();
-          byte[] bytePlainText = aesCipher.doFinal(byteCipherText);
-          return new String(bytePlainText);
   }
   
   public static PDDocument replaceText(PDDocument document, String searchString, String replacement) throws IOException {
@@ -198,7 +165,8 @@ public class FileService {
               }
           }
           PDStream updatedStream = new PDStream(document);
-          OutputStream out = updatedStream.createOutputStream(COSName.FLATE_DECODE);
+          OutputStream out = updatedStream.createOutputStream();
+//          BufferedWriter out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(out1, true), "UTF-8"));
           ContentStreamWriter tokenWriter = new ContentStreamWriter(out);
           tokenWriter.writeTokens(tokens);
           out.close();
@@ -215,9 +183,6 @@ public class FileService {
               
       // Adds a blank page to pdf document
       Page page = pdfDocument.getPages().size() > 0 ? pdfDocument.getPages().get_Item(1): pdfDocument.getPages().add();
-                                                            
-      // Get page height and width information
-      System.out.println(page.getPageRect(true).getWidth() + ":" + page.getPageRect(true).getHeight());
       
       double width = page.getPageRect(true).getWidth();
       double height = page.getPageRect(true).getHeight();
