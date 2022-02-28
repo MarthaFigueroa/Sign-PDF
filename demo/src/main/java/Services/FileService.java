@@ -51,49 +51,50 @@ public class FileService {
     String outputFilePath = outPath +"/Signed_"+filename;
     doc.load(inputFilePath);
     String certificate = certPath +""; 
-    PDDocument document = null;
+//    PDDocument document = null;
     
 //    certPass = decryptText(certPass);
     
+    SignService.sign(inputFilePath, outputFilePath, certificate, certPass);
+    
     String[] csv = GenerateCSV.getCSV("CSV", 2018l, file);
-    double[] dimensions = GetPDFPageSize(inputFilePath);
-    double width = dimensions[0];
-    double height = dimensions[1];
+//    double[] dimensions = GetPDFPageSize(inputFilePath);
+//    double width = dimensions[0];
+//    double height = dimensions[1];
     String signersInfo = Signers_Info.signerInfo();
     
-    for (int i = 1; i <= doc.getPageCount(); i++) {
-	    // Add signature to the  document
-	    doc.addSignature(certificate,  					// pathname of PFX 
-	    		certPass,                               // password for PFX
-	            csv[1],                  					// reason
-	            getHostName(),                          // location
-	            signersInfo,                            // contact info
-	            i,                                      // page number
-	            "Signature1",                           // field name
-	            new PdfRect(10,height-70,width,60)      // Rect
-		);
-//	    ReplaceTextOnAllPages(outputFilePath, "This document was created using Gnostice PDFOne Java Trial", "");
-//	    ReplaceTextOnAllPages(outputFilePath, "www.gnostice.com", "");
-	     
-    }
-    // Save the document to file
-    doc.save(outputFilePath);
-    doc.load(outputFilePath);
-    document = PDDocument.load(new File(outputFilePath));
-//    replaceText(document, "This document was created using Gnostice PDFOne Java Trial", "");
-//    replaceText(document, "www.gnostice.com", "");
-//    replaceText(document, "lenguaje", "kk");
-    
-    
-    document.save(outputFilePath);
-//    SignService.processPDF(outputFilePath, "This document was created using Gnostice PDFOne Java Trial", "h");
-    SignService.sign(inputFilePath, certificate, certPass);
-    // Close IO resources
-    doc.close();
-    document.close();
-    
-//    PDFNet.initialize(PDFTronLicense.Key());
-    removeFile(inputFilePath);
+//    for (int i = 1; i <= doc.getPageCount(); i++) {
+//	    // Add signature to the  document
+//	    doc.addSignature(certificate,  					// pathname of PFX 
+//	    		certPass,                               // password for PFX
+//	            csv[1],                  					// reason
+//	            getHostName(),                          // location
+//	            signersInfo,                            // contact info
+//	            i,                                      // page number
+//	            "Signature1",                           // field name
+//	            new PdfRect(10,height-70,width,60)      // Rect
+//		);
+////	    ReplaceTextOnAllPages(outputFilePath, "This document was created using Gnostice PDFOne Java Trial", "");
+////	    ReplaceTextOnAllPages(outputFilePath, "www.gnostice.com", "");
+//	     
+//    }
+//    // Save the document to file
+//    doc.save(outputFilePath);
+//    doc.load(outputFilePath);
+//    document = PDDocument.load(new File(outputFilePath));
+////    replaceText(document, "This document was created using Gnostice PDFOne Java Trial", "");
+////    replaceText(document, "www.gnostice.com", "");
+////    replaceText(document, "lenguaje", "kk");
+//    
+//    
+//    document.save(outputFilePath);
+////    SignService.processPDF(outputFilePath, "This document was created using Gnostice PDFOne Java Trial", "h");
+//    // Close IO resources
+//    doc.close();
+//    document.close();
+//    
+////    PDFNet.initialize(PDFTronLicense.Key());
+//    removeFile(inputFilePath);
     return jsonConverter(csv, signersInfo);
     // verifySignature(outputFilePath	);
   }

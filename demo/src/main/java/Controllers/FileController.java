@@ -71,8 +71,6 @@ public class FileController {
     	String certName = StringUtils.cleanPath(cert.getOriginalFilename());
     	Path path = Paths.get(fileName);
     	Path certPath = Paths.get(certName);
-    	System.out.println(path);
-    	System.out.println(certPath);
     	try {
     		Files.copy(file.getInputStream(), path, StandardCopyOption.REPLACE_EXISTING);
     		Files.copy(cert.getInputStream(), certPath, StandardCopyOption.REPLACE_EXISTING);

@@ -43,17 +43,19 @@ import com.spire.pdf.security.PdfSignature;
 
 public class SignService {
 	
-	public static void sign(String filename, String certName, String certPass) {
+	public static void sign(String filename, String outFilename, String certName, String certPass) {
 
         //Load a pdf document
         PdfDocument doc = new PdfDocument();
+        System.out.println(filename);
         doc.loadFromFile(filename);
 
         //Load the certificate
         PdfCertificate cert = new PdfCertificate(certName, certPass);
-
+        
         //Create a PdfSignature object and specify its position and size
         PdfSignature signature = new PdfSignature (doc, doc.getPages().get(0), cert, "MySignature");
+        System.out.println("GG: "+signature);
         Rectangle2D rect = new Rectangle2D.Float();
         rect.setFrame(new Point.Float((float) doc.getPages().get(0).getActualSize().getWidth() - 380, (float) doc.getPages().get(0).getActualSize().getHeight() - 120), new Dimension(250, 150));
         signature.setBounds(rect);
@@ -74,8 +76,6 @@ public class SignService {
         signature.setReason("The certificate of this document");
         signature.setDistinguishedNameLabel("DN: ");
         signature.setDistinguishedName(signature.getCertificate().get_IssuerName().getName());
-        signature.setSignImageSource(PdfImage.fromFile("C:\\Users\\Administrator\\Desktop\\cert.jpg"));
-
         //Set the signature font
         signature.setSignDetailsFont(new PdfFont(PdfFontFamily.Helvetica, 10f, PdfFontStyle.Bold));
 
