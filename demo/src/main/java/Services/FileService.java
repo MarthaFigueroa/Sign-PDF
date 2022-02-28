@@ -1,19 +1,15 @@
 package Services;
 
+import java.awt.Rectangle;
 import java.io.File;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
-
-import javax.crypto.Cipher;
-import javax.crypto.SecretKey;
-import javax.crypto.SecretKeyFactory;
-import javax.crypto.spec.PBEKeySpec;
-import javax.crypto.spec.SecretKeySpec;
 
 import org.apache.pdfbox.contentstream.operator.Operator;
 import org.apache.pdfbox.cos.COSArray;
@@ -26,9 +22,23 @@ import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.common.PDStream;
 import org.json.simple.JSONObject;
 
+import com.aspose.pdf.DocMDPAccessPermissions;
+import com.aspose.pdf.DocMDPSignature;
 import com.aspose.pdf.Document;
+import com.aspose.pdf.PKCS7;
 import com.aspose.pdf.Page;
+import com.aspose.pdf.TextFragment;
+import com.aspose.pdf.TextFragmentAbsorber;
+import com.aspose.pdf.TextFragmentCollection;
+import com.aspose.pdf.facades.PdfFileSignature;
 import com.gnostice.pdfone.*;
+import com.pdftron.common.PDFNetException;
+import com.pdftron.pdf.DigitalSignatureField;
+import com.pdftron.pdf.Field;
+import com.pdftron.pdf.PDFDoc;
+import com.pdftron.pdf.PDFNet;
+import com.pdftron.pdf.annots.SignatureWidget;
+import com.pdftron.sdf.SDFDoc;
 
 public class FileService {
 
@@ -57,30 +67,40 @@ public class FileService {
     double width = dimensions[0];
     double height = dimensions[1];
     String signersInfo = Signers_Info.signerInfo();
-	   for (int i = 1; i <= doc.getPageCount(); i++) {
-		    // Add signature to the  document
-		    doc.addSignature(certificate,  					// pathname of PFX 
-		    		certPass,                               // password for PFX
-		            csv[1],                  					// reason
-		            getHostName(),                          // location
-		            signersInfo,                            // contact info
-		            i,                                      // page number
-		            "Signature1",                           // field name
-		            new PdfRect(10,height-70,width,60)      // Rect
-			);
-	   }
-	   
+    
+    for (int i = 1; i <= doc.getPageCount(); i++) {
+	    // Add signature to the  document
+	    doc.addSignature(certificate,  					// pathname of PFX 
+	    		certPass,                               // password for PFX
+	            csv[1],                  					// reason
+	            getHostName(),                          // location
+	            signersInfo,                            // contact info
+	            i,                                      // page number
+	            "Signature1",                           // field name
+	            new PdfRect(10,height-70,width,60)      // Rect
+		);
+//	    ReplaceTextOnAllPages(outputFilePath, "This document was created using Gnostice PDFOne Java Trial", "");
+//	    ReplaceTextOnAllPages(outputFilePath, "www.gnostice.com", "");
+	     
+    }
     // Save the document to file
     doc.save(outputFilePath);
+    doc.load(outputFilePath);
     document = PDDocument.load(new File(outputFilePath));
-    replaceText(document, "This document was created using Gnostice PDFOne Java Trial", "");
-    replaceText(document, "www.gnostice.com", "");
+//    replaceText(document, "This document was created using Gnostice PDFOne Java Trial", "");
+//    replaceText(document, "www.gnostice.com", "");
+//    replaceText(document, "lenguaje", "kk");
+    
+    
     document.save(outputFilePath);
+    SignService.processPDF(outputFilePath, "This document was created using Gnostice PDFOne Java Trial", "h");
     // Close IO resources
     doc.close();
     document.close();
-    return jsonConverter(csv, signersInfo);
     
+//    PDFNet.initialize(PDFTronLicense.Key());
+    removeFile(inputFilePath);
+    return jsonConverter(csv, signersInfo);
     // verifySignature(outputFilePath	);
   }
   
@@ -110,6 +130,36 @@ public static JSONObject jsonConverter(String[] csv, String signersInfo) throws 
 	return responseObject;
   }
   
+  public static void removeFile(String filename) {
+	  File f= new File(filename);           //file to be delete  
+	  if(f.delete()){                      //returns Boolean value  
+		  System.out.println(f.getName() + " deleted");   //getting and printing the file name  
+	  } else  {
+		  System.out.println("failed");  
+	  }  
+  }
+  
+  public static void ReplaceTextOnAllPages(String filename, String searchString, String replacement) {
+	  System.out.println(filename);
+      try (Document pdfDocument = new Document(filename)) {
+		// Create TextAbsorber object to find all instances of the input search phrase
+		  TextFragmentAbsorber textFragmentAbsorber = new TextFragmentAbsorber(searchString);
+		  
+		  // Accept the absorber for first page of document
+		  pdfDocument.getPages().accept(textFragmentAbsorber);
+			  // Get the extracted text fragments into collection
+			  TextFragmentCollection textFragmentCollection = textFragmentAbsorber.getTextFragments();
+			  
+			  // Loop through the fragments
+			  for (TextFragment textFragment : (Iterable<TextFragment>) textFragmentCollection) {
+				  // Update text and other properties
+				  textFragment.setText(replacement);
+			  }
+		  // Save the updated PDF file
+		  pdfDocument.save("signed.pdf");	   
+	}
+  }
+  
   public static PDDocument replaceText(PDDocument document, String searchString, String replacement) throws IOException {
 //      if (StringUtils.isEmpty(searchString) || StringUtils.isEmpty(replacement)) {
 //          return document;
@@ -134,7 +184,9 @@ public static JSONObject jsonConverter(String[] csv, String signersInfo) throws 
                       COSString previous = (COSString) tokens.get(j - 1);
                       String string = previous.getString();
                       string = string.replaceFirst(searchString, replacement);
-                      previous.setValue(string.getBytes());
+                      System.out.println(string);
+//                      string = new String(string.getBytes(), "ISO-8859-2");
+                      previous.setValue(string.getBytes("ISO-8859-2")); //ISO-8859-2
                   } else if (op.getName().equals("TJ")) {
                       COSArray previous = (COSArray) tokens.get(j - 1);
                       for (int k = 0; k < previous.size(); k++) {
@@ -142,7 +194,7 @@ public static JSONObject jsonConverter(String[] csv, String signersInfo) throws 
                           if (arrElement instanceof COSString) {
                               COSString cosString = (COSString) arrElement;
                               String string = cosString.getString();
-
+                              System.out.println(string);
                               if (j == prej) {
                                   pstring += string;
                               } else {
@@ -154,7 +206,7 @@ public static JSONObject jsonConverter(String[] csv, String signersInfo) throws 
 
                       if (searchString.equals(pstring.trim())) {
                           COSString cosString2 = (COSString) previous.getObject(0);
-                          cosString2.setValue(replacement.getBytes());
+                          cosString2.setValue(replacement.getBytes("ISO-8859-2"));//ISO-8859-2
 
                           int total = previous.size() - 1;
                           for (int k = total; k > 0; k--) {
@@ -165,12 +217,12 @@ public static JSONObject jsonConverter(String[] csv, String signersInfo) throws 
               }
           }
           PDStream updatedStream = new PDStream(document);
-          OutputStream out = updatedStream.createOutputStream();
+          OutputStream out = updatedStream.createOutputStream(COSName.FLATE_DECODE);
 //          BufferedWriter out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(out1, true), "UTF-8"));
           ContentStreamWriter tokenWriter = new ContentStreamWriter(out);
           tokenWriter.writeTokens(tokens);
-          out.close();
           page.setContents(updatedStream);
+          out.close();
       }
 
       return document;
@@ -192,7 +244,6 @@ public static JSONObject jsonConverter(String[] csv, String signersInfo) throws 
       return dimensions;
   }
 
-
   public static String getHostName(){
     String hostname = "Unknown";
 
@@ -209,6 +260,37 @@ public static JSONObject jsonConverter(String[] csv, String signersInfo) throws 
     return hostname;
   }
 
+//  public static void sign(String filename, String certName, String certPass) {
+	  public static void signPDF(String input_path ,
+				String in_approval_field_name,
+				String certName,
+				String certPass,
+				String output_path ) throws PDFNetException
+			{
+				System.out.println("================================================================================");
+				System.out.println("Signing PDF document");
+
+				// Open an existing PDF
+				PDFDoc doc = new PDFDoc(input_path );
+
+				int pgnum = doc.getPageCount();
+				// Retrieve the unsigned approval signature field.
+				Field found_approval_field = doc.getField(in_approval_field_name);
+				DigitalSignatureField found_approval_signature_digsig_field = new DigitalSignatureField(found_approval_field);
+				
+				// (OPTIONAL) Add an appearance to the signature field.
+//				Image img = Image.create(doc, in_appearance_img_path);
+				SignatureWidget found_approval_signature_widget = new SignatureWidget(found_approval_field.getSDFObj());
+//				found_approval_signature_widget.createSignatureAppearance(img);
+
+				// Prepare the signature and signature handler for signing.
+				found_approval_signature_digsig_field.signOnNextSave(certName, certPass);
+
+				// The actual approval signing will be done during the following incremental save operation.
+				doc.save(output_path, SDFDoc.SaveMode.INCREMENTAL, null);
+
+				System.out.println("================================================================================");
+			}
 //   public static void verifySignature(String filename){
 //     PdfFileSignature pdfSign = new PdfFileSignature();
 //     // Bind PDF

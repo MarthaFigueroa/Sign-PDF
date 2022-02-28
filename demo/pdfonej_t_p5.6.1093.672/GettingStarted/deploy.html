@@ -1,0 +1,141 @@
+<html>
+ <head>
+  <title>Deploying Your PDFOne Java Applications With Ant</title>
+  <style>
+   body { margin: 30px 30% 15px 30px; }
+   h1, h2, h3, h4, h5, h6 { font-family: Liberation Serif, Cambria, Georgia, Times, serif; }
+   h1 { font-size: 25px; margin: 15px 0;  }
+   h2 { font-size: 18px; margin: 15px 0 2px 0; }
+   p { font: normal 13px Liberation Sans, Segoe UI, Verdana, Helvetica, sans-serif; margin: 2px 0 15px 0; }
+   img { margin: -5px auto 25px auto; }
+   pre { background-color: #D7D7D7; border-color: 1px dashed lightgrey; font: normal 13px Liberation Mono, Consolas, Lucida Console, Courier New, Courier, monospace; margin: 30px; padding: 10px 15px; }
+   .remg { color: green; font-style: italic; }
+  </style>
+ </head>
+ <body>
+
+  <h1>Deploying Your PDFOne Java Applications With Ant</h1>
+
+  <p><a href="http://ant.apache.org/">Ant</a>, from the Apache Software Foundation, is a popular tool for building Java applications.
+  You can use Ant to build your Gnostice PDFOne Java applications also.</p>
+
+
+  <p>This tutorial assumes that Ant is installed on your machine and environment variables required by the Ant have been set.
+		To demonstrate the build process with Ant, this tutorial will use a simple java program "SimplePdfViewerDemo.java" and convert it to an executable java archive (.jar) file.
+		You can find this program in the "Samples" directory of PDFOna Java download file.</p>
+
+
+		<p>First create a directory named "BuildDemo".
+		Copy "PDFOne.jar", "bcprov-jdk14.jar" and "pdfonejfont.dll" from the PDFOne Java
+    download file to the directory.</p>
+
+
+		<p>Create subdirectory "src" in the BuildDemo directory.
+		Copy "SimplePdfViewerDemo.java" file provided in the "samples/DocumentReading" of the download file.
+		</p>
+
+
+ 	<p>Create a plain text file with the following Ant script and save it as "build.xml" in the "BuildDemo" directory.</p>
+
+<pre>
+&lt;project name=&quot;GnosticePDFViewer&quot; default=&quot;build&quot; basedir=&quot;.&quot;&gt;
+
+ &lt;path id=&quot;project.classpath&quot;&gt;
+  &lt;pathelement location=&quot;.&quot;/&gt;
+  &lt;pathelement location=&quot;PDFOne.jar&quot;/&gt;
+ &lt;/path&gt;
+
+ &lt;target name=&quot;init&quot;&gt;
+  &lt;echo message=&quot;Creating properties&quot;/&gt;
+
+  <span class="remg">&lt;!-- The directory where .java files are available --&gt;</span>
+  &lt;property name=&quot;source&quot; value=&quot;src &quot;/&gt;
+
+  <span class="remg">&lt;!-- The directory where compiled .class files will be generated--&gt;</span>
+  &lt;property name=&quot;classfiles&quot; value=&quot;classfiles&quot;/&gt;
+
+  <span class="remg">&lt;!-- Class name to be specified in the Main-Class attribute of
+       the manifest while creating the executable jar file--&gt;</span>
+  &lt;property name=&quot;MainClass&quot; value=&quot;SimplePdfViewerDemo&quot;/&gt;
+
+
+  <span class="remg">&lt;!-- Path of the PDFOne.jar to be specified in the Class-Path
+       attribute of the manifest while creating the exectutable
+       jar file--&gt;</span>
+  &lt;property name=&quot;pdfonejar.classpath&quot; value=&quot;PDFOne.jar&quot;/&gt;
+ &lt;/target&gt;
+
+ &lt;target name=&quot;clean&quot; depends=&quot;init&quot;&gt;
+  <span class="remg">&lt;!--Delete existing classfiles directory --&gt;</span>
+  &lt;delete dir=&quot;${classfiles}&quot;/&gt;
+
+  <span class="remg">&lt;!--Create classfiles directory --&gt;</span>
+  &lt;mkdir dir=&quot;${classfiles}&quot;/&gt;
+ &lt;/target&gt;
+
+ &lt;target name=&quot;build&quot; depends=&quot;clean&quot;&gt;
+  &lt;echo message=&quot;${ant.project.name}: ${ant.file}&quot;/&gt;
+
+  <span class="remg">&lt;!--Copy all .java files from src directory to classfiles directory--&gt;</span>
+  &lt;copy todir=&quot;${classfiles}&quot; filtering=&quot;false&quot;&gt;
+    &lt;fileset dir=&quot;${source}&quot;&gt;
+    &lt;include name=&quot;**/*.java&quot;/&gt;
+   &lt;/fileset&gt;
+  &lt;/copy&gt;
+
+  <span class="remg">&lt;!--Compile all .java files in the classfiles directory--&gt;</span>
+  &lt;javac destdir=&quot;${classfiles}&quot; excludes=&quot;&quot;&gt;
+   &lt;src path=&quot;${classfiles}&quot;/&gt;
+   &lt;classpath refid=&quot;project.classpath&quot;/&gt;
+  &lt;/javac&gt;
+
+  <span class="remg">&lt;!--Delete all .java files in the classfiles directory--&gt;</span>
+  &lt;delete&gt;
+   &lt;fileset dir=&quot;${classfiles}&quot;&gt;
+    &lt;include name=&quot;**/*.java&quot;/&gt;
+   &lt;/fileset&gt;
+  &lt;/delete&gt;
+
+  <span class="remg">&lt;!--Generate jar file--&gt;</span>
+  &lt;jar destfile=&quot;GnosticePDFViewer.jar&quot;&gt;
+   &lt;manifest&gt;
+    &lt;attribute name=&quot;Implementation-Vendor&quot;
+                     value=&quot;Gnostice&quot;/&gt;
+    &lt;attribute name=&quot;Implementation-Title&quot;
+                     value=&quot;PDFOne Java PDF Viewer&quot;/&gt;
+    &lt;attribute name=&quot;Implementation-Version&quot;
+                     value=&quot;1.0.0.0&quot;/&gt;
+    &lt;attribute name=&quot;Main-Class&quot; value=&quot;${MainClass}&quot;/&gt;
+    &lt;attribute name=&quot;Class-Path&quot; value=&quot;${pdfonejar.classpath}&quot; /&gt;
+   &lt;/manifest&gt;
+
+   &lt;fileset dir=&quot;${classfiles}&quot;&gt;
+    &lt;include name=&quot;**/*.class&quot;/&gt;
+   &lt;/fileset&gt;
+  &lt;/jar&gt;
+
+  <span class="remg">&lt;!--Delete classfiles directory--&gt;</span>
+  &lt;delete dir=&quot;${classfiles}&quot;/&gt;
+ &lt;/target&gt;
+&lt;/project&gt;
+</pre>
+
+<p>Finally, you need to execute "build.xml" using Ant.
+	For this, open Command Prompt.
+	Change current directory to "BuildDemo." 
+	Type "ant" and press <b>Enter</b> key to begin the build.
+	</p>
+	
+	<p>Please note that "build.xml" is the default build file name.
+	If you have had created the build file with another name, then you need to type 
+	 "ant -buildfile &lt;build_file_name&gt;".</p>
+	
+	<p>When Ant is launched, it parses "build.xml" and executes commands specified in the XML file..
+	 If Ant was able to successfully complete the build, it will generate a java archive named GnosticePDFViewer.jar.</p>
+	<img src="images/Topic2_Ant_Build_Screen.PNG">
+
+
+
+
+ </body>
+</html>

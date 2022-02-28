@@ -1,0 +1,85 @@
+<html>
+ <head>
+  <LINK REL ="stylesheet" TYPE="text/css" HREF="../stylesheet.css" TITLE="Style">
+  <LINK REL ="stylesheet" TYPE="text/css" HREF="example.css" TITLE="Style">
+ </head>
+ <body>
+  <pre>
+import java.awt.Point;
+import java.awt.geom.Point2D;
+import java.io.IOException;
+
+import com.gnostice.pdfone.PDFOne;
+import com.gnostice.pdfone.PdfDocument;
+import com.gnostice.pdfone.PdfException;
+import com.gnostice.pdfone.PdfPoint;
+import com.gnostice.pdfone.PdfWriter;
+
+public class PdfPoint_Examples
+{
+    <span class="cc">// Activates the component PDFOne.jar</span>
+    static
+    {
+        PDFOne.activate("T95VZE:W8HBPVA:74VQ8QV:LO4V8",
+            "9B1HRZAP:X5853ERNE:5EREMEGRQ:TX1R10");
+    }
+
+    public static void main(String[] args) throws IOException,
+        PdfException
+    {
+        PdfPoint_Examples obj = new PdfPoint_Examples();
+        obj.PdfPoint_PdfPoint_Example();
+    }
+
+    <span class="cc">// This code segment creates several points using overloaded
+    // constructors</span>
+    public void PdfPoint_PdfPoint_Example() throws IOException,
+        PdfException
+    {
+        PdfWriter writer = PdfWriter.fileWriter(
+                               "PdfPoint_PdfPoint_Example.pdf");
+        PdfDocument document = new PdfDocument(writer);
+</pre><a name="PdfPoint_double_double"></a><pre>
+        <span class="cc">// Creates a PdfPoint object for position (200, 100)</span>
+        PdfPoint point1 = new <span class="ck">PdfPoint(200, 100)</span>;
+</pre><a name="PdfPoint_Point"></a><pre>
+        <span class="cc">// Creates a Point object for position (200, 300)</span>
+        Point jPoint = new Point(300, 200);
+        <span class="cc">// Creates a PdfPoint object with the Java point object</span>
+        PdfPoint point2 = new <span class="ck">PdfPoint(jPoint)</span>;
+</pre><a name="PdfPoint_Point2D"></a><pre>
+        <span class="cc">// Creates a Point2D object for position (400, 300)</span>
+        Point2D jPoint2D = new Point2D.Double(300, 400);
+        <span class="cc">// Creates a PdfPoint object using the Java point2D object</span>
+        PdfPoint point3 = new <span class="ck">PdfPoint(jPoint2D)</span>;
+</pre><a name="PdfPoint_PdfPoint"></a><pre>
+        <span class="cc">// Creates a PdfPoint object with another PdfPoint object</span>
+        PdfPoint point4 = new <span class="ck">PdfPoint(point3)</span>;
+</pre><a name="SETTERS_AND_GETTERS"></a><pre>
+        <span class="cc">// Increments coordinates of the PdfPoint by 100</span>
+        point4.<span class="ck">setX(</span><span class="cy">point3.<span class="ck">getX()</span> + 100</span><span class="ck">)</span>;
+        point4.<span class="ck">setY(</span><span class="cy">point3.<span class="ck">getY()</span> + 100</span><span class="ck">)</span>;
+
+        <span class="cc">// Draws lines and writes text identifying the above
+        // PdfPoint objects</span>
+        document.drawLine(point1, point2);
+        document.drawLine(point2, point3);
+        document.drawLine(point3, point4);
+        document.writeText(". PdfPoint(200, 100)", point1);
+        document.writeText(". PdfPoint(jPoint) [jPoint = new Point(300, 200)]", point2);
+        document.writeText(". PdfPoint(jPoint2D) [jPoint2D = new Point2D.Double(300, 400)]", point3);
+        document.writeText(". PdfPoint(point3) [point4 = new PdfPoint(point3); point4.setX(point3.getX() + 100); point4.setY(point3.getY() + 100);]", point4);
+
+        <span class="cc">// Sets the file to be opened after it is written to</span>
+        document.setOpenAfterSave(true);
+
+        <span class="cc">// Writes the document object to file</span>
+        document.write();
+
+        <span class="cc">// Closes all I/O streams associated with this writer object</span>
+        writer.dispose();
+    }
+}
+  </pre>
+ </body>
+</html>

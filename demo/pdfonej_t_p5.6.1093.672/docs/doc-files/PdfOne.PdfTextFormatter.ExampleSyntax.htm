@@ -1,0 +1,345 @@
+<html>
+ <head>
+  <LINK REL ="stylesheet" TYPE="text/css" HREF="../stylesheet.css" TITLE="Style">
+  <LINK REL ="stylesheet" TYPE="text/css" HREF="example.css" TITLE="Style">
+ </head>
+ <body>
+<pre>
+import java.io.File;
+import java.io.IOException;
+
+import com.gnostice.pdfone.PDFOne;
+import com.gnostice.pdfone.PdfDocument;
+import com.gnostice.pdfone.PdfException;
+import com.gnostice.pdfone.PdfMeasurement;
+import com.gnostice.pdfone.PdfPage;
+import com.gnostice.pdfone.PdfRect;
+import com.gnostice.pdfone.PdfTextFormatter;
+import com.gnostice.pdfone.PdfWriter;
+
+public class PdfTextFormatter_Examples
+{
+    <span class="cc">// Activates the component PDFOne.jar</span>
+    static
+    {
+        PDFOne.activate("T95VZE:W8HBPVA:74VQ8QV:LO4V8",
+            "9B1HRZAP:X5853ERNE:5EREMEGRQ:TX1R10");
+    }
+
+    public static void main(String[] args) throws IOException,
+        PdfException
+    {
+        PdfTextFormatter_Examples obj = new
+                                         PdfTextFormatter_Examples();
+
+        <span class="cc">// To try other examples, add the obj.&lt;example_method&gt;
+        // accordingly. For example, try:
+        // obj.FirstLinePosition_Example();</span>
+        obj.getAlignment_Example();
+    }
+
+</pre><a name="getAlignment"></a><pre>
+    <span class="cc">// This code segment retrieves the current setting for text</span>
+    <span class="cc">// alignment and writes some text explaining the same.</span>
+    public void getAlignment_Example() throws IOException,
+        PdfException
+    {
+        PdfWriter writer = PdfWriter.fileWriter(
+                               new File(
+                                   "PdfTextFormatter_getAlignment_"
+                                   + "example.pdf"));
+
+        PdfDocument document = new PdfDocument(writer);
+        PdfPage page = new PdfPage();
+        PdfTextFormatter formatter = new PdfTextFormatter();
+        formatter = page.getTextFormatter();
+        page.setMeasurementUnit(PdfMeasurement.MU_INCHES);
+
+        <span class="cc">// Checks current setting for text alignment</span>
+        switch (formatter.<span class="ck">getAlignment()</span>)
+        {
+            case PdfTextFormatter.LEFT:
+                page.writeText(
+                        "Text is aligned to the left margin.",
+                        new PdfRect(2, 1, 4, 1));                
+                break;                
+            case PdfTextFormatter.RIGHT:
+                page.writeText(
+                        "Text is aligned to the right margin.",
+                        new PdfRect(2, 1, 4, 1));                
+                break;
+            case PdfTextFormatter.CENTER:
+                page.writeText(
+                        "Text is centered on the page.",
+                        new PdfRect(2, 1, 4, 1));
+                break;
+            case PdfTextFormatter.JUSTIFIED:
+                page.writeText(
+                        "Text is justified to the side margins.",
+                        new PdfRect(2, 1, 4, 1));                
+                break;
+        }
+
+        <span class="cc">// Draws margins for a better perspective</span>
+        page.drawLine(2, 1, 2, 4.2);
+        page.drawLine(6, 1, 6, 4.2);
+
+        document.add(page);
+        document.setOpenAfterSave(true);
+        document.write();
+        writer.dispose();
+    }
+
+</pre><a name="setAlignment"></a><pre>
+    <span class="cc">// This code segment writes a paragraph four times but with</span>
+    <span class="cc">// different alignment settings.</span>
+    public void setAlignment_Example() throws IOException,
+        PdfException
+    {
+        PdfWriter writer = PdfWriter.fileWriter(
+                               new File(
+                                   "PdfTextFormatter_setAlignment_"
+                                   + "example.pdf"));
+
+        PdfDocument document = new PdfDocument(writer);
+        PdfPage page = new PdfPage();
+        PdfTextFormatter formatter = new PdfTextFormatter();
+        formatter = page.getTextFormatter();
+        page.setMeasurementUnit(PdfMeasurement.MU_INCHES);
+
+        <span class="cc">// Writes left-aligned text</span>
+        formatter.<span class="ck">setAlignment(PdfTextFormatter.LEFT)</span>;
+        page.writeText(
+                "Four score and seven years ago...",
+                new PdfRect(2, 1, 3, 1));
+
+        <span class="cc">// Writes right-aligned text</span>
+        formatter.<span class="ck">setAlignment(PdfTextFormatter.RIGHT)</span>;
+        page.writeText(
+                "Four score and seven years ago...",
+                new PdfRect(2, 2, 3, 1));
+
+        <span class="cc">// Writes center-aligned text</span>
+        formatter.<span class="ck">setAlignment(PdfTextFormatter.CENTER</span>);
+        page.writeText(
+                "Four score and seven years ago...",
+                new PdfRect(2, 3, 3, 1));
+
+        <span class="cc">// Writes justified text</span>
+        formatter.<span class="ck">setAlignment(PdfTextFormatter.JUSTIFIED)</span>;
+        page.writeText(
+                "Four score and seven years ago...",
+                new PdfRect(2, 4, 3, 1));
+
+        <span class="cc">// Draws margins for perspective</span>
+        page.drawLine(2, 1, 2, 4.2);
+        page.drawLine(5, 1, 5, 4.2);
+
+        document.add(page);
+        document.setOpenAfterSave(true);
+        document.write();
+        writer.dispose();
+    }
+
+</pre><a name="Wrap"></a><pre>
+    <span class="cc">// This code segment obtains current setting for text wrapping</span>
+    <span class="cc">// and writes a few lines of text. It then changes the setting </span>
+    <span class="cc">// and writes the same lines of text again at a different </span>
+    <span class="cc">// location to illustrate the difference.</span>
+    public void Wrap_Example() throws IOException, PdfException
+    {
+        PdfWriter writer = PdfWriter.fileWriter(
+                               new File(
+                                   "PdfTextFormatter_Wrap_"
+                                   + "example.pdf"));
+
+        PdfDocument document = new PdfDocument(writer);
+        PdfPage page = new PdfPage();
+        PdfTextFormatter formatter = new PdfTextFormatter();
+        formatter = page.getTextFormatter();
+</pre><a name="isWrap"></a><pre>
+        <span class="cc">// Obtains current setting for text wrapping</span>
+        boolean wrap = formatter.<span class="ck">isWrap()</span>;
+
+        <span class="cc">// Writes text under current setting</span>
+        if (wrap == PdfTextFormatter.WRAP)
+        {
+            page.writeText(
+                    "[Text set to wrap.] "
+                    + "Four score and seven years ago our fathers "
+                    + "brought forth on this continent a new "
+                    + "nation conceived in liberty and dedicated "
+                    + "to the proposition that all men are created "
+                    + "equal.", 
+                    new PdfRect(100, 50, 400, 100));
+</pre><a name="setWrap"></a><pre>
+            <span class="cc">// Changes text wrap setting</span>
+            formatter.<span class="ck">setWrap(PdfTextFormatter.NO_WRAP)</span>;
+        }
+        else
+        {
+            page.writeText(
+                    "[Text not set to wrap.] "
+                    + "Four score and seven years ago our fathers "
+                    + "brought forth on this continent a new "
+                    + "nation conceived in liberty and dedicated "
+                    + "to the proposition that all men are created "
+                    + "equal.",
+                    new PdfRect(100, 50, 400, 100));
+
+            <span class="cc">// Changes text wrap setting</span>
+            formatter.<span class="ck">setWrap(PdfTextFormatter.WRAP)</span>;
+        }
+
+        <span class="cc">// Obtains new setting for text wrapping</span>
+        wrap = formatter.<span class="ck">isWrap()</span>;
+
+        <span class="cc">// Writes text under new setting</span>
+        if (wrap == PdfTextFormatter.WRAP)
+        {
+            page.writeText(
+                    "[Text set to wrap.] "
+                    + "Four score and seven years ago our fathers "
+                    + "brought forth on this continent a new "
+                    + "nation conceived in liberty and dedicated "
+                    + "to the proposition that all men are created "
+                    + "equal.",
+                    new PdfRect(100, 100, 400, 100));
+        }
+        else
+        {
+            page.writeText(
+                    "[Text not set to wrap.] "
+                    + "Four score and seven years ago our fathers "
+                    + "brought forth on this continent a new "
+                    + "nation conceived in liberty and dedicated "
+                    + "to the proposition that all men are created "
+                    + "equal.",
+                    new PdfRect(100, 100, 400, 100));
+
+        }
+
+        document.add(page);
+        document.setOpenAfterSave(true);
+        document.write();
+        writer.dispose();
+    }
+</pre><a name="FirstLinePosition"></a><pre>
+    <span class="cc">// This code segment writes a few lines of text. First time, the</span>
+    <span class="cc">// text is written using the default setting for the first line.</span>
+    <span class="cc">// Second time, the setting is changed to 3 inches.</span>
+    public void FirstLinePosition_Example() throws IOException,
+        PdfException
+    {
+        PdfWriter writer = PdfWriter.fileWriter(
+                               new File(
+                                   "PdfTextFormatter_"
+                                   + "FirstLinePosition_"
+                                   + "example.pdf"));
+
+        PdfDocument document = new PdfDocument(writer);
+        PdfPage page = new PdfPage();
+        PdfTextFormatter formatter = new PdfTextFormatter();
+        formatter = page.getTextFormatter();
+
+        <span class="cc">// Sets page measurement unit to inches</span>
+        page.setMeasurementUnit(PdfMeasurement.MU_INCHES);
+</pre><a name="getFirstLinePosition"></a><pre>
+        <span class="cc">// Retrieves current first line position</span>
+        double position = formatter.<span class="ck">getFirstLinePosition()</span>;
+
+        <span class="cc">// Writes a few lines of text</span>
+        page.writeText(
+                "Four score and seven years ago our fathers "
+                 + "brought forth on this continent a new "
+                 + "nation conceived in liberty and dedicated "
+                 + "to the proposition that all men are created "
+                 + "equal. "
+                 + " [First line at "
+                 + position
+                 + " inches]",
+                 new PdfRect(2, 1, 4, 3));
+</pre><a name="setFirstLinePosition"></a><pre>
+        <span class="cc">// Sets new first line position to 3 inches</span>
+        formatter.<span class="ck">setFirstLinePosition(3)</span>;
+
+        <span class="cc">// Obtains new first line position</span>
+        position = formatter.<span class="ck">getFirstLinePosition()</span>;
+
+        <span class="cc">// Writes the lines of text again</span>
+        page.writeText(
+                "Four score and seven years ago our fathers "
+                + "brought forth on this continent a new "
+                + "nation conceived in liberty and dedicated "
+                + "to the proposition that all men are created "
+                + "equal. "
+                + " [First line at "
+                + position
+                + " inches]",
+                new PdfRect(2, 3, 4, 3));
+
+        document.add(page);
+        document.setOpenAfterSave(true);
+        document.write();
+        writer.dispose();
+    }
+
+    <span class="cc">// This code segment writes a few lines of text. First time, the</span>
+    <span class="cc">// last line is written using default setting for justification.</span>
+    <span class="cc">// Second time, the last line is written using the opposition</span>
+    <span class="cc">// setting.</span>
+    public void JustifyLastLine_Example() throws IOException,
+        PdfException
+    {
+        PdfWriter writer = PdfWriter.fileWriter(
+                               new File(
+                                   "PdfTextFormatter_JustifyLastLine_"
+                                   + "example.pdf"));
+
+        PdfDocument document = new PdfDocument(writer);
+        PdfPage page = new PdfPage();
+        PdfTextFormatter formatter = new PdfTextFormatter();
+        formatter = page.getTextFormatter();
+
+        formatter.setAlignment(PdfTextFormatter.JUSTIFIED);
+</pre><a name="isJustifyLastLine"></a><pre>
+        <span class="cc">// Obtains current alignment setting for last line</span>
+        boolean justified = formatter.<span class="ck">isJustifyLastLine()</span>;
+
+        <span class="cc">// Writes a few lines of text</span>
+        page.writeText(
+                "[Last line justification: "
+                + justified
+                + "] "
+                + "Four score and seven years ago our fathers "
+                + "brought forth on this continent a new nation "
+                + "conceived in liberty and dedicated to the "
+                + "proposition that all men are created equal.",
+                new PdfRect(100, 50, 350, 50));
+</pre><a name="setJustifyLastLine"></a><pre>
+        <span class="cc">// Sets last line setting to opposite of current setting</span>
+        formatter.<span class="ck">setJustifyLastLine(!justified)</span>;
+
+        <span class="cc">// Obtains new alignment setting for last line</span>
+        justified = formatter.isJustifyLastLine();
+
+        <span class="cc">// Writes the lines of text again</span>
+        page.writeText(
+                "[Last line justification: "
+                + justified
+                + "] "
+                + "Four score and seven years ago our fathers "
+                + "brought forth on this continent a new nation "
+                + "conceived in liberty and dedicated to the "
+                + "proposition that all men are created equal.",
+                new PdfRect(100, 100, 350, 50));
+
+        document.add(page);
+        document.setOpenAfterSave(true);
+        document.write();
+        writer.dispose();
+    }
+}
+</pre>
+ </body>
+</html>

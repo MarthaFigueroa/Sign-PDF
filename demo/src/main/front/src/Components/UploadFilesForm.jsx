@@ -25,12 +25,6 @@ const UploadFilesForm = (props) => {
         if(file == null)
         return;
         console.log("file: ",file);
-        // const req = {
-        //     filename: file.name,
-        //     certName: cert.name,
-        //     certPass: certPass,
-        //     metadata: file
-        // }
 
         let formData = new FormData();
         formData.append("file", file);
