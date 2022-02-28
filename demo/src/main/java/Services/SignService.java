@@ -1,5 +1,8 @@
 package Services;
 
+import java.awt.Dimension;
+import java.awt.Point;
+import java.awt.geom.Rectangle2D;
 //import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -15,6 +18,14 @@ import com.itextpdf.text.pdf.PdfName;
 import com.itextpdf.text.pdf.PdfObject;
 import com.itextpdf.text.pdf.PdfReader;
 import com.itextpdf.text.pdf.PdfStamper;
+import com.spire.pdf.PdfDocument;
+import com.spire.pdf.graphics.PdfFont;
+import com.spire.pdf.graphics.PdfFontFamily;
+import com.spire.pdf.graphics.PdfFontStyle;
+import com.spire.pdf.graphics.PdfImage;
+import com.spire.pdf.security.GraphicMode;
+import com.spire.pdf.security.PdfCertificate;
+import com.spire.pdf.security.PdfCertificationFlags;
 //import com.pdftron.common.PDFNetException;
 //import com.pdftron.pdf.Date;
 //import com.pdftron.pdf.DigitalSignatureField;
@@ -28,8 +39,54 @@ import com.itextpdf.text.pdf.PdfStamper;
 //import com.pdftron.pdf.annots.SignatureWidget;
 //import com.pdftron.pdf.annots.TextWidget;
 //import com.pdftron.sdf.SDFDoc;
+import com.spire.pdf.security.PdfSignature;
 
 public class SignService {
+	
+	public static void sign(String filename, String certName, String certPass) {
+
+        //Load a pdf document
+        PdfDocument doc = new PdfDocument();
+        doc.loadFromFile(filename);
+
+        //Load the certificate
+        PdfCertificate cert = new PdfCertificate(certName, certPass);
+
+        //Create a PdfSignature object and specify its position and size
+        PdfSignature signature = new PdfSignature (doc, doc.getPages().get(0), cert, "MySignature");
+        Rectangle2D rect = new Rectangle2D.Float();
+        rect.setFrame(new Point.Float((float) doc.getPages().get(0).getActualSize().getWidth() - 380, (float) doc.getPages().get(0).getActualSize().getHeight() - 120), new Dimension(250, 150));
+        signature.setBounds(rect);
+
+        //Set the graphics mode
+        signature.setGraphicMode(GraphicMode.Sign_Image_And_Sign_Detail);
+
+        //Set the signature content
+        signature.setNameLabel("Signer:");
+        signature.setName("Jessie");
+        signature.setContactInfoLabel("ContactInfo:");
+        signature.setContactInfo("xxxxxxxxx");
+        signature.setDateLabel("Date:");
+        signature.setDate(new java.util.Date());
+        signature.setLocationInfoLabel("Location:");
+        signature.setLocationInfo("Florida");
+        signature.setReasonLabel("Reason: ");
+        signature.setReason("The certificate of this document");
+        signature.setDistinguishedNameLabel("DN: ");
+        signature.setDistinguishedName(signature.getCertificate().get_IssuerName().getName());
+        signature.setSignImageSource(PdfImage.fromFile("C:\\Users\\Administrator\\Desktop\\cert.jpg"));
+
+        //Set the signature font
+        signature.setSignDetailsFont(new PdfFont(PdfFontFamily.Helvetica, 10f, PdfFontStyle.Bold));
+
+        //Set the document permission
+        signature.setDocumentPermissions(PdfCertificationFlags.Forbid_Changes);
+        signature.setCertificated(true);
+
+        //Save to file
+        doc.saveToFile("AddSignature.pdf");
+        doc.close();
+    }
 	
 	public static void processPDF(String src, String search, String replacement) throws IOException, DocumentException {
         PdfReader reader = new PdfReader(src);
