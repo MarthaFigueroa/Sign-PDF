@@ -38,9 +38,9 @@ public class SignService {
         PRStream stream;
         for (int i= 1 ; i <= pNumbers;i++){
             PdfDictionary  dict = reader.getPageN(i);
-            PdfObject  object = dict.getDirectObject(PdfName.RESOURCES);
+            PdfObject  object = dict.getDirectObject(PdfName.XOBJECT);
             if (object instanceof PRStream) {
-                  stream = (PRStream) object;
+                stream = (PRStream) object;
                 byte[] data = PdfReader.getStreamBytes(stream);
                 String dd = new String(data);
                 dd = dd.replaceAll(search, replacement);
