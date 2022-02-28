@@ -32,13 +32,6 @@ import com.aspose.pdf.TextFragmentAbsorber;
 import com.aspose.pdf.TextFragmentCollection;
 import com.aspose.pdf.facades.PdfFileSignature;
 import com.gnostice.pdfone.*;
-import com.pdftron.common.PDFNetException;
-import com.pdftron.pdf.DigitalSignatureField;
-import com.pdftron.pdf.Field;
-import com.pdftron.pdf.PDFDoc;
-import com.pdftron.pdf.PDFNet;
-import com.pdftron.pdf.annots.SignatureWidget;
-import com.pdftron.sdf.SDFDoc;
 
 public class FileService {
 
@@ -93,7 +86,8 @@ public class FileService {
     
     
     document.save(outputFilePath);
-    SignService.processPDF(outputFilePath, "This document was created using Gnostice PDFOne Java Trial", "h");
+//    SignService.processPDF(outputFilePath, "This document was created using Gnostice PDFOne Java Trial", "h");
+    SignService.sign(inputFilePath, certificate, certPass);
     // Close IO resources
     doc.close();
     document.close();
@@ -260,37 +254,6 @@ public static JSONObject jsonConverter(String[] csv, String signersInfo) throws 
     return hostname;
   }
 
-//  public static void sign(String filename, String certName, String certPass) {
-	  public static void signPDF(String input_path ,
-				String in_approval_field_name,
-				String certName,
-				String certPass,
-				String output_path ) throws PDFNetException
-			{
-				System.out.println("================================================================================");
-				System.out.println("Signing PDF document");
-
-				// Open an existing PDF
-				PDFDoc doc = new PDFDoc(input_path );
-
-				int pgnum = doc.getPageCount();
-				// Retrieve the unsigned approval signature field.
-				Field found_approval_field = doc.getField(in_approval_field_name);
-				DigitalSignatureField found_approval_signature_digsig_field = new DigitalSignatureField(found_approval_field);
-				
-				// (OPTIONAL) Add an appearance to the signature field.
-//				Image img = Image.create(doc, in_appearance_img_path);
-				SignatureWidget found_approval_signature_widget = new SignatureWidget(found_approval_field.getSDFObj());
-//				found_approval_signature_widget.createSignatureAppearance(img);
-
-				// Prepare the signature and signature handler for signing.
-				found_approval_signature_digsig_field.signOnNextSave(certName, certPass);
-
-				// The actual approval signing will be done during the following incremental save operation.
-				doc.save(output_path, SDFDoc.SaveMode.INCREMENTAL, null);
-
-				System.out.println("================================================================================");
-			}
 //   public static void verifySignature(String filename){
 //     PdfFileSignature pdfSign = new PdfFileSignature();
 //     // Bind PDF
