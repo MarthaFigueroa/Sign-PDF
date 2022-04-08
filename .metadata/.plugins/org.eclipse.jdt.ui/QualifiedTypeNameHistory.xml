@@ -1,18 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="com.fasterxml.jackson.annotation.PropertyAccessor"/>
-    <fullyQualifiedTypeName name="com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility"/>
-    <fullyQualifiedTypeName name="com.fasterxml.jackson.databind.SerializationFeature"/>
-    <fullyQualifiedTypeName name="org.springframework.mock.web.MockMultipartFile"/>
-    <fullyQualifiedTypeName name="org.springframework.core.io.FileSystemResource"/>
-    <fullyQualifiedTypeName name="org.springframework.http.MediaType"/>
-    <fullyQualifiedTypeName name="org.springframework.core.io.ByteArrayResource"/>
-    <fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
-    <fullyQualifiedTypeName name="org.springframework.core.io.InputStreamResource"/>
-    <fullyQualifiedTypeName name="java.io.FileInputStream"/>
-    <fullyQualifiedTypeName name="java.lang.String"/>
-    <fullyQualifiedTypeName name="com.google.cloud.firestore.QuerySnapshot"/>
-    <fullyQualifiedTypeName name="com.google.cloud.firestore.QueryDocumentSnapshot"/>
     <fullyQualifiedTypeName name="com.google.cloud.firestore.CollectionReference"/>
     <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
     <fullyQualifiedTypeName name="Controllers.FileController"/>
@@ -34,7 +21,6 @@
     <fullyQualifiedTypeName name="org.json.simple.parser.JSONParser"/>
     <fullyQualifiedTypeName name="java.util.HashMap"/>
     <fullyQualifiedTypeName name="com.google.cloud.firestore.WriteResult"/>
-    <fullyQualifiedTypeName name="Services.SignatureConfig"/>
     <fullyQualifiedTypeName name="Services.FirebaseStorageStrategy"/>
     <fullyQualifiedTypeName name="java.util.UUID"/>
     <fullyQualifiedTypeName name="org.springframework.web.servlet.config.annotation.PathMatchConfigurer"/>
@@ -52,12 +38,26 @@
     <fullyQualifiedTypeName name="java.io.File"/>
     <fullyQualifiedTypeName name="java.io.FileOutputStream"/>
     <fullyQualifiedTypeName name="java.io.IOException"/>
-    <fullyQualifiedTypeName name="java.io.ByteArrayInputStream"/>
     <fullyQualifiedTypeName name="java.io.InputStream"/>
     <fullyQualifiedTypeName name="Services.CustomMultipartFile"/>
     <fullyQualifiedTypeName name="java.net.URLConnection"/>
     <fullyQualifiedTypeName name="java.net.FileNameMap"/>
-    <fullyQualifiedTypeName name="Services.FileService"/>
     <fullyQualifiedTypeName name="javax.activation.MimetypesFileTypeMap"/>
     <fullyQualifiedTypeName name="org.springframework.web.multipart.MultipartFile"/>
+    <fullyQualifiedTypeName name="java.time.Instant"/>
+    <fullyQualifiedTypeName name="Services.SignatureConfig"/>
+    <fullyQualifiedTypeName name="java.io.BufferedWriter"/>
+    <fullyQualifiedTypeName name="com.spire.ms.System.Security.Cryptography.X509Certificates.X509Certificate"/>
+    <fullyQualifiedTypeName name="java.io.FileInputStream"/>
+    <fullyQualifiedTypeName name="java.security.cert.CertificateFactory"/>
+    <fullyQualifiedTypeName name="java.security.cert.CertificateException"/>
+    <fullyQualifiedTypeName name="java.io.ByteArrayInputStream"/>
+    <fullyQualifiedTypeName name="com.itextpdf.text.pdf.security.PdfPKCS7"/>
+    <fullyQualifiedTypeName name="com.itextpdf.text.pdf.PdfReader"/>
+    <fullyQualifiedTypeName name="com.itextpdf.text.pdf.AcroFields"/>
+    <fullyQualifiedTypeName name="com.spire.ms.System.Collections.ArrayList"/>
+    <fullyQualifiedTypeName name="java.util.Calendar"/>
+    <fullyQualifiedTypeName name="java.security.cert.X509Certificate"/>
+    <fullyQualifiedTypeName name="Services.Signers_Info"/>
+    <fullyQualifiedTypeName name="Services.FileService"/>
 </qualifiedTypeNameHistroy>
