@@ -3,272 +3,116 @@ package Services;
 import java.awt.Rectangle;
 import java.io.File;
 import java.io.IOException;
-import java.io.OutputStream;
-import java.net.InetAddress;
-import java.net.UnknownHostException;
-import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.List;
+import java.util.HashMap;
 
-import org.apache.pdfbox.contentstream.operator.Operator;
-import org.apache.pdfbox.cos.COSArray;
-import org.apache.pdfbox.cos.COSName;
-import org.apache.pdfbox.cos.COSString;
-import org.apache.pdfbox.pdfparser.PDFStreamParser;
-import org.apache.pdfbox.pdfwriter.ContentStreamWriter;
-import org.apache.pdfbox.pdmodel.PDDocument;
-import org.apache.pdfbox.pdmodel.PDPage;
-import org.apache.pdfbox.pdmodel.common.PDStream;
-import org.json.simple.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import com.aspose.pdf.DocMDPAccessPermissions;
-import com.aspose.pdf.DocMDPSignature;
-import com.aspose.pdf.Document;
 import com.aspose.pdf.PKCS7;
-import com.aspose.pdf.Page;
-import com.aspose.pdf.TextFragment;
-import com.aspose.pdf.TextFragmentAbsorber;
-import com.aspose.pdf.TextFragmentCollection;
 import com.aspose.pdf.facades.PdfFileSignature;
+import com.spire.pdf.PdfDocument;
+/*
+import java.io.FileInputStream;
+import java.nio.file.Files;
+import java.util.Map;
+import java.util.List;
+import java.util.concurrent.ExecutionException;
+import org.springframework.beans.factory.annotation.Autowired;
+import com.google.api.core.ApiFuture;
+import com.google.cloud.firestore.*;
+import com.aspose.pdf.Color;
+import com.aspose.pdf.SignatureCustomAppearance;
+import org.json.simple.JSONObject;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.mock.web.MockMultipartFile;
+import com.itextpdf.text.pdf.PdfReader;
 import com.gnostice.pdfone.*;
+*/
 
 public class FileService {
-
-  public static JSONObject addSignature(String filename, String certName, String certPass) throws Exception {
-
-    // Load an existing PDF document
-    PdfDocument doc = new PdfDocument();
-//    String path = new File(".").getCanonicalPath();
-	Path path = Paths.get(filename).toRealPath();
-	Path certPath = Paths.get(certName).toRealPath();
-//    String filePath = filename.split(".")[0];
-    File file = new File(filename);
-//    String path = file.getAbsolutePath();
-//    System.out.println(path);
-    String inputFilePath = path+""; //+"/"+filename;
-    Path outPath = path.getParent();
-    String outputFilePath = outPath +"/Signed_"+filename;
-    doc.load(inputFilePath);
-    String certificate = certPath +""; 
-    PDDocument document = null;
-    
-//    certPass = decryptText(certPass);
-    
-    String[] csv = GenerateCSV.getCSV("CSV", 2018l, file);
-    double[] dimensions = GetPDFPageSize(inputFilePath);
-    double width = dimensions[0];
-    double height = dimensions[1];
-    String signersInfo = Signers_Info.signerInfo();
-    
-    for (int i = 1; i <= doc.getPageCount(); i++) {
-	    // Add signature to the  document
-	    doc.addSignature(certificate,  					// pathname of PFX 
-	    		certPass,                               // password for PFX
-	            csv[1],                  					// reason
-	            getHostName(),                          // location
-	            signersInfo,                            // contact info
-	            i,                                      // page number
-	            "Signature1",                           // field name
-	            new PdfRect(10,height-70,width,60)      // Rect
-		);
-//	    ReplaceTextOnAllPages(outputFilePath, "This document was created using Gnostice PDFOne Java Trial", "");
-//	    ReplaceTextOnAllPages(outputFilePath, "www.gnostice.com", "");
-	     
-    }
-    // Save the document to file
-    doc.save(outputFilePath);
-    doc.load(outputFilePath);
-    document = PDDocument.load(new File(outputFilePath));
-//    replaceText(document, "This document was created using Gnostice PDFOne Java Trial", "");
-//    replaceText(document, "www.gnostice.com", "");
-//    replaceText(document, "lenguaje", "kk");
-    
-    
-    document.save(outputFilePath);
-//    SignService.processPDF(outputFilePath, "This document was created using Gnostice PDFOne Java Trial", "h");
-    SignService.sign(inputFilePath, certificate, certPass);
-    // Close IO resources
-    doc.close();
-    document.close();
-    
-//    PDFNet.initialize(PDFTronLicense.Key());
-    removeFile(inputFilePath);
-    return jsonConverter(csv, signersInfo);
-    // verifySignature(outputFilePath	);
-  }
-  
-  @SuppressWarnings("unchecked")
-public static JSONObject jsonConverter(String[] csv, String signersInfo) throws Exception {
-  	JSONObject responseObject = new JSONObject();
-  	responseObject.put("id", 1);
-  	responseObject.put("Hex", csv[0]);
-  	responseObject.put("CSV", csv[1]);
-  	responseObject.put("Signers", signersInfo);
 	
-//	String id = (String) sampleObject.get("id");
-	String hex = (String) responseObject.get("Hex");
-	String CSV = (String) responseObject.get("CSV");
+	private final static Logger logger = LoggerFactory.getLogger(FileService.class);
+//	private static FileNameMap MIMETYPES = URLConnection.getFileNameMap();
+//	public static String downloadURL = "https://storage.cloud.google.com/validacion-de-documentos.appspot.com/signedDocuments"; 
+//	public static String downloadOriginalURL = "https://storage.cloud.google.com/validacion-de-documentos.appspot.com/originalDocuments";
+	public static String downloadOriginalURL = "https://firebasestorage.googleapis.com/v0/b/validacion-de-documentos.appspot.com/o/originalDocuments%2F%s?alt=media";
+	public static String downloadURL = "https://firebasestorage.googleapis.com/v0/b/validacion-de-documentos.appspot.com/o/signedDocuments%2F%s?alt=media";
 	
-//	System.out.println("id: "+id);  
-	System.out.println("Hex: "+hex);  
-	System.out.println("CSV: "+CSV);  
-	
-//	JSONArray messages = new JSONArray();
-//	messages.add("Hey!");
-//	messages.add("What's up?!");
-//	
-//	sampleObject.put("messages", messages);
-	
-	System.out.println("gg: "+ responseObject);
-	return responseObject;
-  }
-  
-  public static void removeFile(String filename) {
-	  File f= new File(filename);           //file to be delete  
-	  if(f.delete()){                      //returns Boolean value  
-		  System.out.println(f.getName() + " deleted");   //getting and printing the file name  
-	  } else  {
-		  System.out.println("failed");  
-	  }  
-  }
-  
-  public static void ReplaceTextOnAllPages(String filename, String searchString, String replacement) {
-	  System.out.println(filename);
-      try (Document pdfDocument = new Document(filename)) {
-		// Create TextAbsorber object to find all instances of the input search phrase
-		  TextFragmentAbsorber textFragmentAbsorber = new TextFragmentAbsorber(searchString);
-		  
-		  // Accept the absorber for first page of document
-		  pdfDocument.getPages().accept(textFragmentAbsorber);
-			  // Get the extracted text fragments into collection
-			  TextFragmentCollection textFragmentCollection = textFragmentAbsorber.getTextFragments();
-			  
-			  // Loop through the fragments
-			  for (TextFragment textFragment : (Iterable<TextFragment>) textFragmentCollection) {
-				  // Update text and other properties
-				  textFragment.setText(replacement);
-			  }
-		  // Save the updated PDF file
-		  pdfDocument.save("signed.pdf");	   
+	public static String[] getAbsolutePath(String filename) throws IOException {
+		Path path = Paths.get(filename).toRealPath();
+		String inputFilePath = path+"";
+		String outPath = path.getParent()+"";
+		String[] paths = {inputFilePath, outPath};
+		return paths;
 	}
-  }
-  
-  public static PDDocument replaceText(PDDocument document, String searchString, String replacement) throws IOException {
-//      if (StringUtils.isEmpty(searchString) || StringUtils.isEmpty(replacement)) {
-//          return document;
-//      }
+	
+	@SuppressWarnings("resource")
+	public static HashMap<String, Object> addSignature(String filename, String certName, HashMap<String, Object> certMetadata, HashMap<String, Object> docMetadata) throws IOException  {
+		HashMap<String, Object> signedResponse = SignatureConfig.IsPdfSigned(filename);
+		boolean signed = (boolean) signedResponse.get("Signed");
+		PdfDocument doc = new PdfDocument();
+		File file = new File(filename);
+		String inputFilePath = getAbsolutePath(filename)[0];
+		String outDirPath = getAbsolutePath(filename)[1];
+		String outputFilePath =  outDirPath+"/Signed_"+filename;
+		String certificate = getAbsolutePath(certName)[0]; 
+		String certPass = (String) certMetadata.get("certPass");
+		
+		PdfFileSignature pdfSign = new PdfFileSignature();
+		pdfSign.bindPdf(inputFilePath);
+		try {
+			if(!signed) {
+				doc.loadFromFile(inputFilePath);
+				String signersInfo = (String) Signers_Info.signerInfo(certificate, certPass).get("signersInfo");
+//				logger.info("This document is up to be signed named: {}", filename);
+				removeFile(inputFilePath);
+				int x = (int) ((doc.getPages().get(0).getActualSize().getWidth()));
+				int y = (int) ((doc.getPages().get(0).getActualSize().getHeight()));
+				
+				int coordY = y-(y+135);
+				Rectangle rect = new Rectangle(10, coordY, x, 200);
+//				pdfSign.setSignatureAppearance ( outDirPath + "/UNEAT.jpg");
+				PKCS7 pkcs = new PKCS7(certificate, certPass);
+				pkcs = SignatureConfig.configSignature(pkcs);
+				pdfSign.setCertificate(certificate, certPass);
+//				System.out.println(metadata);
+				String[] csv = GenerateCSV.getCSV("CSV", 2018l, file, docMetadata);
+				pdfSign.sign(1, signersInfo, SignatureConfig.getHostName(), csv[1], true, rect, pkcs);
+//				pdfSign.sign(1, "gggggggg", SignatureConfig.getHostName(), csv[1], true, rect, pkcs);
+				logger.info("File is signed {}", inputFilePath);	
+				pdfSign.save(outputFilePath);
+//				removeFile(outputFilePath);
+				pdfSign.close();
+				return SignatureConfig.jsonConverter(csv, signersInfo, filename, outDirPath, certMetadata, docMetadata);				
+			}else {
+				HashMap<String, Object> Signed = new HashMap<String, Object>();
+				logger.info("This document is already signed");
+				Signed.put("preSigned", true);
+				Signed.put("SignedRes", "This document is already signed");
+				return Signed;
+			}
+		} catch (Exception e) {
+//			removeFile(inputFilePath);
+			
+			HashMap<String, Object> responseObject = new HashMap<String, Object>();
+			responseObject.put("Error", e);
+			pdfSign.close();
+			return responseObject;
+		}		
+	}
+	
+	public static void removeFile(String filename) {
+		File f = new File(filename); //file to be delete  
+		System.out.println(filename);
+		if (f.exists()) {
+			if(f.delete()){                      //returns Boolean value  
+				System.out.println(f.getName() + " deleted");   //getting and printing the file name  
+			} else  {
+				System.out.println("failed");  
+			}  
+		}
+	}
 
-      for (PDPage page : document.getPages()) {
-//    	  This will parse a PDF byte stream and extract operands
-          PDFStreamParser parser = new PDFStreamParser(page);
-          parser.parse();
-//        This will get the tokens that were parsed from the stream.
-          List<?> tokens = parser.getTokens();
-
-          for (int j = 0; j < tokens.size(); j++) {
-              Object next = tokens.get(j);
-              if (next instanceof Operator) {
-                  Operator op = (Operator) next;
-
-                  String pstring = "";
-                  int prej = 0;
-
-                  if (op.getName().equals("Tj")) {
-                      COSString previous = (COSString) tokens.get(j - 1);
-                      String string = previous.getString();
-                      string = string.replaceFirst(searchString, replacement);
-                      System.out.println(string);
-//                      string = new String(string.getBytes(), "ISO-8859-2");
-                      previous.setValue(string.getBytes("ISO-8859-2")); //ISO-8859-2
-                  } else if (op.getName().equals("TJ")) {
-                      COSArray previous = (COSArray) tokens.get(j - 1);
-                      for (int k = 0; k < previous.size(); k++) {
-                          Object arrElement = previous.getObject(k);
-                          if (arrElement instanceof COSString) {
-                              COSString cosString = (COSString) arrElement;
-                              String string = cosString.getString();
-                              System.out.println(string);
-                              if (j == prej) {
-                                  pstring += string;
-                              } else {
-                                  prej = j;
-                                  pstring = string;
-                              }
-                          }
-                      }
-
-                      if (searchString.equals(pstring.trim())) {
-                          COSString cosString2 = (COSString) previous.getObject(0);
-                          cosString2.setValue(replacement.getBytes("ISO-8859-2"));//ISO-8859-2
-
-                          int total = previous.size() - 1;
-                          for (int k = total; k > 0; k--) {
-                              previous.remove(k);
-                          }
-                      }
-                  }
-              }
-          }
-          PDStream updatedStream = new PDStream(document);
-          OutputStream out = updatedStream.createOutputStream(COSName.FLATE_DECODE);
-//          BufferedWriter out = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(out1, true), "UTF-8"));
-          ContentStreamWriter tokenWriter = new ContentStreamWriter(out);
-          tokenWriter.writeTokens(tokens);
-          page.setContents(updatedStream);
-          out.close();
-      }
-
-      return document;
-  }
-
-  public static double[] GetPDFPageSize(String filename) {
-      
-      // Open first document
-      Document pdfDocument = new Document(filename);
-              
-      // Adds a blank page to pdf document
-      Page page = pdfDocument.getPages().size() > 0 ? pdfDocument.getPages().get_Item(1): pdfDocument.getPages().add();
-      
-      double width = page.getPageRect(true).getWidth();
-      double height = page.getPageRect(true).getHeight();
-      double[] dimensions = {width, height};
-      pdfDocument.close();
-      
-      return dimensions;
-  }
-
-  public static String getHostName(){
-    String hostname = "Unknown";
-
-    try
-    {
-        InetAddress addr;
-        addr = InetAddress.getLocalHost();
-        hostname = addr.getHostName();
-    }
-    catch (UnknownHostException ex)
-    {
-        System.out.println("Hostname can not be resolved");
-    }
-    return hostname;
-  }
-
-//   public static void verifySignature(String filename){
-//     PdfFileSignature pdfSign = new PdfFileSignature();
-//     // Bind PDF
-//     pdfSign.bindPdf(filename);
-//     // Verify signature using signature name
-//     if (pdfSign.verifySigned("Signature1"))
-//     {
-//         if (pdfSign.isCertified()) // Certified?
-//         {
-//             if (pdfSign.getAccessPermissions() == DocMDPAccessPermissions.FillingInForms) // Get access permission
-//             {
-//                 System.out.println("Verified");
-//             }
-//         } 
-//     }
-//     pdfSign.close();
-//   }
 }

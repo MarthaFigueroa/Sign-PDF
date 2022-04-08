@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components{
+    /* BODY */
+    body{
+        @apply bg-gray-100;
+    }
+
+    /* NAVBAR */
+    .sticky {
+        @apply fixed w-full top-0 z-10;
+    }
+
+    .sticky + .content {
+        @apply pt-9;
+    }
+
+    .bg-light{
+        @apply bg-gray-200;
+    }
+    .navbar-expand-md{
+        @apply md:flex-nowrap;
+    }
+    .navbar{
+        @apply relative flex text-center right-0 pl-1;
+    }
+
+    .collapse{
+        @apply hidden;
+    }
+
+    /* .navbar-collapse {
+        @apply basis-full grow;
+    } */
+
+    /* Forms */
+    .btn-primary {
+        @apply py-2 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-50 flex ;
+    }
+
+    .input-group{
+        @apply flex relative flex-nowrap border-none relative items-stretch w-full mb-4;
+    }
+    
+    .input-div{
+        @apply relative items-stretch w-full flex-nowrap border-none;
+    }
+
+    .icon-group{
+        @apply flex leading-6 text-center mb-6 bg-icon-group border-none h-12 p-2 rounded-l-lg text-white;
+    }
+
+    /* Lists */
+    .card{
+        @apply bg-white hover:bg-gray-100 shadow-xl cursor-pointer w-80 rounded-2xl flex flex-col transition-all transform-gpu translate-y-0 hover:-translate-y-3 duration-500 ease-in-out;
+    }
+
+    .btn-download{
+        @apply h-10 bg-blue-400 flex items-center justify-center text-xl hover:bg-blue-500 text-white rounded-2xl shadow-xl transform-gpu translate-y-0 hover:-translate-y-1 transition-all duration-300 ease-in-out;
+    }
+}
