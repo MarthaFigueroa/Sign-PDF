@@ -52,12 +52,11 @@ const UploadFilesForm = (props) => {
     const handleCreatedCert = async (e) =>{
         const filename = e.target.value;
         console.log(filename);
-        // console.log(certs);
 
         if(filename !== "Seleccione un certificado"){
             const certName = certs.filter(cert => cert.Filename === filename);
             const certType = certName[0].type;
-            console.log(certType);
+
             await axios.get(`/file/${filename}`, {
                 headers: {
                     Accept: "application/json ,text/plain, */*"
@@ -137,14 +136,16 @@ const UploadFilesForm = (props) => {
                 type: "application/json"
             }));
 
+            console.log("Almost uploaded");
+
             await axios.post('/uploadSigned', formDataSigned, {
                 headers: {
                     Accept: "application/json ,text/plain, */*"
                 },
             }).then(async res => {
                 console.log("Response Data File",res.data);
-                await goTo('/documents');
-                await props.message(`Se ha firmado un nuevo Documento: ${file.name}`, "success");
+                // await goTo('/documents');
+                // await props.message(`Se ha firmado un nuevo Documento: ${file.name}`, "success");
             });
         })
     }
@@ -163,25 +164,28 @@ const UploadFilesForm = (props) => {
                 }
             }else if(!res.data.preSigned){
                 console.log("Response File Data",res.data.FileData);
+                const FileData = res.data.FileData;
     
                 const OriginalFile = {
-                    "Filename": res.data.FileData.Filename,
-                    "File_hash": res.data.FileData.File_hash,
-                    "File": res.data.FileData.File,
-                    "LastModified": res.data.FileData.LastModified_originalFile,
-                    "Size": res.data.FileData.Size_originalFile,
-                    "Type": res.data.FileData.Type_originalFile
+                    "Filename": FileData.Filename,
+                    "File_hash": FileData.File_hash,
+                    "File": FileData.File,
+                    "Created_at": FileData.Created_at,
+                    "LastModified": FileData.LastModified_originalFile,
+                    "Size": FileData.Size_originalFile,
+                    "Type": FileData.Type_originalFile
                 }
     
                 const SignedFile = {
-                    "Filename": res.data.FileData.Signed_filename,
-                    "CSV": res.data.FileData.CSV,
-                    "Signers": res.data.FileData.Signers,
-                    "File_hash": res.data.FileData.Signed_file_hash,
-                    "File": res.data.FileData.Signed_file,
-                    "LastModified": res.data.FileData.LastModified_signedFile,
-                    "Size": res.data.FileData.Size_signedFile,
-                    "Type": res.data.FileData.Type_signedFile,
+                    "Filename": FileData.Signed_filename,
+                    "CSV": FileData.CSV,
+                    "Signers": FileData.Signers,
+                    "File_hash": FileData.Signed_file_hash,
+                    "File": FileData.Signed_file,
+                    "Created_at": FileData.Created_at,
+                    "LastModified": FileData.LastModified_signedFile,
+                    "Size": FileData.Size_signedFile,
+                    "Type": FileData.Type_signedFile,
                 }
     
                 const docData = {
@@ -202,7 +206,7 @@ const UploadFilesForm = (props) => {
                 await firestore.collection('documents').add(docData);
                 const signed = res.data.FileData.Signed_filename;
                 
-                convertToBlob(signed);
+                await convertToBlob(signed);
     
                 await uploadDoc(`/originalDocuments/${file.name}`, file, file.name);
                 const arr = [];
@@ -233,53 +237,35 @@ const UploadFilesForm = (props) => {
         if(file == null)
         return;
 
-        // firestore.collection('documents').where('OriginalFile.Filename', '==', file.name).get()
-        // .then(async (querySnapshot) => {
-        //     // total matched documents
-        //     const matchedDocs = querySnapshot.size
-        //     if (matchedDocs) {
-        //         querySnapshot.docs.forEach(async doc => {
-        //             console.log(doc.id, "=>", doc.data())
-        //             await props.message("El documento que ha intentado firmar ya existe", "warning");
-        //         })
-        //     } else {
-                console.log("0 documents matched the query")
-                const metadata = {
-                    name: String(file.name),
-                    lastModified: String(file.lastModified),
-                    size: file.size,
-                    type: String(file.type)
-                }
+        const metadata = {
+            name: String(file.name),
+            lastModified: String(file.lastModified),
+            size: file.size,
+            type: String(file.type)
+        }
 
-                const certMetadata = {
-                    name: String(cert.name),
-                    lastModified: String(cert.lastModified),
-                    size: cert.size,
-                    type: String(cert.type),
-                    certPass: String(certPass)
-                }
+        const certMetadata = {
+            name: String(cert.name),
+            lastModified: String(cert.lastModified),
+            size: cert.size,
+            type: String(cert.type),
+            certPass: String(certPass)
+        }
+
+        console.log("Cert:",cert);
+        const filesData = new FormData();
+        filesData.append("file", file);
+        filesData.append("cert", cert);
+        filesData.append('data', new Blob([JSON.stringify({
+            "docMetadata": metadata,
+            "certMetadata": certMetadata,
+        })], {
+            type: "application/json"
+        }));
         
-                console.log("Cert:",cert);
-                const filesData = new FormData();
-                filesData.append("file", file);
-                filesData.append("cert", cert);
-                filesData.append('data', new Blob([JSON.stringify({
-                    // "certPass": certPass,
-                    // "certLast": certLast,
-                    // "docLast": docLast,
-                    "docMetadata": metadata,
-                    "certMetadata": certMetadata,
-                    // "certName": cert.name,
-                    // "metadata": JSON.stringify(metadata)
-                })], {
-                    type: "application/json"
-                }));
-                
-                if(cert !== null){
-                    signDoc(filesData);
-                }
-        //     }
-        // })
+        if(cert !== null){
+            signDoc(filesData);
+        }
     }
     
     const uploadDoc = async (url, doc, filename) => {

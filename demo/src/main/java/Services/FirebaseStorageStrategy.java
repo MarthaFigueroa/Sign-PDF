@@ -157,7 +157,7 @@ public class FirebaseStorageStrategy {
         BlobInfo blobInfo = BlobInfo.newBuilder(blobId)
         		.setContentType("application/pdf")
         		.build();
-        File fileKey = new File("serviceAccountKey.json");
+        File fileKey = new File("serviceAccountKey2.json");
         FileInputStream serviceAccount = new FileInputStream(fileKey);
 		Storage storage = StorageOptions.newBuilder()
         		.setCredentials(GoogleCredentials.fromStream(serviceAccount))

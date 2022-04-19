@@ -3,19 +3,29 @@ import React, { useEffect } from "react";
 // import PdfTest from '../ExtraComponents/PdfTest'
 // import classNames from "classnames";
 import * as Icons from "react-icons/hi";
+import TimeAgo from 'react-timeago';
 import * as Icon from "@material-ui/icons";
-// import { BsChatSquareFill } from "react-icons/bs";
+import image from "./../../public/img/signerUser.png";
+import spanishStrings from 'react-timeago/lib/language-strings/es'
+import buildFormatter from 'react-timeago/lib/formatters/buildFormatter'
 
-// import styles from "./Card.module.css";
 
 const Card = ({ doc, url, onDeleteDoc, index, type }) => {
-  
+  const formatter = buildFormatter(spanishStrings);
+  // const [date, setDate] = useState("");
+  // const [image, setImage] = useState("");
+
+  // const formatterDate = (datetime) =>{
+  //   var date = new Date(datetime).toLocaleString("en-US");
+  //   console.log("Datetime: ",date);
+  //   // setDate(date);
+  // }
+
   useEffect(() => {
     const pdfPreview = (url) =>{
       // Loaded via <script> tag, create shortcut to access PDF.js exports.
       var pdfjsLib = window['pdfjs-dist/build/pdf'];
       pdfjsLib.GlobalWorkerOptions.workerSrc = '//mozilla.github.io/pdf.js/build/pdf.worker.js';
-  
       var loadingTask = pdfjsLib.getDocument(url);
       loadingTask.promise.then(function(pdf) {
         // Fetch the first page
@@ -23,13 +33,12 @@ const Card = ({ doc, url, onDeleteDoc, index, type }) => {
         pdf.getPage(pageNumber).then(function(page) {
           var scale = 0.5;
           var viewport = page.getViewport({scale: scale});
-  
           // Prepare canvas using PDF page dimensions
           // var canvas = document.getElementById('the-canvas');
+          // var canvas = document.getElementById(index);
           var div = document.getElementById(doc.id);
           var canvas = document.createElement('canvas');
           canvas.id = index;
-          // canvas.classList.add("object-cover w-full h-full");
           var context = canvas.getContext('2d');
           canvas.height = 224;
           canvas.width = 320;
@@ -47,23 +56,36 @@ const Card = ({ doc, url, onDeleteDoc, index, type }) => {
         // PDF loading error
         console.error(reason);
       });
-  
     }
-    if(type === "doc"){
-      pdfPreview(url);
-      // let params = [url, doc.id, index];
-    }
-    else {
-      console.log("gg");
+    // console.log("Prueba");
 
+    if(type === "doc"){
+      pdfPreview(url, doc, index);
+      console.log("Render :)");
+      // formatterDate(doc.OriginalFile.Created_at);
     }
-  }, [url, doc.id, index, type])
+    else if(type === "cert"){
+      console.log("gg");
+    }
+  }, [url, doc, index, type])//url, doc.id, index, type
   
 
   return (
     // hover:shadow-none
     <div className="card">
-      <div id={doc.id} className="h-56 rounded-t-2xl overflow-hidden relative w-full">
+      <div id={doc.id} className="h-56 rounded-t-2xl overflow-hidden relative w-full justify-center flex">
+        {(()=>{
+          if(type === "cert"){
+            return(
+              <img className="signersIcon" src={image} alt="Signers User" />
+            )
+          }
+          // else if(type === "doc"){
+          //   return(
+          //     // <canvas id={index} height="224" width="320">{pdfPreview(url, doc, index)}</canvas>
+          //   )
+          // }
+        })()}
         <div className="absolute right-0 mr-3">
           {(() =>{
             if(type === "cert"){
@@ -74,15 +96,33 @@ const Card = ({ doc, url, onDeleteDoc, index, type }) => {
               )                
             }else if(type === "doc"){
               return(
-                <button onClick={()=>onDeleteDoc(doc.id, doc.OriginalFile.Filename)}>
-                  <Icon.Close />
-                </button>
+                <>
+                  <button onClick={()=>onDeleteDoc(doc.id, doc.OriginalFile.Filename)}>
+                    <Icon.Close />
+                  </button>
+                </>
               )
             }
           })()}
         </div>
       </div>
-      <div className=" bottom-0 left-0 -mb-4 mx-auto flex flex-row justify-center pt-2">
+      <div className="flex relative mb-5">
+        <div className="flex absolute right-0">
+          {/* {date} */}
+          {(()=>{
+          if(type === "cert"){
+            return(
+              <TimeAgo date={doc.Created_at} formatter={formatter}/>
+            )
+          }else if(type === "doc"){
+            return(
+              <TimeAgo date={doc.OriginalFile.Created_at}/>
+            )
+          }
+        })()}
+        </div>
+      </div>
+      <div className="relative bottom-0 left-0 -mb-4 mx-auto flex flex-row justify-center pt-2">
         {/* absolute */}
         {(() =>{
           if(type === "cert"){

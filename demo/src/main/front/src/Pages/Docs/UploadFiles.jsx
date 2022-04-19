@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import NavBar from '../../Components/Navbar'
 import UploadFile from '../../Components/Documents/UploadFile.jsx';
 import {ToastContainer} from 'react-toastify';

@@ -1,6 +1,5 @@
 package Services;
 
-import java.awt.Rectangle;
 import java.io.File;
 import java.io.IOException;
 import java.time.Instant;
@@ -15,7 +14,6 @@ import org.slf4j.LoggerFactory;
 import com.aspose.pdf.Color;
 import com.aspose.pdf.PKCS7;
 import com.aspose.pdf.SignatureCustomAppearance;
-import com.aspose.pdf.facades.PdfFileSignature;
 
 public class SignatureConfig {
 	
@@ -25,25 +23,6 @@ public class SignatureConfig {
 	public static String downloadURL = "https://firebasestorage.googleapis.com/v0/b/validacion-de-documentos.appspot.com/o/";
 //	public static String downloadOriginalURL = "https://firebasestorage.googleapis.com/v0/b/validacion-de-documentos.appspot.com/o/originalDocuments";
 //	public static String downloadURL = "https://firebasestorage.googleapis.com/v0/b/validacion-de-documentos.appspot.com/o/signedDocuments";
-
-	public static HashMap<String, Object> IsPdfSigned(String filename) throws IOException {
-		PdfFileSignature pdfSign = new PdfFileSignature();
-		//	      JSONObject responseObject = new JSONObject();
-		HashMap<String, Object> responseObject = new HashMap<String, Object>();
-		filename = FileService.getAbsolutePath(filename)[0];
-		pdfSign.bindPdf(filename);
-		if (pdfSign.containsSignature()) {
-			responseObject.put("Signed", true);
-			responseObject.put("Message", "Document Signed");  	  
-		}else {
-			responseObject.put("Signed", false);
-			responseObject.put("Message", "Document not Signed");
-		}
-
-		pdfSign.close();
-		  
-		return responseObject;
-	}
 
 	public static HashMap<String, Object> jsonConverter(String[] csv, String signersInfo, String originalFileName, String parent, HashMap<String, Object> certMetadata, HashMap<String, Object> docMetadata) throws Exception {
 		String signedFileName = "Signed_"+originalFileName;
@@ -61,6 +40,7 @@ public class SignatureConfig {
         responseCert.put("Signers", signersInfo);
         responseCert.put("File", downloadURL+"certificates%2F"+certMetadata.get("name")+"?alt=media");
         responseCert.put("Filename", certMetadata.get("name"));
+        responseCert.put("Created_at", timeStampMillis);
         responseCert.put("LastModified", certMetadata.get("lastModified"));
         responseCert.put("Size", certMetadata.get("size"));
         responseCert.put("type", certMetadata.get("type"));
@@ -71,6 +51,7 @@ public class SignatureConfig {
         responseFile.put("File_hash", csv[0]);
         responseFile.put("File", downloadURL+"originalDocuments%2F"+originalFileName+"?alt=media");
         responseFile.put("LastModified_originalFile", docMetadata.get("lastModified"));
+        responseFile.put("Created_at", timeStampMillis);
         responseFile.put("Size_originalFile", docMetadata.get("size"));
         responseFile.put("Type_originalFile", docMetadata.get("type"));
         

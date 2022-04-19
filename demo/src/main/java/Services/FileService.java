@@ -3,6 +3,7 @@ package Services;
 import java.awt.Rectangle;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.HashMap;
@@ -39,6 +40,15 @@ public class FileService {
 //	public static String downloadOriginalURL = "https://storage.cloud.google.com/validacion-de-documentos.appspot.com/originalDocuments";
 	public static String downloadOriginalURL = "https://firebasestorage.googleapis.com/v0/b/validacion-de-documentos.appspot.com/o/originalDocuments%2F%s?alt=media";
 	public static String downloadURL = "https://firebasestorage.googleapis.com/v0/b/validacion-de-documentos.appspot.com/o/signedDocuments%2F%s?alt=media";
+	private final Path root = Paths.get("Uploads");
+	
+	public void init() {
+	    try {
+	      Files.createDirectory(root);
+	    } catch (IOException e) {
+	      throw new RuntimeException("Could not initialize folder for upload!");
+	    }
+	}
 	
 	public static String[] getAbsolutePath(String filename) throws IOException {
 		Path path = Paths.get(filename).toRealPath();
@@ -50,7 +60,7 @@ public class FileService {
 	
 	@SuppressWarnings("resource")
 	public static HashMap<String, Object> addSignature(String filename, String certName, HashMap<String, Object> certMetadata, HashMap<String, Object> docMetadata) throws IOException  {
-		HashMap<String, Object> signedResponse = SignatureConfig.IsPdfSigned(filename);
+		HashMap<String, Object> signedResponse = SignatureService.IsPdfSigned(filename);
 		boolean signed = (boolean) signedResponse.get("Signed");
 		PdfDocument doc = new PdfDocument();
 		File file = new File(filename);
