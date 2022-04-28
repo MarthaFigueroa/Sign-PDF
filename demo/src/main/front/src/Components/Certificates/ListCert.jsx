@@ -62,7 +62,7 @@ const ListCert = () => {
   }, []);
   return (
     <div className='content'>
-      <Searchbar />
+      <Searchbar type='cert'/>
       <main className="h-full md:h-screen w-full">
         <section className="container mx-auto px-0 md:px-4 py-4">
           <ul id="List">

@@ -6,7 +6,7 @@ import AddLinks from '../Pages/Links/AddLinks';
 import UploadFiles from '../Pages/Docs/UploadFiles';
 import EditLinks from '../Pages/Links/EditLinks';
 // import ListDocs from '../Pages/Docs/ListDocs';
-import ListSignedDocs from '../Pages/Docs/ListSignedDocs';
+import ValidateFiles from '../Pages/Docs/ValidateFiles';
 import ListLinks from '../Pages/Links/ListLinks';
 import LoginPage from '../Pages/Extra/LoginPage';
 import ListPruebas from '../Pages/Extra/ListPruebas';
@@ -26,7 +26,7 @@ function App() {
                 <Route exact path="/documents" element={<ListDocuments />} />
                 <Route exact path="/certificates" element={<ListCerts />} />
                 {/* <Route exact path="/documents" element={<ListDocs />} /> */}
-                <Route exact path="/signedDocuments" element={<ListSignedDocs />} />
+                <Route exact path="/validateDocuments" element={<ValidateFiles />} />
                 <Route exact path="/uploadFile" element={<UploadFiles type='doc' />} />
                 <Route exact path="/uploadCert" element={<UploadCerts />} />
                 <Route exact path="/newLink" element={<AddLinks />} />

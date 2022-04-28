@@ -31,7 +31,13 @@ const Card = ({ doc, url, onDeleteDoc, index, type }) => {
         // Fetch the first page
         var pageNumber = 1;
         pdf.getPage(pageNumber).then(function(page) {
-          var scale = 0.5;
+          let scale;
+          if(type==="validate"){
+            scale = 0.6;
+          }else{
+            scale = 0.5;
+          }
+          
           var viewport = page.getViewport({scale: scale});
           // Prepare canvas using PDF page dimensions
           // var canvas = document.getElementById('the-canvas');
@@ -40,8 +46,15 @@ const Card = ({ doc, url, onDeleteDoc, index, type }) => {
           var canvas = document.createElement('canvas');
           canvas.id = index;
           var context = canvas.getContext('2d');
-          canvas.height = 224;
-          canvas.width = 320;
+          // canvas.height = 224;
+          // canvas.width = 420;
+          if(type === "validate"){
+            canvas.height = 224;
+            canvas.width = 420;
+          }else{
+            canvas.height = 224;
+            canvas.width = 320;
+          }
           div.appendChild(canvas);
           // Render PDF page into canvas context
           var renderContext = {
@@ -57,9 +70,8 @@ const Card = ({ doc, url, onDeleteDoc, index, type }) => {
         console.error(reason);
       });
     }
-    // console.log("Prueba");
 
-    if(type === "doc"){
+    if(type === "doc" || type === "validate"){
       pdfPreview(url, doc, index);
       console.log("Render :)");
       // formatterDate(doc.OriginalFile.Created_at);
@@ -72,7 +84,7 @@ const Card = ({ doc, url, onDeleteDoc, index, type }) => {
 
   return (
     // hover:shadow-none
-    <div className="card">
+    <div className={type==="validate"? "card w-full": "card"}>
       <div id={doc.id} className="h-56 rounded-t-2xl overflow-hidden relative w-full justify-center flex">
         {(()=>{
           if(type === "cert"){
@@ -80,11 +92,6 @@ const Card = ({ doc, url, onDeleteDoc, index, type }) => {
               <img className="signersIcon" src={image} alt="Signers User" />
             )
           }
-          // else if(type === "doc"){
-          //   return(
-          //     // <canvas id={index} height="224" width="320">{pdfPreview(url, doc, index)}</canvas>
-          //   )
-          // }
         })()}
         <div className="absolute right-0 mr-3">
           {(() =>{
@@ -114,7 +121,7 @@ const Card = ({ doc, url, onDeleteDoc, index, type }) => {
             return(
               <TimeAgo date={doc.Created_at} formatter={formatter}/>
             )
-          }else if(type === "doc"){
+          }else if(type === "doc" || type === "validate"){
             return(
               <TimeAgo date={doc.OriginalFile.Created_at}/>
             )
@@ -133,7 +140,7 @@ const Card = ({ doc, url, onDeleteDoc, index, type }) => {
                 </a>  
               </div>
             )
-          }else if(type === "doc"){
+          }else if(type === "doc" || type === "validate"){
             return(
             <>
               <div className="btn-download">
@@ -154,11 +161,11 @@ const Card = ({ doc, url, onDeleteDoc, index, type }) => {
 
       <div className="pt-10 pb-6 w-full px-4">
         {(() =>{
-          if (type === "doc") {
+          if (type === "doc" || type === "validate") {
             return(
               <>
                 <h1 className="font-medium leading-none text-base tracking-wider text-black-400">{doc.OriginalFile.Filename}</h1>
-                <h2 className="font-medium leading-none text-base tracking-wider text-black-400">CSV: {doc.SignedFile.CSV}</h2>
+                <h2 className="font-medium leading-none text-base tracking-wider text-black-400 hidden">CSV: {doc.SignedFile.CSV}</h2>
               </>
             )
           }else if (type === "cert") {

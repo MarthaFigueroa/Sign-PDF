@@ -12,15 +12,6 @@ function UploadFile({type}) {
         navigate(route);
     }
 
-    // const createdFile = async (linkName) =>{
-    //     console.log(linkName);
-    //     await goTo('/documents');
-    //     await toast(`Se ha firmado un nuevo documento: ${linkName}`, {
-    //         type: 'success',
-    //         autoClose: 2000
-    //     });
-    // }
-
     const message = async (msg, type) =>{
         type === "success" ? goTo('/documents') : console.log("Alert");
         console.log(msg);
@@ -32,7 +23,7 @@ function UploadFile({type}) {
 
     return (
         <>
-            <div className="p-3 bg-icon-group text-white flex justify-center rounded-t-xl font-bold text-xl border-b-2">Cargar un Nuevo Documento</div>
+            <div className="p-3 bg-icon-group text-white flex justify-center rounded-t-xl font-bold text-xl border-b-2">Firmar un Documento</div>
             <div className="flex p-2">
                 <div className='w-full'>
                     <UploadFilesForm message={message} type={type}/>

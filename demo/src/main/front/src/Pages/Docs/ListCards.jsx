@@ -3,7 +3,7 @@ import { ToastContainer } from 'react-toastify';
 // import NavBar from '../../Components/NavBar.jsx'
 // import 'react-toastify/dist/ReactToastify.css';
 import ListCard from '../../Components/Documents/ListCard';
-import Navbar from '../../Components/Navbar';
+import Navbar from '../../Components/ExtraComponents/Navbar';
 
 const ListDocs = () => {
     

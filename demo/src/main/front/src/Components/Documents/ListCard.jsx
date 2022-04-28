@@ -3,15 +3,10 @@ import { firestore, storage } from '../../firebaseConfig'
 import { toast } from 'react-toastify';
 import Card from '../ExtraComponents/Card';
 import Searchbar from '../ExtraComponents/Searchbar';
-// import PdfTest from '../ExtraComponents/PdfTest'
-// import Preview from '../ExtraComponents/Preview'
-// import { useNavigate } from 'react-router-dom'
-// import Login from '../ExtraComponents/Login';
 
 const ListCard = () => {
   const [docs, setDocs] = useState([]);
   // const [url, setUrl] = useState([]);
-  // const [docUrls, setDocUrl] = useState([]);
 
   // const navigate = useNavigate();
 
@@ -26,8 +21,10 @@ const ListCard = () => {
       if(confirmation===true){
           await firestore.collection('documents').doc(id).delete();
           let imageRef = storage.refFromURL(`gs://validacion-de-documentos.appspot.com/originalDocuments/${filename}`);
+          let signedImageRef = storage.refFromURL(`gs://validacion-de-documentos.appspot.com/signedDocuments/Signed_${filename}`);
           await imageRef.delete();
-          toast('Document Removed Successfully', {
+          await signedImageRef.delete();
+          await toast('Document Removed Successfully', {
               type: 'error',
               autoClose: 2000
           });
@@ -80,23 +77,9 @@ const ListCard = () => {
       const docs = [];
       firestore.collection('documents').onSnapshot(snapshot => {
         snapshot.forEach((doc, index) => {
-          // storage.ref(`/originalDocuments/${doc.data().OriginalFile.Filename}`).getDownloadURL()
-          //   .then((url) => {
-          //     console.log("Download URL:",url);
-          //     docUrls.push({...url, id: doc.id});
-          // })
-          // console.log("Index:",docUrls[index]);
-          // console.log(doc.data());
           docs.push({...doc.data(), id: doc.id}); 
-          // console.log(doc.data().SignedFile.CSV);
-            // docUrls.push([doc.data().OriginalFile.File])
-            // storage.ref().getDownloadURL()
         });
-        // console.log(docs);
         setDocs(docs);
-        // setUrl(urls);
-        // setDocUrl(docUrls);
-
       });
     }
     getDocs();
@@ -121,7 +104,7 @@ const ListCard = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 justify-items-center gap-4">
               {docs.map((doc, index) =>(
                 // {doc}
-                <div key={index} className="col-md-4 docs-div">
+                <div key={index} className="docs-div">
                   <li key={index}>
                     {/*  filename={doc.OriginalFile.Filename */}
                     <Card onDeleteDoc={onDeleteDoc} index={index} doc={doc} url={doc.OriginalFile.File} type="doc" pdfPreview={pdfPreview} />

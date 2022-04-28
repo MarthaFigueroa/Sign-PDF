@@ -9,7 +9,8 @@ module.exports = {
         'toggle-span': '#0077b6'
       },
       screens: {
-        'mobile': {'max': '639px'}
+        'mobile': {'max': '639px'},
+        'smd': '874px'
       }
     },
   },

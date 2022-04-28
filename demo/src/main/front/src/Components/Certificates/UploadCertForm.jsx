@@ -50,8 +50,13 @@ const UploadFilesForm = (props) => {
         // uploadBytes(storageRef, doc).then((snapshot) => {
         //     console.log('Uploaded a blob or file named!', filename);
         // });
+        const metadata = {
+            contentType: 'application/x-pkcs12',
+            size: doc.size
+        };
+          
         // Create storage ref & put the file in it
-        storage.ref(url).put(doc)
+        storage.ref(url).put(doc, metadata)
             .on("state_changed" , 
             console.log(`success uploading ${filename}`),
                 // console.log(`${filename} Uploaded`)
@@ -86,16 +91,17 @@ const UploadFilesForm = (props) => {
         await axios.post(`/certs`, certsData, {
             headers: {
                 'Content-Type': 'multipart/form-data',
-            }
+            },
+            responseType:"application/x-pkcs12"
         })
         .then(async res => {
             console.log("Response Data",res.data);
             const data = res.data;
-            if(res.data.Error){
-                if(res.data.Error.message === "The specified network password is not correct."){
+            if(data.Error){
+                if(data.Error.message === "The specified network password is not correct."){
                     await props.message("La clave del Certificado es incorrecta", "error");
                 }
-            }else if(res.data.Signers !== null){
+            }else if(data.Signers !== null){
                 firestore.collection('certificates').where("Filename", '==', data.Filename && "Signers", '==', data.Signers).get()
                 .then(async (querySnapshot) => {
                     // total matched documents
@@ -107,7 +113,7 @@ const UploadFilesForm = (props) => {
                         .then(async res => {
                             const certNames = res.items.filter(item => item.name === data.Filename);
                             if(certNames.length === 0){
-                                await uploadDoc(`/certificates/${data.Filename}`, data, data.Filename);
+                                await uploadDoc(`/certificates/${cert.name}`, cert, cert.name);
                             }
                             goTo('/certificates');
                             props.message(`Se ha añadido un nuevo Certificado Digital: ${data.Filename}`, "success")

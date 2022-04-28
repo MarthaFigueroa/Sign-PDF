@@ -24,7 +24,7 @@ public class SignatureConfig {
 //	public static String downloadOriginalURL = "https://firebasestorage.googleapis.com/v0/b/validacion-de-documentos.appspot.com/o/originalDocuments";
 //	public static String downloadURL = "https://firebasestorage.googleapis.com/v0/b/validacion-de-documentos.appspot.com/o/signedDocuments";
 
-	public static HashMap<String, Object> jsonConverter(String[] csv, String signersInfo, String originalFileName, String parent, HashMap<String, Object> certMetadata, HashMap<String, Object> docMetadata) throws Exception {
+	public static HashMap<String, Object> jsonConverter(String[] csv, String signersInfo, String originalFileName, String parent, HashMap<String, Object> responseCert, HashMap<String, Object> docMetadata) throws Exception {
 		String signedFileName = "Signed_"+originalFileName;
 		String signedPath =parent+"/"+signedFileName;
 		  
@@ -35,16 +35,17 @@ public class SignatureConfig {
 		  
 		String signedFiledHash = GenerateCSV.generateHash("CSV", 2018l, signed);
 		HashMap<String, Object> response= new HashMap<String, Object>();  
-		HashMap<String, Object> responseCert = new HashMap<String, Object>();
-        //		  responseCert.put("id", "1");
-        responseCert.put("Signers", signersInfo);
-        responseCert.put("File", downloadURL+"certificates%2F"+certMetadata.get("name")+"?alt=media");
-        responseCert.put("Filename", certMetadata.get("name"));
-        responseCert.put("Created_at", timeStampMillis);
-        responseCert.put("LastModified", certMetadata.get("lastModified"));
-        responseCert.put("Size", certMetadata.get("size"));
-        responseCert.put("type", certMetadata.get("type"));
-        
+//		HashMap<String, Object> responseCert = new HashMap<String, Object>();
+//        //		  responseCert.put("id", "1");
+//		setResponseCert(responseCert, signersInfo, certMetadata);
+//        responseCert.put("Signers", signersInfo);
+//        responseCert.put("File", downloadURL+"certificates%2F"+certMetadata.get("name")+"?alt=media");
+//        responseCert.put("Filename", certMetadata.get("name"));
+//        responseCert.put("Created_at", timeStampMillis);
+//        responseCert.put("LastModified", certMetadata.get("lastModified"));
+//        responseCert.put("Size", certMetadata.get("size"));
+//        responseCert.put("type", certMetadata.get("type"));
+                
 		HashMap<String, Object> responseFile = new HashMap<String, Object>();
         //		  responseFile.put("id", "1");
 		responseFile.put("Filename", originalFileName);
@@ -68,7 +69,7 @@ public class SignatureConfig {
         response.put("CertData", responseCert);
         response.put("preSigned", false);
         
-        logger.info("Response Data: {}", response);
+//        logger.info("Response Data: {}", response);
 		return response;
 	}
 	
@@ -78,6 +79,7 @@ public class SignatureConfig {
 		pkcs.getCustomAppearance().setDigitalSignedLabel("Signed By:");
 		pkcs.getCustomAppearance().setReasonLabel("Certificate's Owner");
 		pkcs.getCustomAppearance().setLocationLabel("CSV");
+		System.out.println("CSV: "+pkcs.getCustomAppearance().getLocationLabel());
 		pkcs.getCustomAppearance().setContactInfoLabel("Signer's Hostname");
 		pkcs.getCustomAppearance().setFontSize(6);
 		return pkcs;	   
@@ -91,11 +93,25 @@ public class SignatureConfig {
 		return hostname;
 	}
 
+	public static HashMap<String, Object> setResponseCert(HashMap<String, Object> responseCert, String signer, HashMap<String, Object> certMetadata) {
+		Instant instant = Instant.now();
+		long timeStampMillis = instant.toEpochMilli();
+		responseCert.put("Signers", signer);
+		responseCert.put("File", downloadURL+"certificates%2F"+certMetadata.get("name")+"?alt=media");
+		responseCert.put("Filename", certMetadata.get("name"));
+		responseCert.put("Created_at", timeStampMillis);
+		responseCert.put("LastModified", certMetadata.get("lastModified"));
+		responseCert.put("Size", certMetadata.get("size"));
+		responseCert.put("type", certMetadata.get("type"));
+		
+		return responseCert;
+	}
+	
 	public static HashMap<String, Object> setCertMetadata(HashMap<String, Object> certMetadata, String certName) {
 		// TODO Auto-generated method stub
 		String certificate;
 		try {
-			certificate = FileService.getAbsolutePath(certName)[0];
+			certificate = FileService.getAbsolutePath("certificates", certName)[0];
 			String certPass = (String) certMetadata.get("certPass");
 			HashMap<String, Object> signersInfo = Signers_Info.signerInfo(certificate, certPass);
 			String signer = (String) signersInfo.get("signersInfo");
@@ -103,12 +119,13 @@ public class SignatureConfig {
 			HashMap<String, Object> responseCert = new HashMap<String, Object>();
 			//		  responseCert.put("id", "1");
 			if(signer != null) {
-				responseCert.put("Signers", signer);
-				responseCert.put("File", downloadURL+"certificates%2F"+certMetadata.get("name")+"?alt=media");
-				responseCert.put("Filename", certMetadata.get("name"));
-				responseCert.put("LastModified", certMetadata.get("lastModified"));
-				responseCert.put("Size", certMetadata.get("size"));
-				responseCert.put("type", certMetadata.get("type"));
+				setResponseCert(responseCert, signer, certMetadata);
+//				responseCert.put("Signers", signer);
+//				responseCert.put("File", downloadURL+"certificates%2F"+certMetadata.get("name")+"?alt=media");
+//				responseCert.put("Filename", certMetadata.get("name"));
+//				responseCert.put("LastModified", certMetadata.get("lastModified"));
+//				responseCert.put("Size", certMetadata.get("size"));
+//				responseCert.put("type", certMetadata.get("type"));
 			}else {
 				responseCert.put("Signers", null);
 			}

@@ -1,6 +1,5 @@
 package Services;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -22,33 +21,46 @@ public class SignatureService {
 	public static String downloadURL = "https://firebasestorage.googleapis.com/v0/b/validacion-de-documentos.appspot.com/o/signedDocuments%2F%";
 	
     @SuppressWarnings("unchecked")
-	public static HashMap<String, Object> save(MultipartFile file, MultipartFile cert, HashMap<String, Object> data) {
+	public static HashMap<String, Object> save(MultipartFile file, HashMap<String, Object> data) throws Exception {
 		String fileName = StringUtils.cleanPath(file.getOriginalFilename());
 		HashMap<String, Object>  certMetadata = (HashMap<String, Object>) data.get("certMetadata");
 		HashMap<String, Object> docMetadata = (HashMap<String, Object>) data.get("docMetadata");
 		String certName = (String) certMetadata.get("name");
-		Path path = Paths.get(fileName);
-		Path certPath = Paths.get(certName);
-		
+		System.out.println(certName);
+//		String certFilePath = FileService.getAbsolutePath("certificates/"+certName)[0]; 
+		Path certFilePath = Path.of("certificates/"+certName).toAbsolutePath();
+//		HashMap<String, Object> downloaded = 
+				FirebaseStorageStrategy.downloadFile(certName, certFilePath, "certificates");
+//		Path path = Paths.get(fileName);
+		Path path = Paths.get("originalDocs/"+fileName);
+//		Path certPath = Paths.get(certName);
 		FirebaseStorageStrategy.upload2(file, fileName, "originalDocuments");
-    	logger.info("Starting Signing Process with File named: {}", fileName); 
-    	String originalUrl = downloadOriginalURL+file.getOriginalFilename();
-    	File originalF = new File(originalUrl);
-    	System.out.println(originalF);
+//    	logger.info("Starting Signing Process with File named: {}", fileName); 
 
     	try {
-			Files.copy(file.getInputStream(), path, StandardCopyOption.REPLACE_EXISTING);
-			Files.copy(cert.getInputStream(), certPath, StandardCopyOption.REPLACE_EXISTING);    			
-			HashMap<String, Object> responseObject = FileService.addSignature(fileName, certName, certMetadata, docMetadata);
-//    		String signFilename = (String) responseObject.get("Signed_file");
-			
-			if(responseObject.get("Error") == null) {
-				if(!(boolean) responseObject.get("preSigned")) {
-					System.out.println(responseObject.get("FileData"));
-					HashMap<String, Object> responseFile = (HashMap<String, Object>) responseObject.get("FileData");
-					logger.info("Signed File named: {}", responseFile.get("Signed_filename"));    			
-				}    			
-			}
+    		HashMap<String, Object> responseObject = new HashMap<String, Object>();
+//    		if((boolean) downloaded.get("Exists")) {
+    			Files.copy(file.getInputStream(), path, StandardCopyOption.REPLACE_EXISTING);	
+    	        //		  responseCert.put("id", "1");
+    			HashMap<String, Object> responseCert = SignatureConfig.setCertMetadata(certMetadata, certName);
+    			System.out.println(responseCert);
+    			if(responseCert.get("Signers")!= null) {
+	    			responseObject  = FileService.addSignature(fileName, certName, certMetadata, docMetadata, responseCert);
+	    			if(responseObject.get("Error") == null) {
+	    				if(!(boolean) responseObject.get("preSigned")) {
+	    					System.out.println(responseObject.get("FileData"));
+	    					HashMap<String, Object> responseFile = (HashMap<String, Object>) responseObject.get("FileData");
+	    					logger.info("Signed File named: {}", responseFile.get("Signed_filename"));    			
+	    				}    			
+	    			}      				
+    			}else {
+    				HashMap<String, Object> message = new HashMap<String, Object>();
+    				message.put("message", "The specified network password is not correct.");
+    				responseObject.put("Error", message.put("message", "The specified network password is not correct."));
+    			}
+//    		}else {
+//				responseObject = downloaded;
+//			}  
 			return responseObject;
 		} catch (IOException e) {
 			HashMap<String, Object> responseObject = new HashMap<String, Object>();
@@ -57,14 +69,16 @@ public class SignatureService {
 		}	
 	}
 
-    public static HashMap<String, Object> IsPdfSigned(String filename) throws IOException {
+    public static HashMap<String, Object> IsPdfSigned(String dir, String filename) throws IOException {
 		PdfFileSignature pdfSign = new PdfFileSignature();
 		//	      JSONObject responseObject = new JSONObject();
 		HashMap<String, Object> responseObject = new HashMap<String, Object>();
-		filename = FileService.getAbsolutePath(filename)[0];
+		filename = FileService.getAbsolutePath(dir, filename)[0];
 		pdfSign.bindPdf(filename);
 		if (pdfSign.containsSignature()) {
+			System.out.println("CSV: "+pdfSign.getLocation("Signature1"));
 			responseObject.put("Signed", true);
+			responseObject.put("CSV", pdfSign.getLocation("Signature1"));
 			responseObject.put("Message", "Document Signed");  	  
 		}else {
 			responseObject.put("Signed", false);

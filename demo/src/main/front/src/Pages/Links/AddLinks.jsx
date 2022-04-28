@@ -1,5 +1,5 @@
 import React from 'react';
-import NavBar from '../../Components/Navbar'
+import NavBar from '../../Components/ExtraComponents/Navbar'
 import AddLink from './../../Components/Users/AddLink'
 import {ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';

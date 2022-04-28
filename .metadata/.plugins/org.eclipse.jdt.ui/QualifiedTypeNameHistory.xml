@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="com.google.cloud.firestore.v1.FirestoreClient"/>
     <fullyQualifiedTypeName name="com.google.cloud.firestore.Firestore"/>
     <fullyQualifiedTypeName name="com.google.firebase.cloud.FirestoreClient"/>
     <fullyQualifiedTypeName name="com.google.firebase.FirebaseApp"/>
@@ -18,7 +17,6 @@
     <fullyQualifiedTypeName name="org.json.simple.parser.JSONParser"/>
     <fullyQualifiedTypeName name="java.util.HashMap"/>
     <fullyQualifiedTypeName name="com.google.cloud.firestore.WriteResult"/>
-    <fullyQualifiedTypeName name="Services.FirebaseStorageStrategy"/>
     <fullyQualifiedTypeName name="java.util.UUID"/>
     <fullyQualifiedTypeName name="org.springframework.web.servlet.config.annotation.PathMatchConfigurer"/>
     <fullyQualifiedTypeName name="org.springframework.web.util.UrlPathHelper"/>
@@ -60,4 +58,6 @@
     <fullyQualifiedTypeName name="java.net.URL"/>
     <fullyQualifiedTypeName name="Services.SignatureService"/>
     <fullyQualifiedTypeName name="java.io.File"/>
+    <fullyQualifiedTypeName name="com.google.cloud.storage.StorageException"/>
+    <fullyQualifiedTypeName name="Services.FirebaseStorageStrategy"/>
 </qualifiedTypeNameHistroy>

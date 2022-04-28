@@ -52,9 +52,26 @@
         @apply flex leading-6 text-center mb-6 bg-icon-group border-none h-12 p-2 rounded-l-lg text-white;
     }
 
+    .input-text{
+        @apply box-border p-3 w-2/3 leading-6 text-justify my-3 border rounded flex w-full;
+    }
+
+    /* Tabs */
+    .tab-content{
+        @apply px-4 py-5 flex-auto relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-b-lg;
+    }
+
+    .tab-list{
+        @apply flex mb-0 list-none flex-wrap pt-3 flex-row;
+    }
+
+    .tab-list-item{
+        @apply -mb-px mr-2 last:mr-0 flex-auto text-center;
+    }
+
     /* Lists */
     .card{
-        @apply bg-white hover:bg-gray-100 shadow-xl cursor-pointer w-80 rounded-2xl flex flex-col transition-all transform-gpu translate-y-0 hover:-translate-y-3 duration-500 ease-in-out;
+        @apply bg-white hover:bg-gray-100 shadow-xl cursor-pointer w-80 rounded-lg flex flex-col transition-all transform-gpu translate-y-0 hover:-translate-y-3 duration-500 ease-in-out;
     }
 
     .btn-download{

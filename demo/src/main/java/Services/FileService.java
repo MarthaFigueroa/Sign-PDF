@@ -18,6 +18,9 @@ import com.spire.pdf.PdfDocument;
 import java.io.FileInputStream;
 import java.nio.file.Files;
 import java.util.Map;
+import com.aspose.pdf.Document;
+import com.aspose.pdf.SignatureField;
+import com.aspose.pdf.facades.Form;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,34 +53,44 @@ public class FileService {
 	    }
 	}
 	
-	public static String[] getAbsolutePath(String filename) throws IOException {
-		Path path = Paths.get(filename).toRealPath();
-		String inputFilePath = path+"";
-		String outPath = path.getParent()+"";
+//	public static String[] getAbsolutePath(String filename) throws IOException {
+//		Path path = Paths.get(filename).toRealPath();
+//		String inputFilePath = path+"";
+//		String outPath = path.getParent()+"";
+//		String[] paths = {inputFilePath, outPath};
+//		return paths;
+//	}
+	
+	public static String[] getAbsolutePath(String dir, String filename) throws IOException {
+		String inputFilePath = Path.of(dir+"/"+filename).toAbsolutePath().toString();
+		String outPath = Path.of(dir).toAbsolutePath().toString();
 		String[] paths = {inputFilePath, outPath};
 		return paths;
 	}
 	
 	@SuppressWarnings("resource")
-	public static HashMap<String, Object> addSignature(String filename, String certName, HashMap<String, Object> certMetadata, HashMap<String, Object> docMetadata) throws IOException  {
-		HashMap<String, Object> signedResponse = SignatureService.IsPdfSigned(filename);
+	public static HashMap<String, Object> addSignature(String filename, String certName, HashMap<String, Object> certMetadata, HashMap<String, Object> docMetadata,HashMap<String, Object> certResponse) throws IOException  {
+		HashMap<String, Object> signedResponse = SignatureService.IsPdfSigned("originalDocs",filename);
 		boolean signed = (boolean) signedResponse.get("Signed");
 		PdfDocument doc = new PdfDocument();
-		File file = new File(filename);
-		String inputFilePath = getAbsolutePath(filename)[0];
-		String outDirPath = getAbsolutePath(filename)[1];
-		String outputFilePath =  outDirPath+"/Signed_"+filename;
-		String certificate = getAbsolutePath(certName)[0]; 
+		File file = new File("originalDocs/"+filename);
+		String inputFilePath = getAbsolutePath("originalDocs", filename)[0];
+		String outDirPath []= getAbsolutePath("signedDocs", "/Signed_"+filename);
+		String outputFilePath =  outDirPath[0];
+		System.out.println(outputFilePath);
+//		String outputFilePath = Path.of("signedDocs/Signed_"+filename).toAbsolutePath().toString();
+		String certificate = getAbsolutePath("certificates", certName)[0]; 
 		String certPass = (String) certMetadata.get("certPass");
 		
 		PdfFileSignature pdfSign = new PdfFileSignature();
+		
 		pdfSign.bindPdf(inputFilePath);
 		try {
 			if(!signed) {
 				doc.loadFromFile(inputFilePath);
 				String signersInfo = (String) Signers_Info.signerInfo(certificate, certPass).get("signersInfo");
 //				logger.info("This document is up to be signed named: {}", filename);
-				removeFile(inputFilePath);
+//				removeFile(inputFilePath);
 				int x = (int) ((doc.getPages().get(0).getActualSize().getWidth()));
 				int y = (int) ((doc.getPages().get(0).getActualSize().getHeight()));
 				
@@ -89,13 +102,15 @@ public class FileService {
 				pdfSign.setCertificate(certificate, certPass);
 //				System.out.println(metadata);
 				String[] csv = GenerateCSV.getCSV("CSV", 2018l, file, docMetadata);
+//				pdfSign.sign(1, signersInfo, SignatureConfig.getHostName(), csv[1], true, rect, pkcs);
+				
 				pdfSign.sign(1, signersInfo, SignatureConfig.getHostName(), csv[1], true, rect, pkcs);
 //				pdfSign.sign(1, "gggggggg", SignatureConfig.getHostName(), csv[1], true, rect, pkcs);
-				logger.info("File is signed {}", inputFilePath);	
+				logger.info("File is signed {}", outputFilePath);	
 				pdfSign.save(outputFilePath);
 //				removeFile(outputFilePath);
 				pdfSign.close();
-				return SignatureConfig.jsonConverter(csv, signersInfo, filename, outDirPath, certMetadata, docMetadata);				
+				return SignatureConfig.jsonConverter(csv, signersInfo, filename, outDirPath[1], certResponse, docMetadata);				
 			}else {
 				HashMap<String, Object> Signed = new HashMap<String, Object>();
 				logger.info("This document is already signed");

@@ -4,7 +4,7 @@ import React from 'react';
 // import 'react-toastify/dist/ReactToastify.css';
 import Drop from '../../Components/Drop';
 import CardDiv from '../../Components/CardDiv';
-import Navbar from '../../Components/Navbar';
+import Navbar from '../../Components/ExtraComponents/Navbar';
 
 const ListDocs = () => {
     
