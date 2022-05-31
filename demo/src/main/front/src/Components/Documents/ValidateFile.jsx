@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 // import { useNavigate } from 'react-router-dom'
 import ValidateFilesForm from './ValidateFilesForm'
 import { toast } from 'react-toastify';
-import Card from '../ExtraComponents/Card';
+import Card from '../Partials/Card';
 
 function ValidateFile({type}) {
 
@@ -22,7 +22,7 @@ function ValidateFile({type}) {
 
     return (
         <>
-            {/* <div className="p-3 bg-icon-group text-white flex justify-center rounded-t-xl font-bold text-xl border-b-2">Cargar un Nuevo Documento</div>
+            {/* <div className="p-3 bg-icon-group text-white flex justify-center rounded-t-xl font-bold text-xl border-b-2">Subir un Nuevo Documento</div>
             <div className="lg:flex lg:flex-wrap"> */}
                 {/* flex p-2 */}
                 <div className='flex justify-center w-full'>

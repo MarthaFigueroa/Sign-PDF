@@ -14,8 +14,9 @@ function UploadFile({type}) {
 
     const message = async (msg, type) =>{
         type === "success" ? goTo('/documents') : console.log("Alert");
+        // goTo('/documents');
         console.log(msg);
-        await toast(msg, {
+        toast(msg, {
             type: type,
             autoClose: 2000
         });

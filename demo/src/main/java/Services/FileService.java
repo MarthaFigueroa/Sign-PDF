@@ -3,55 +3,19 @@ package Services;
 import java.awt.Rectangle;
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.HashMap;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import com.aspose.pdf.PKCS7;
 import com.aspose.pdf.facades.PdfFileSignature;
 import com.spire.pdf.PdfDocument;
-/*
-import java.io.FileInputStream;
-import java.nio.file.Files;
-import java.util.Map;
-import com.aspose.pdf.Document;
-import com.aspose.pdf.SignatureField;
-import com.aspose.pdf.facades.Form;
-import java.util.List;
-import java.util.concurrent.ExecutionException;
-import org.springframework.beans.factory.annotation.Autowired;
-import com.google.api.core.ApiFuture;
-import com.google.cloud.firestore.*;
-import com.aspose.pdf.Color;
-import com.aspose.pdf.SignatureCustomAppearance;
-import org.json.simple.JSONObject;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.mock.web.MockMultipartFile;
-import com.itextpdf.text.pdf.PdfReader;
-import com.gnostice.pdfone.*;
-*/
 
-public class FileService {
+public class FileService implements IFileService{
 	
 	private final static Logger logger = LoggerFactory.getLogger(FileService.class);
-//	private static FileNameMap MIMETYPES = URLConnection.getFileNameMap();
-//	public static String downloadURL = "https://storage.cloud.google.com/validacion-de-documentos.appspot.com/signedDocuments"; 
-//	public static String downloadOriginalURL = "https://storage.cloud.google.com/validacion-de-documentos.appspot.com/originalDocuments";
-	public static String downloadOriginalURL = "https://firebasestorage.googleapis.com/v0/b/validacion-de-documentos.appspot.com/o/originalDocuments%2F%s?alt=media";
+//	public static String downloadOriginalURL = "https://firebasestorage.googleapis.com/v0/b/validacion-de-documentos.appspot.com/o/originalDocuments%2F%s?alt=media";
 	public static String downloadURL = "https://firebasestorage.googleapis.com/v0/b/validacion-de-documentos.appspot.com/o/signedDocuments%2F%s?alt=media";
-	private final Path root = Paths.get("Uploads");
-	
-	public void init() {
-	    try {
-	      Files.createDirectory(root);
-	    } catch (IOException e) {
-	      throw new RuntimeException("Could not initialize folder for upload!");
-	    }
-	}
 	
 //	public static String[] getAbsolutePath(String filename) throws IOException {
 //		Path path = Paths.get(filename).toRealPath();
@@ -61,16 +25,18 @@ public class FileService {
 //		return paths;
 //	}
 	
-	public static String[] getAbsolutePath(String dir, String filename) throws IOException {
-		String inputFilePath = Path.of(dir+"/"+filename).toAbsolutePath().toString();
-		String outPath = Path.of(dir).toAbsolutePath().toString();
+	public String[] getAbsolutePath(String directory, String filename) throws IOException {
+		String inputFilePath = Path.of(directory+"/"+filename).toAbsolutePath().toString();
+		String outPath = Path.of(directory).toAbsolutePath().toString();
 		String[] paths = {inputFilePath, outPath};
 		return paths;
 	}
 	
 	@SuppressWarnings("resource")
-	public static HashMap<String, Object> addSignature(String filename, String certName, HashMap<String, Object> certMetadata, HashMap<String, Object> docMetadata,HashMap<String, Object> certResponse) throws IOException  {
-		HashMap<String, Object> signedResponse = SignatureService.IsPdfSigned("originalDocs",filename);
+	public HashMap<String, Object> addSignature(String filename, String certName, HashMap<String, Object> certMetadata, 
+			HashMap<String, Object> docMetadata, HashMap<String, Object> responseCert) throws IOException  {
+		SignatureService signatureService = new SignatureService();
+		HashMap<String, Object> signedResponse = signatureService.IsPdfSigned("originalDocs",filename);
 		boolean signed = (boolean) signedResponse.get("Signed");
 		PdfDocument doc = new PdfDocument();
 		File file = new File("originalDocs/"+filename);
@@ -78,7 +44,6 @@ public class FileService {
 		String outDirPath []= getAbsolutePath("signedDocs", "/Signed_"+filename);
 		String outputFilePath =  outDirPath[0];
 		System.out.println(outputFilePath);
-//		String outputFilePath = Path.of("signedDocs/Signed_"+filename).toAbsolutePath().toString();
 		String certificate = getAbsolutePath("certificates", certName)[0]; 
 		String certPass = (String) certMetadata.get("certPass");
 		
@@ -88,29 +53,32 @@ public class FileService {
 		try {
 			if(!signed) {
 				doc.loadFromFile(inputFilePath);
-				String signersInfo = (String) Signers_Info.signerInfo(certificate, certPass).get("signersInfo");
-//				logger.info("This document is up to be signed named: {}", filename);
-//				removeFile(inputFilePath);
+				SignersInfo signersInfoData = new SignersInfo();
+				String signersInfo = (String) signersInfoData.signerInfo(certificate, certPass).get("signersInfo");
 				int x = (int) ((doc.getPages().get(0).getActualSize().getWidth()));
 				int y = (int) ((doc.getPages().get(0).getActualSize().getHeight()));
 				
 				int coordY = y-(y+135);
 				Rectangle rect = new Rectangle(10, coordY, x, 200);
-//				pdfSign.setSignatureAppearance ( outDirPath + "/UNEAT.jpg");
 				PKCS7 pkcs = new PKCS7(certificate, certPass);
-				pkcs = SignatureConfig.configSignature(pkcs);
+				pkcs = signatureService.configSignature(pkcs);
 				pdfSign.setCertificate(certificate, certPass);
-//				System.out.println(metadata);
-				String[] csv = GenerateCSV.getCSV("CSV", 2018l, file, docMetadata);
-//				pdfSign.sign(1, signersInfo, SignatureConfig.getHostName(), csv[1], true, rect, pkcs);
-				
-				pdfSign.sign(1, signersInfo, SignatureConfig.getHostName(), csv[1], true, rect, pkcs);
-//				pdfSign.sign(1, "gggggggg", SignatureConfig.getHostName(), csv[1], true, rect, pkcs);
+				GenerateCSV generateCSV = new GenerateCSV();
+				String[] csv = generateCSV.getCSV("CSV", 2018l, file);
+				pdfSign.sign(1, signersInfo, signatureService.getHostName(), csv[1], true, rect, pkcs);
 				logger.info("File is signed {}", outputFilePath);	
 				pdfSign.save(outputFilePath);
-//				removeFile(outputFilePath);
 				pdfSign.close();
-				return SignatureConfig.jsonConverter(csv, signersInfo, filename, outDirPath[1], certResponse, docMetadata);				
+				File signedFile = new File(outputFilePath);
+				String signedFiledHash = generateCSV.generateHash("CSV", 2018l, signedFile);
+				System.out.println(signedFiledHash);
+				HashMap<String, Object> data = new HashMap<String, Object>();
+				data.put("signedFiledHash", signedFiledHash);
+				data.put("csv", csv[1]);
+				data.put("signersInfo", signersInfo);
+				data.put("filename", filename);
+				data.put("file_hash", csv[0]);
+				return signatureService.setResponse(data, docMetadata, responseCert);				
 			}else {
 				HashMap<String, Object> Signed = new HashMap<String, Object>();
 				logger.info("This document is already signed");
@@ -119,7 +87,6 @@ public class FileService {
 				return Signed;
 			}
 		} catch (Exception e) {
-//			removeFile(inputFilePath);
 			
 			HashMap<String, Object> responseObject = new HashMap<String, Object>();
 			responseObject.put("Error", e);
@@ -128,7 +95,7 @@ public class FileService {
 		}		
 	}
 	
-	public static void removeFile(String filename) {
+	public void removeFile(String filename) {
 		File f = new File(filename); //file to be delete  
 		System.out.println(filename);
 		if (f.exists()) {

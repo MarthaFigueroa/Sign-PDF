@@ -1,143 +1,130 @@
-import React, { useEffect, useState } from 'react';
-import { firestore, storage } from '../../firebaseConfig'
-import { useNavigate } from 'react-router-dom'
+import React, { useEffect, useState, useContext, useCallback } from 'react';
+import { storage } from '../../Config/config'
 import { toast } from 'react-toastify';
-import { Link } from 'react-router-dom';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import {library} from '@fortawesome/fontawesome-svg-core';
-// import * as Icons from '@fortawesome/free-solid-svg-icons';
+import Card from '../Partials/Card';
+import { useNavigate } from "react-router-dom";
+import Searchbar from '../Partials/Searchbar';
+import { UserContext } from "../../Providers/UserProvider";
+import axios from '../../axios.js';
 
-const ListDoc = () => {
+const ListCard = () => {
+  const [docs, setDocs] = useState([]);
+  const user = useContext(UserContext);
+  // const [url, setUrl] = useState([]);
 
-    const [docs, setDocs] = useState([]);
+  const navigate = useNavigate();
 
-    // const navigate = useNavigate();
+  const goTo = useCallback((route) =>{
+      console.log("kkk");
+      navigate(route);
+  }, [navigate])
 
-    // const goTo = (route) =>{
-    //     console.log("kkk");
-    //     navigate(route);
-    // }
+  const onDelete = async (id, filename) =>{
+      console.log(id);
+      const confirmation = window.confirm("Are you sure you want to delete this document?");
+      if(confirmation===true){
+        await axios.post(`/deleteDocument/${id}`, {
+          headers: {
+              Accept: "application/json ,text/plain, */*"
+          }
+        })
+        .then(async res => {
+          console.log(res.data);
+          let imageRef = storage.refFromURL(`gs://validacion-de-documentos.appspot.com/originalDocuments/${filename}`);
+          let signedImageRef = storage.refFromURL(`gs://validacion-de-documentos.appspot.com/signedDocuments/Signed_${filename}`);
+          await imageRef.delete();
+          await signedImageRef.delete();
+          toast('¡El documento ha sido eliminado exitosamente!', {
+              type: 'error',
+              autoClose: 2000
+          });
+          setDocs(res.data);
+        })  
+      }
+  }
 
-    const onDeleteDoc = async (id, filename) =>{
-        console.log(id);
-        const confirmation = window.confirm("Are you sure you want to delete this document?");
-        if(confirmation===true){
-            await firestore.collection('documents').doc(id).delete();
-            let imageRef = storage.refFromURL(`gs://validacion-de-documentos.appspot.com/originalDocuments/${filename}`);
-            await imageRef.delete();
-            toast('Document Removed Successfully', {
-                type: 'error',
-                autoClose: 2000
-            });
+  const pdfPreview = (url, doc, index) =>{
+    // Loaded via <script> tag, create shortcut to access PDF.js exports.
+    var pdfjsLib = window['pdfjs-dist/build/pdf'];
+    pdfjsLib.GlobalWorkerOptions.workerSrc = '//mozilla.github.io/pdf.js/build/pdf.worker.js';
+
+    var loadingTask = pdfjsLib.getDocument(url);
+    loadingTask.promise.then(function(pdf) {
+      // Fetch the first page
+      var pageNumber = 1;
+      pdf.getPage(pageNumber).then(function(page) {
+        var scale = 0.5;
+        var viewport = page.getViewport({scale: scale});
+
+        // Prepare canvas using PDF page dimensions
+        // var canvas = document.getElementById('the-canvas');
+        // var div = document.getElementById(doc.id);
+        var canvas = document.getElementById(index);
+        // console.log(lastCanvas);
+        // if(lastCanvas){
+        //   var canvas = document.createElement('canvas');
+        //   canvas.id = index;
+        // }
+        var context = canvas.getContext('2d');
+        // canvas.height = 224;
+        // canvas.width = 320;
+        // div.appendChild(canvas);
+        // Render PDF page into canvas context
+        var renderContext = {
+          canvasContext: context,
+          viewport: viewport
+        };
+        var renderTask = page.render(renderContext);
+        renderTask.promise.then(function () {
+        });
+      });
+    }, function (reason) {
+      // PDF loading error
+      console.error(reason);
+    });
+  }
+
+  useEffect(() => {
+    const getDocs = async () =>{
+      await axios.get(`/documents`, {
+        headers: {
+            Accept: "application/json ,text/plain, */*"
         }
-            
+      })
+      .then(async res => {
+        console.log(res.data);
+        setDocs(res.data);
+      })
     }
-
-    const searchUsr = () => {
-        var input, filter, ul, li, h2, i, txtValue,div;
-        input = document.getElementById("doc_search"); 
-        filter = input.value.toUpperCase(); 
-        ul = document.getElementById("usersList"); 
-        li = ul.getElementsByTagName("li");        console.log(li.length);
-        div = document.getElementsByClassName(" docs-div");
-        for (i = 0; i < li.length; i++) {  
-        h2 = li[i].getElementsByTagName("h2")[0]; 
-        txtValue = h2.textContent || h2.innerText; //a.textContent || a.innerText; 
-        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-            li[i].style.display = "";
-            div[i].style.visibility="visible";
-            div[i].style.position="relative";
-        } else {
-            li[i].style.display = "none";
-            div[i].style.visibility="hidden";
-            div[i].style.position="absolute";
-        }
-        }
-    }
-
-    // const onCreatedDoc = () =>{
-    //     toast('Doc Removed Successfully', {
-    //         type: 'error',
-    //         autoClose: 2000,
-    //         icon: ({theme, type}) =>  <img src="../logo.svg"/>
-    //     });
-    // }
-    
-    useEffect(() => {
-        const getDocs = () =>{
-            firestore.collection('documents').onSnapshot(snapshot => {
-                const docs = [];
-                snapshot.forEach((doc) => {
-                    docs.push({...doc.data(), id: doc.id});
-                });
-                console.log(docs);
-                setDocs(docs);
-            });
-        }
-        getDocs();
-    }, []);
-    
-
-    return (
-        <div key="1">
-            <div key="searchBar" className="col-md-6 col-xs-2 offset-md-3">
-                <div className="form-group input-group formField">
-                    <div className="input-group-text icon searchIconDiv">
-                        <i className="material-icons searchIcon">search</i>
-                    </div>
-                    <input className="form-control" type="text" placeholder="Buscar usuario" id="doc_search" onKeyUp={searchUsr} aria-label="Search"/>
+    getDocs();
+  }, [user, goTo]);
+  return (
+    <div className='content'>
+      <Searchbar type='doc'/>
+      <main className="h-full md:h-screen w-full">
+        <section className="container mx-auto px-0 md:px-4 py-4">
+          <ul id="List">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 justify-items-center gap-4">
+              {docs.map((doc, index) =>(
+                // {doc}
+                <div key={index} className="docs-div mb-10">
+                  <li key={index}>
+                    {/*  filename={doc.OriginalFile.Filename */}
+                    <Card onDelete={onDelete} index={index} doc={doc} url={doc.OriginalFile.File} type="doc" pdfPreview={pdfPreview} />
+                    {/* {doc.url} docUrls={doc.url}*/}
+                  </li>
                 </div>
+              ))}
             </div>
-            {/* <ToastContainer /> */}
-            <ul id="usersList" className="row">
-                {docs.map((doc) =>{
-                    return (
-                        <div key={doc.id} className="col-md-4 docs-div">
-                            <li key={doc.id}>
-                                <div className="card mb-3 text-center">
-                                    <div className="card-header text-white contacts-header  justify-content-between">
-                                        <div className="">
-                                            <h2>{doc.OriginalFile.Filename}</h2>
-                                        </div>
-                                        {/* <div className='text-dark close-card'>
-                                            <Link to="/documents">
-                                                <i className="material-icons" onClick={() => onDeleteDoc(doc.OriginalFile.id, doc.OriginalFile.Filename)}>close</i>
-                                            </Link>
-                                            <a href={doc.OriginalFile.File} download={doc.OriginalFile.Filename} target="_blank" rel="noreferrer">                                                 
-                                                <i className="material-icons">download</i>
-                                            </a>
-                                        </div> */}
-                                    </div>
-                                    <div className="card-body">
-                                        <div><b>Creator User: </b>{doc.OriginalFile.Signers}</div>
-                                        {/* <div><b>Email: </b>{doc.OriginalFile.email}</div>
-                                        <div><b>Hash: </b>{doc.OriginalFile.File_hash}</div>                                 */}
-                                        {/* <div><b>Signed: </b> <button className='btn btn-light' id="downloadLink" onClick={() => downloadFile(doc.OriginalFile.File, doc.OriginalFile.filename)}>Chale</button></div> */}
-                                        <div><b>Original: </b><a href={doc.OriginalFile.File} download={doc.OriginalFile.Filename} target="_blank" rel="noreferrer"> {doc.OriginalFile.Filename} </a></div>
-                                        {/* <iframe src="https://giphy.com/embed/xDQ3Oql1BN54c" frameBorder="0" className="giphy-embed" allowFullScreen></iframe> */}
-                                    </div>
-                                    <div className="card-footer">
-                                        <Link to="/documents" className="btn btn-delete" onClick={() => onDeleteDoc(doc.id, doc.OriginalFile.Filename)}>Delete</Link>
-                                        <a href={doc.OriginalFile.File} className="btn btn-download" download={doc.OriginalFile.Filename} target="_blank" rel="noreferrer">                                                 
-                                                {/* <i className="material-icons">download</i> */}
-                                                {/* {doc.Filename} */}
-                                                Descargar
-                                        </a>
-                                        <a href={doc.SignedFile.Signed_file} className="btn btn-download" download={doc.SignedFile.Signed_file} target="_blank" rel="noreferrer">                                                 
-                                                {/* <i className="material-icons">download</i> */}
-                                                {/* {doc.Filename} */}
-                                                Descargar Firmado
-                                        </a>
-                                    </div>
-                                </div>
-                            </li>   
-                        </div>
-                    )
-                })}
-            </ul>
-        </div>
-    )
+              </ul> 
+          </section>
+        </main>
+      {/* <Login /> */}
+        {/* <PdfTest url={url}/>   */}
+
+      {/* <Preview /> */}
+    </div>
+  )
 }
 
-export default ListDoc;
-
+export default ListCard

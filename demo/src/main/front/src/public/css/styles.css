@@ -36,6 +36,22 @@
         min-width: 300px
     }
 
+    /* LOGIN */
+    .login{
+        background: linear-gradient(223deg, #0464bd, #0472d7, #0383f9, #01a7da);
+	    backgroundSize: 400% 400%;
+        animation: gradient 15s ease infinite;
+    }
+
+    .guest{
+        background-color: #8ccaf2;
+    }
+
+
+    /* .googleIcon{
+        left: -10px;
+    } */
+
     /* NAVBAR */
     button.navbar-toggle {
         position: relative;
@@ -107,6 +123,23 @@
         .navbar{
             height: 3.5rem;
         }
+    }
+
+    .userImg {
+        border-radius: 50%;
+    }
+
+    /* Lists */
+    .bg-image {
+        filter: blur(8px);
+        -webkit-filter: blur(8px);
+        height: 100%; 
+        width: 100%; 
+        background-size: cover;
+    }
+
+    .top-neg-150{
+        top: -150px;
     }
 }
   

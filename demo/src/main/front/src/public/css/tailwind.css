@@ -41,7 +41,7 @@
     }
 
     .input-group{
-        @apply flex relative flex-nowrap border-none relative items-stretch w-full mb-4;
+        @apply flex relative flex-nowrap border-none relative items-stretch w-full;
     }
     
     .input-div{
@@ -49,7 +49,7 @@
     }
 
     .icon-group{
-        @apply flex leading-6 text-center mb-6 bg-icon-group border-none h-12 p-2 rounded-l-lg text-white;
+        @apply flex leading-6 text-center bg-icon-group border-none h-12 p-2 rounded-l-lg text-white;
     }
 
     .input-text{
@@ -71,7 +71,8 @@
 
     /* Lists */
     .card{
-        @apply bg-white hover:bg-gray-100 shadow-xl cursor-pointer w-80 rounded-lg flex flex-col transition-all transform-gpu translate-y-0 hover:-translate-y-3 duration-500 ease-in-out;
+        /* translate-y-0 */
+        @apply bg-white hover:bg-gray-100 shadow-xl cursor-pointer w-80 rounded-lg flex flex-col transition-all transform-gpu hover:-translate-y-3 duration-500 ease-in-out;
     }
 
     .btn-download{
@@ -80,5 +81,9 @@
 
     .signersIcon{
         @apply h-64 w-64 flex justify-center items-center;
+    }
+
+    .userIcon{
+        @apply flex justify-center py-2 absolute translate-y-2/4 top-0 w-full
     }
 }

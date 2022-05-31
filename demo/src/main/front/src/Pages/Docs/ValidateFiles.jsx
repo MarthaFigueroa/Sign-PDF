@@ -1,5 +1,5 @@
 import React from 'react';
-import NavBar from '../../Components/ExtraComponents/Navbar'
+import NavBar from '../../Components/Partials/Navbar'
 import ValidateFile from '../../Components/Documents/ValidateFile.jsx';
 import {ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';

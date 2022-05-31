@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import { firestore } from '../../firebaseConfig';
+import { firestore } from '../../Config/config';
 import { useNavigate } from 'react-router-dom'
-import Searchbar from '../ExtraComponents/Searchbar';
+import Searchbar from '../Partials/Searchbar';
 import axios from '../../axios.js';
 const UploadFilesForm = ({ message, setDocs }) => {
     

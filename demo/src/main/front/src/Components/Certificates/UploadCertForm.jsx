@@ -1,10 +1,10 @@
 import React, {useState} from 'react';
-import { firestore, storage } from '../../firebaseConfig';
+import { firestore, storage } from '../../Config/config';
 // import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useNavigate } from 'react-router-dom'
-import * as Icon from "@material-ui/icons";
+import * as Icons from "react-icons/ai";
 import axios from '../../axios.js';
-import PassInput from '../ExtraComponents/PassInput';
+import PassInput from '../Partials/PassInput';
 const UploadFilesForm = (props) => {
     
     // const [docs , setDocs] = useState([]);
@@ -104,11 +104,17 @@ const UploadFilesForm = (props) => {
             }else if(data.Signers !== null){
                 firestore.collection('certificates').where("Filename", '==', data.Filename && "Signers", '==', data.Signers).get()
                 .then(async (querySnapshot) => {
-                    // total matched documents
                     const matchedDocs = querySnapshot.size;
                     console.log(matchedDocs);
                     if (matchedDocs === 0) {
-                        await firestore.collection('certificates').add(data);
+                        await axios.post(`/createCertificate`, data, {
+                            headers: {
+                                Accept: "application/json ,text/plain, */*"
+                            }
+                          })
+                          .then(async res => {
+                            console.log(res.data);
+                          })
                         storage.ref().child('/certificates').listAll()
                         .then(async res => {
                             const certNames = res.items.filter(item => item.name === data.Filename);
@@ -117,8 +123,7 @@ const UploadFilesForm = (props) => {
                             }
                             goTo('/certificates');
                             props.message(`Se ha añadido un nuevo Certificado Digital: ${data.Filename}`, "success")
-                        })
-                        
+                        })                        
                         .catch(err => {
                             alert(err.message);
                         })
@@ -136,18 +141,18 @@ const UploadFilesForm = (props) => {
                 <label htmlFor="">Seleccione un certificado para firmar el documento</label>
                 <input type="file" className='box-border p-3 w-2/3 leading-6 text-justify' id='cert-selector' onChange={handleUploadedCert} accept=".pfx"/>
                 {/* , crt, .p7b, .sst, .p12, .cer */}
-                {existingCert ? <span className='text-yellow-500'>
-                            <Icon.Warning />
-                        </span>: null
+                {existingCert ? 
+                    <span className='text-yellow-500 inline-flex text-xl'>
+                        <Icons.AiFillWarning />
+                    </span>
+                    : null
                 }
             </div>
             <div className="input-div">
                     <label htmlFor="">Inserte la clave del Certificado</label>
-                    {/* <CertKey handlePass={handlePass} /> */}
                     <PassInput handlePass={handlePass}/>
                 </div>
             <div className="relative mt-2">
-                {/* <NavLink to={"/documents"} className='leading-6 text-center cursor-pointer rounded-md p-2 border bg-gray-200 hover:bg-gray-300' >cancel</NavLink> */}
                     <button onClick={() => goTo('/certificates')} className='leading-6 text-center cursor-pointer rounded-md p-2 border bg-gray-200 hover:bg-gray-300' >cancel</button>
                     <button className='btn-primary absolute right-0 top-0' onClick={uploadCert} disabled={ !cert }>Upload</button>
             </div>

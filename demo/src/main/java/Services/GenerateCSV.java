@@ -117,42 +117,28 @@ public class GenerateCSV {
     }
         
     //Convert byte[] to String expressed in hexadecimal
-    private static String toHex(byte[] bytes, HashMap<String, Object> docMetadata) throws IOException {
-//    	String name = (String) metadata.get("name");
-//    	String size = (String) metadata.get("size");
-//    	String lastModified = (String) metadata.get("lastModified");
-//    	String type = (String) metadata.get("type");
-//    	System.out.println(name);
-//    	String metadataArr = String.join("***", name, size, lastModified, type);
-//    	System.out.println(metadataArr);
-//    	ByteArrayOutputStream outputStream = new ByteArrayOutputStream( );
-//    	byte[] metadataByte = metadata.getBytes();
-//    	outputStream.write( metadataByte );    	
-//    	outputStream.write( bytes );
-//    	byte totalBytes[] = outputStream.toByteArray();
-//    	System.out.println(totalBytes);
+//    private String toHex(byte[] bytes, HashMap<String, Object> docMetadata) throws IOException {
+////    	String name = (String) metadata.get("name");
+////    	String size = (String) metadata.get("size");
+////    	String lastModified = (String) metadata.get("lastModified");
+////    	String type = (String) metadata.get("type");
+////    	System.out.println(name);
+////    	String metadataArr = String.join("***", name, size, lastModified, type);
+////    	System.out.println(metadataArr);
+////    	ByteArrayOutputStream outputStream = new ByteArrayOutputStream( );
+////    	byte[] metadataByte = metadata.getBytes();
+////    	outputStream.write( metadataByte );    	
+////    	outputStream.write( bytes );
+////    	byte totalBytes[] = outputStream.toByteArray();
+////    	System.out.println(totalBytes);
+//    	String hex = new BigInteger(1, bytes).toString(16);
+//    	return hex;
+//    }
+    
+    private String toHex(byte[] bytes) throws IOException {
     	String hex = new BigInteger(1, bytes).toString(16);
     	return hex;
     }
-    
-    private static String toHex(byte[] bytes) throws IOException {
-    	String hex = new BigInteger(1, bytes).toString(16);
-    	return hex;
-    }
-    
-    public static int hashCSV(String csv) {
-    	return csv.hashCode();
-    }
-    
-    /**
-     * Return a random number between start and end 
-     * @param start
-     * @param end
-     * @return
-     */
-//    private static int getRandomInRange(int start, int end){
-//	   return start + generator.nextInt(end - start + 1);
-//	}
     
 	/**
 	 * Return a 32 chars CSV
@@ -162,13 +148,12 @@ public class GenerateCSV {
 	 * @param hashBase16
 	 * @return
 	 */
-	private static String getCSVInternal(String prefix, Long uuid, String hashBase16) {
+	private String getCSVInternal(String prefix, Long uuid, String hashBase16) {
 		
 		String hashBase36 = new BigInteger(hashBase16, 16).toString(36).toUpperCase().substring(0, 21);
 		String uuidBase36 = String.format("%1$7s", Long.toString(uuid, 36)).replace(' ', '0');
 
 		StringBuilder csvConcat = new StringBuilder();
-//		int randomSelected = getRandomInRange(0, 35);
 		int randomSelected = 22;
 		List<Integer> uuidPosArray = Arrays.asList(uuidCharsPos.get(randomSelected));
 		
@@ -182,7 +167,7 @@ public class GenerateCSV {
 			}
 		}
 		
-		return csvConcat + Integer.toString(randomSelected, 36); //prefix + 
+		return csvConcat + Integer.toString(randomSelected, 36);
 	}
 	
 	/**
@@ -192,7 +177,7 @@ public class GenerateCSV {
 	 * @param uuid is a number able to be expressed in 7 chars in base36
 	 * @throws Exception
 	 */
-	private static void checkParams(String prefix, Long uuid) throws Exception {
+	private void checkParams(String prefix, Long uuid) throws Exception {
 		if (prefix.length() != 3) {
 			throw new Exception("Prefix must be a 3 characters String!");
 		}
@@ -210,17 +195,15 @@ public class GenerateCSV {
 	 * @return
 	 * @throws Exception
 	 */
-	public static String[] getCSV(String prefix, Long uuid, File file, HashMap<String, Object> docMetadata) throws Exception {
-		
+	public String[] getCSV(String prefix, Long uuid, File file) throws Exception {
 		checkParams(prefix, uuid);
-		String hashBase16 = toHex(checksum(file), docMetadata);
+		String hashBase16 = toHex(checksum(file));
 		String csv = getCSVInternal(prefix, uuid, hashBase16);
-		String[] responseCSV = {hashBase16, csv}; 
-		//if hashBase16 already exists then do not get a new CSV.
+		String[] responseCSV = {hashBase16, csv};
 		return responseCSV;
 	}
 	
-	public static String generateHash(String prefix, Long uuid, File file) throws IOException, Exception {
+	public String generateHash(String prefix, Long uuid, File file) throws IOException, Exception {
 		checkParams(prefix, uuid);
 		String hashBase16 = toHex(checksum(file));
 		return hashBase16;
