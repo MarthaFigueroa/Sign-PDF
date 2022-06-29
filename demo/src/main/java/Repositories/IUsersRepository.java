@@ -11,6 +11,6 @@ public interface IUsersRepository {
 	public List<Map<String, Object>> registerUser(HashMap<String, Object> user) throws Exception;
 	public List<Map<String, Object>> editUser(String id, HashMap<String, Object> user) throws Exception;
 	public List<Map<String, Object>> disableUser(String id, String uid) throws Exception;	
-	public List<Map<String, Object>> enableUser(String id) throws Exception;
+	public List<Map<String, Object>> enableUser(String id, String uid) throws Exception;
 	
 }

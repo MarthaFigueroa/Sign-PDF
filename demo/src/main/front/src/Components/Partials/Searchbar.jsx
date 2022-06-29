@@ -3,7 +3,7 @@ import React from 'react';
 import * as Icon from "@mui/icons-material";
 
 
-const Searchbar = ({type}) => {
+const Searchbar = ({type, setCSV}) => {
     
     const searchUsr = () => {
         var input, filter, ul, li, h2, i, txtValue,div;
@@ -33,20 +33,20 @@ const Searchbar = ({type}) => {
             <div key="searchBar" className="input-group w-1/2 mx-auto pt-3">
                 <label htmlFor="user" className="icon-group">
                 <span className="m-auto px-2 h-12 text-white">
-            {(()=>{
-                if(type === 'validate' || type === 'doc'){
-                    return(
-                        <Icon.DocumentScanner />
-                    )
-                }else if(type === "cert" || type === "user"){
-                    return(
-                        <Icon.Person />
-                    )
-                }
-            })()}
-            </span>
+                {(()=>{
+                    if(type === 'validate' || type === 'doc'){
+                        return(
+                            <Icon.DocumentScanner />
+                        )
+                    }else if(type === "cert" || type === "user"){
+                        return(
+                            <Icon.Person />
+                        )
+                    }
+                })()}
+                </span>
                 </label>
-                <input id="Search" type="text" name="CSV" onKeyUp={searchUsr} aria-label="Search" placeholder={type === 'user' || type === 'cert'? "Buscar Usuario por Nombre": "Buscar Documento por CSV"} className="h-12 border rounded-r-lg w-full mb-3 leading-6 text-justify pl-1"/>
+                <input id="Search" type="text" name="CSV" onKeyUp={type === 'validate' ? e => {setCSV(e.target.value)}: searchUsr} aria-label="Search" placeholder={type === 'user' || type === 'cert'? "Buscar Usuario por Nombre": "Buscar Documento por CSV"} className="h-12 border rounded-r-lg w-full mb-3 leading-6 text-justify pl-1"/>
             </div>
         </>
     )

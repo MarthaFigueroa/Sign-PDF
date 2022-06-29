@@ -10,7 +10,6 @@ import axios from '../../axios.js';
 const ListCard = () => {
   const [docs, setDocs] = useState([]);
   const user = useContext(UserContext);
-  // const [url, setUrl] = useState([]);
 
   const navigate = useNavigate();
 
@@ -34,54 +33,13 @@ const ListCard = () => {
           let signedImageRef = storage.refFromURL(`gs://validacion-de-documentos.appspot.com/signedDocuments/Signed_${filename}`);
           await imageRef.delete();
           await signedImageRef.delete();
-          toast('¡El documento ha sido eliminado exitosamente!', {
+          toast('¡El documento ha sido eliminado!', {
               type: 'error',
               autoClose: 2000
           });
           setDocs(res.data);
         })  
       }
-  }
-
-  const pdfPreview = (url, doc, index) =>{
-    // Loaded via <script> tag, create shortcut to access PDF.js exports.
-    var pdfjsLib = window['pdfjs-dist/build/pdf'];
-    pdfjsLib.GlobalWorkerOptions.workerSrc = '//mozilla.github.io/pdf.js/build/pdf.worker.js';
-
-    var loadingTask = pdfjsLib.getDocument(url);
-    loadingTask.promise.then(function(pdf) {
-      // Fetch the first page
-      var pageNumber = 1;
-      pdf.getPage(pageNumber).then(function(page) {
-        var scale = 0.5;
-        var viewport = page.getViewport({scale: scale});
-
-        // Prepare canvas using PDF page dimensions
-        // var canvas = document.getElementById('the-canvas');
-        // var div = document.getElementById(doc.id);
-        var canvas = document.getElementById(index);
-        // console.log(lastCanvas);
-        // if(lastCanvas){
-        //   var canvas = document.createElement('canvas');
-        //   canvas.id = index;
-        // }
-        var context = canvas.getContext('2d');
-        // canvas.height = 224;
-        // canvas.width = 320;
-        // div.appendChild(canvas);
-        // Render PDF page into canvas context
-        var renderContext = {
-          canvasContext: context,
-          viewport: viewport
-        };
-        var renderTask = page.render(renderContext);
-        renderTask.promise.then(function () {
-        });
-      });
-    }, function (reason) {
-      // PDF loading error
-      console.error(reason);
-    });
   }
 
   useEffect(() => {
@@ -110,7 +68,7 @@ const ListCard = () => {
                 <div key={index} className="docs-div mb-10">
                   <li key={index}>
                     {/*  filename={doc.OriginalFile.Filename */}
-                    <Card onDelete={onDelete} index={index} doc={doc} url={doc.OriginalFile.File} type="doc" pdfPreview={pdfPreview} />
+                    <Card onDelete={onDelete} index={index} doc={doc} url={doc.OriginalFile.File} type="doc" />
                     {/* {doc.url} docUrls={doc.url}*/}
                   </li>
                 </div>

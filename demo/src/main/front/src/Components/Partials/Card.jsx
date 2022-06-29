@@ -4,10 +4,10 @@ import * as IconsAi from "react-icons/ai";
 import * as IconsRi from "react-icons/ri";
 import * as IconsFa from "react-icons/fa";
 import TimeAgo from 'react-timeago';
-import image from "./../../public/img/signerUser.png";
+import image from "./../../public/img/certificado.jpg";
 import { UserContext } from "../../Providers/UserProvider";
 
-const Card = ({ doc, url, onDelete, index, type, onDisableUser }) => {
+const Card = ({ doc, url, onDelete, index, type, onDisableUser, onEnableUser }) => {
 
   useEffect(() => {
     const pdfPreview = (url) =>{
@@ -23,13 +23,10 @@ const Card = ({ doc, url, onDelete, index, type, onDisableUser }) => {
           if(type==="validate"){
             scale = 0.6;
           }else{
-            scale = 0.5;
+            scale = 0.535;
           }
           
           var viewport = page.getViewport({scale: scale});
-          // Prepare canvas using PDF page dimensions
-          // var canvas = document.getElementById('the-canvas');
-          // var canvas = document.getElementById(index);
           var div = document.getElementById(doc.id);
           var existingCanvas = document.getElementById(index);
           if(div.contains(existingCanvas)){
@@ -76,16 +73,17 @@ const Card = ({ doc, url, onDelete, index, type, onDisableUser }) => {
   
   return (
     <>
-      <div className={type==="validate"? "card w-full": type==="user"? "card mt-36": "card"}>
+      <div className={type==="validate"? "card w-full": type==="user" ? "card mt-36": "card"}>
+        {/* Preview */}
           {(()=>{
             if(type === "cert"){
               return(
-                <div id={doc.id} className="h-56 rounded-t-2xl overflow-hidden relative w-full justify-center flex">
-                  <img className="signersIcon" src={image} alt="Signers User" />
-                  
+                // <></>
+                <div id={doc.id} className="rounded-t-2xl overflow-hidden relative w-full justify-center flex">
+                  <img className="h-auto signersIcon w-full" width={200} src={image} alt="Signers User" />
                 </div>
               )
-            }else if(type === "doc"){
+            }else if(type === "doc" || type === "validate"){
               return(
                 <>
                   <div id={doc.id} className="h-56 rounded-t-2xl overflow-hidden relative w-full justify-center flex"></div>
@@ -97,26 +95,20 @@ const Card = ({ doc, url, onDelete, index, type, onDisableUser }) => {
                 <>
                   <div className="mt-0">
                     <div className="flex justify-center absolute top-neg-150 right-0 left-0 ">
-                      <img className="signersIcon h-56 w-56 mx-auto mb-12 absolute userImg" referrerPolicy="no-referrer" src={doc.photoURL} alt="" />
+                      <img className="signersIcon h-48 w-48 mx-auto mb-12 absolute userImg" referrerPolicy="no-referrer" src={doc.photoURL} alt="👨🏻" />
                     </div>
                   </div>
                 </>
               )
             }
           })()}
-
+        {/* Delete */}
           <div className="absolute right-0">
             <UserContext.Consumer>
               {user =>{
                 if(user !== null){
                   if(user.role === "admin"){
-                    if(type === "cert"){
-                      return(
-                      <button className="drop-shadow-lg" onClick={()=>onDelete(doc.id, doc.Filename)}>
-                        <IconsAi.AiFillCloseCircle className="text-2xl text-slate-400 " />
-                      </button>
-                      )                
-                    }else if(type === "doc"){
+                    if(type === "doc"){
                       return(
                         <>
                           <button className="drop-shadow-lg" onClick={()=>onDelete(doc.id, doc.OriginalFile.Filename)}>
@@ -130,19 +122,40 @@ const Card = ({ doc, url, onDelete, index, type, onDisableUser }) => {
               }}
             </UserContext.Consumer>
           </div>
-
-          <div className={type==="user"? "mt-16": ""}>
+        
+          {/* Functions */}
+          <div className={type==="user"? "mt-20": ""}>
             <div className="flex relative mb-5">
-              <div className="flex absolute right-0">
+              <div className="flex absolute right-2">
                 {(()=>{
                 if(type === "cert" || type === "user"){
                   return(
-                    <TimeAgo date={doc.Created_at}/>
+                    <>
+                    Created <TimeAgo className="ml-1" date={doc.Created_at}/>
+                    </>
                   )
                 }else if(type === "doc" || type === "validate"){
-                  return(
-                    <TimeAgo date={doc.OriginalFile.Created_at}/>
-                  )
+                  const monthNames = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio","Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+                  const now = new Date();
+                  const datetime = new Date(doc.OriginalFile.Created_at);
+                  const date = ("0"+datetime.getDate()).slice(-2)+"/"+monthNames[datetime.getMonth()]+"/"+datetime.getFullYear()+" ";
+                  const time = datetime.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
+                  const fullDate = date + time;
+                  const threeMinutes = 3*60000;
+                  const range = new Date(datetime.getTime() + threeMinutes);
+                  if(now > range){
+                    return(
+                      <>
+                        <label htmlFor="">{fullDate}</label>
+                      </>
+                    )
+                  }else{
+                    return(
+                      <>
+                        Created <TimeAgo className="ml-1" date={doc.OriginalFile.Created_at}/>
+                      </>
+                    )
+                  }
                 }
               })()}
               </div>
@@ -151,11 +164,18 @@ const Card = ({ doc, url, onDelete, index, type, onDisableUser }) => {
               {(() =>{
                 if(type === "cert"){
                   return(
-                    <div className="btn-download">
-                      <a href={doc.File} className="text-white flex items-center justify-center p-3" download={doc.File} target="_blank" rel="noreferrer">            
-                      Certificado<IconsHi.HiDocumentDownload />
-                      </a>  
-                    </div>
+                    <>
+                      <div className="btn-download mr-2">
+                        <a href={doc.File} className="text-white flex items-center justify-center p-3" download={doc.File} target="_blank" rel="noreferrer">            
+                        Descargar<IconsHi.HiDocumentDownload />
+                        </a>  
+                      </div>
+                      <div className="btn-download">
+                        <button className="text-white flex items-center justify-center p-3" onClick={()=>onDelete(doc.id, doc.Filename)}>            
+                          <IconsRi.RiDeleteBin6Fill className="text-3xl"/>
+                        </button>
+                      </div>
+                    </>
                   )
                 }else if(type === "doc" || type === "validate"){
                   return(
@@ -175,15 +195,20 @@ const Card = ({ doc, url, onDelete, index, type, onDisableUser }) => {
                 }else if(type === "user"){
                   return(
                   <>
-                    <div className="btn-download mr-2">
-                      <a href={`/editUser/${doc.id}`} className="text-white flex items-center justify-center p-3">            
-                      <IconsFa.FaUserEdit className="pl-1 text-3xl"/>
-                      </a>  
+                    <div className="btn-download mr-2">        
+                      {doc.disable? 
+                        <button onClick={() => onEnableUser(doc.id, doc.uid)} className="text-white flex items-center justify-center p-3"> 
+                          <IconsFa.FaUserCheck className="text-3xl"/>
+                        </button>:
+                        <a href={`/editUser/${doc.id}`} className="text-white flex items-center justify-center p-3"> 
+                          <IconsFa.FaUserEdit className="pl-1 text-3xl"/>
+                        </a>
+                      }      
                     </div>
                     <div className="btn-download">
                       <button className="text-white flex items-center justify-center p-3" onClick={() => onDisableUser(doc.id, doc.uid)}>            
                         {/* Delete Account */}
-                        <IconsRi.RiDeleteBin6Fill className="text-3xl"/>
+                        {doc.disable? <IconsRi.RiDeleteBin6Fill className="text-3xl"/>:<IconsFa.FaUserAltSlash className="pl-1 text-3xl"/>}      
                       </button>
                     </div>
                   </>
@@ -191,7 +216,8 @@ const Card = ({ doc, url, onDelete, index, type, onDisableUser }) => {
                 }
               })()}
             </div>
-
+        
+            {/* Information */}
             <div className="pt-10 pb-6 w-full px-4">
               {(() =>{
                 if (type === "doc" || type === "validate") {

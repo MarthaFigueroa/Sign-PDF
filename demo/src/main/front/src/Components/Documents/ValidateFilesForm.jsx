@@ -17,10 +17,6 @@ const UploadFilesForm = ({ message, setDocs }) => {
     }
 
     const verifyCSV = async (CSV, type) =>{
-        // setDocs(null);
-
-        // const CSV = document.getElementById("CSV").value;
-
         console.log(CSV);
 
         await firestore.collection('documents').where("SignedFile.CSV", '==', CSV).get()
@@ -100,11 +96,11 @@ const UploadFilesForm = ({ message, setDocs }) => {
                   <div className="tab-content">
                     <div className={openTab === 1 ? "block" : "hidden"} id="link1">
                         <div className="w-full flex-nowrap border-none">
-                            <label htmlFor="">Seleccione el a Documento a Firmar</label>
+                            <label htmlFor="">Seleccione el Documento firmado</label>
                             <input type="file" id='file-selector' className='box-border p-3 w-2/3 leading-6 text-justify' onChange={(e)=> setFile(e.target.files[0])} accept=".pdf"/>
                         </div>
                         <div className="relative">
-                            <button onClick={() => goTo('/documents')} className='leading-6 text-center cursor-pointer rounded-md p-2 border bg-gray-200 hover:bg-gray-300' >cancel</button>
+                            <button onClick={() => goTo('/documents')} className='leading-6 text-center cursor-pointer rounded-md p-2 border bg-gray-200 hover:bg-gray-300' >Regresar</button>
                             <button className='btn-primary absolute right-0 top-0' onClick={verifyDoc} >Validar Documento</button>
                         </div>
                     </div>
@@ -115,7 +111,7 @@ const UploadFilesForm = ({ message, setDocs }) => {
                             <Searchbar setCSV={setCSV} type="validate"/>
                         </div>
                         <div className="relative">
-                            <button onClick={() => goTo('/documents')} className='leading-6 text-center cursor-pointer rounded-md p-2 border bg-gray-200 hover:bg-gray-300' >cancel</button>
+                            <button onClick={() => goTo('/documents')} className='leading-6 text-center cursor-pointer rounded-md p-2 border bg-gray-200 hover:bg-gray-300' >Regresar</button>
                             <button className='btn-primary absolute right-0 top-0' onClick={()=>verifyCSV(CSV)}>Validar CSV</button>
                         </div>
                     </div>

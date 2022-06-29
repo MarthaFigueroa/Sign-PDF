@@ -53,8 +53,8 @@ public class Controller {
     	return certificatesRepository.getAllCertificates();
     }
 
-    @SuppressWarnings("unchecked")
     @PostMapping("/sign")
+    @SuppressWarnings("unchecked")
     public ResponseEntity<?> signFile(@RequestParam("file") MultipartFile file, @RequestPart("data") @Validated JSONObject data) throws Exception {
     	data = (JSONObject) data;
     	System.out.println(data);
@@ -103,8 +103,8 @@ public class Controller {
 	  	return documentsRepository.getAllDocuments();
     }
       
-    @SuppressWarnings("unchecked")
 	@PostMapping("/createDocument")
+	@SuppressWarnings("unchecked")
     public static List<Map<String, Object>> createDocument(@RequestBody JSONObject data) throws Exception {
 	  	logger.info("Uploading Documents");
 	  	DocumentsRepository documentsRepository = new DocumentsRepository();
@@ -112,8 +112,8 @@ public class Controller {
 	  	return documentsRepository.createDocument(data);
     }
 
-    @SuppressWarnings("unchecked")
 	@PostMapping("/createCertificate")
+	@SuppressWarnings("unchecked")
     public static List<Map<String, Object>> createCertificate(@RequestBody JSONObject data) throws Exception {
 	  	logger.info("Uploading Certificate");
 	  	CertificatesRepository certificatesRepository = new CertificatesRepository();
@@ -141,8 +141,8 @@ public class Controller {
 			    .body(resource);  
     }
 	
-	@SuppressWarnings("unchecked")
 	@PostMapping("/certs")
+	@SuppressWarnings("unchecked")
     public ResponseEntity<?> setCertificates(@RequestBody MultipartFile cert, @RequestPart("data") @Validated JSONObject data) throws IOException {
 		HashMap<String, Object>  certMetadata = (HashMap<String, Object> ) data.get("certMetadata");
 		String certName = (String) certMetadata.get("name");
@@ -177,16 +177,16 @@ public class Controller {
     	return usersRepository.deleteUser(id, uid);
     }
     
-    @SuppressWarnings("unchecked")
 	@PostMapping("/register")
+	@SuppressWarnings("unchecked")
     public static List<Map<String, Object>> register(@RequestBody JSONObject data) throws Exception {
 	  	logger.info("Registering User");
 	  	UsersRepository usersRepository = new UsersRepository();
 	  	return usersRepository.registerUser(data);
     } 
     
-    @SuppressWarnings("unchecked")
 	@PostMapping("/editUser/{id}")
+	@SuppressWarnings("unchecked")
     public static List<Map<String, Object>> editUser(@PathVariable String id, @RequestBody JSONObject data) throws Exception {
 	  	logger.info("Modifying User Profile");
 	  	UsersRepository usersRepository = new UsersRepository();
@@ -200,10 +200,10 @@ public class Controller {
 	  	return usersRepository.disableUser(id, uid);
     } 
     
-	@PostMapping("/enableUser/{id}")
-    public static List<Map<String, Object>> enableUser(@PathVariable String id) throws Exception {
+	@PostMapping("/enableUser/{id}/{uid}")
+    public static List<Map<String, Object>> enableUser(@PathVariable String id, @PathVariable String uid) throws Exception {
 	  	logger.info("Modifying User Profile");
 	  	UsersRepository usersRepository = new UsersRepository();
-	  	return usersRepository.enableUser(id);
+	  	return usersRepository.enableUser(id, uid);
     } 
 }

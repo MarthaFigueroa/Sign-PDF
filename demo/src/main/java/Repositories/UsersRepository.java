@@ -64,8 +64,13 @@ public class UsersRepository implements IUsersRepository{
 		return getAllUsers();
 	}
 	
-	public List<Map<String, Object>> enableUser(String id) throws Exception {
+	public List<Map<String, Object>> enableUser(String id, String uid) throws Exception {
 		db.collection("users").document(id).update("disable", false);
+		UpdateRequest request = new UpdateRequest(uid)
+			    .setDisabled(false);
+
+			UserRecord userRecord = FirebaseAuth.getInstance().updateUser(request);
+			System.out.println("Successfully updated user: " + userRecord.getUid());
 		return getAllUsers();
 	}
 }

@@ -12,7 +12,7 @@ var Menu = React.createClass({
                     <img src="avatar.jpg" /> Username
                     <ul>
                         <li>
-                            <a href="/profile">Profile</a>
+                            <a href="/profile">Perfil</a>
                         </li>
                         <li>
                             <a href="/favorites">Favorites</a>

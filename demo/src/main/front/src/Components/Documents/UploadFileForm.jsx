@@ -1,8 +1,9 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useContext} from 'react';
 import { useNavigate } from 'react-router-dom'
 import * as Icons from "react-icons/ai";
 import axios from '../../axios.js';
 import { firestore, storage } from '../../Config/config';
+import { UserContext } from "../../Providers/UserProvider";
 import PassInput from '../Partials/PassInput';
 
 const UploadFilesForm = ({ message }) => {    
@@ -11,6 +12,7 @@ const UploadFilesForm = ({ message }) => {
     const [certs , setCerts] = useState([]);
     const [existingFile , setExistingFile] = useState(false);
     const [certPass , setCertPass] = useState([]);
+    const user = useContext(UserContext);
     const navigate = useNavigate();
 
     const goTo = (route) =>{
@@ -28,6 +30,11 @@ const UploadFilesForm = ({ message }) => {
             setCert(null);
         }
     }    
+    const handleUploadedCert = async (e) =>{
+        console.log(e.target.files[0]);
+        
+        setCert(e.target.files[0]);
+    }
     const handleUploadedFile = (e) =>{
         // e.preventDefault();
         console.log(e.target.files[0]);
@@ -78,20 +85,20 @@ const UploadFilesForm = ({ message }) => {
             });
         }, [])
     }
-    const signingProcess = async (filesData) =>{
+    const signingProcess = async (filesData, certMetadata) =>{
         await axios.post(`/sign`, filesData, {
             headers: {
                 'Content-Type': 'multipart/form-data',
             }
         })
         .then(async res => {
-            console.log("Response Data",res.data);
+            // console.log("Response Data",res.data);
             if(res.data.Error){
                 if(res.data.Error.message === "The specified network password is not correct." || res.data.Error === "The specified network password is not correct."){
                     await message("La clave del Certificado es incorrecta", "error");
                 }
             }else if(!res.data.preSigned){
-                console.log("Response File Data",res.data.FileData);
+                // console.log("Response File Data",res.data.FileData);
                 const FileData = res.data.FileData;
     
                 const OriginalFile = {
@@ -122,6 +129,15 @@ const UploadFilesForm = ({ message }) => {
                 }
     
                 console.log("Doc Data",docData);
+                firestore.collection('certificates').where("Filename", '==', certMetadata.name).get()
+                .then(async (querySnapshot) => {
+                    // total matched documents
+                    const matchedDocs = querySnapshot.size
+                    if (!matchedDocs) {
+                        let imageRef = storage.refFromURL(`gs://validacion-de-documentos.appspot.com/certificates/${certMetadata.name}`);
+                        await imageRef.delete();
+                    }
+                })
 
                 await axios.post(`/createDocument`, docData, {
                     headers: {
@@ -129,7 +145,7 @@ const UploadFilesForm = ({ message }) => {
                     }
                 })
                 .then(async res => {
-                    console.log("Response Data",res.data);
+                    // console.log("Response Data",res.data);
                 })
                 const signed = res.data.FileData.Signed_filename;
                 
@@ -148,10 +164,10 @@ const UploadFilesForm = ({ message }) => {
                     alert(err.message);
                 })
                 console.log(arr);
-                message(`Se ha firmado un nuevo Documento: ${file.name}`, "success")
+                await message(`Se ha firmado un nuevo Documento: ${file.name}`, "success")
                 
             }else{
-                message("El documento que ha intentado firmar ya está firmado", "warning");
+                await message("El documento que ha intentado firmar ya está firmado", "warning");
             }
         },(error) => { 
             console.log("F:",error) 
@@ -168,12 +184,23 @@ const UploadFilesForm = ({ message }) => {
             type: String(file.type)
         }
 
-        const certMetadata = {
-            name: String(cert[0].Filename),
-            lastModified: String(cert[0].LastModified),
-            size: cert[0].Size,
-            type: String(cert[0].type),
-            certPass: String(certPass)
+        let certMetadata;
+        if(cert[0]){
+            certMetadata = {
+                name: String(cert[0].Filename),
+                lastModified: String(cert[0].LastModified),
+                size: cert[0].Size,
+                type: String(cert[0].type),
+                certPass: String(certPass)
+            }
+        }else{
+            certMetadata = {
+                name: String(cert.name),
+                lastModified: String(cert.lastModified),
+                size: cert.size,
+                type: String(cert.type),
+                certPass: String(certPass)
+            }
         }
 
         const newData = new Blob([JSON.stringify({
@@ -188,12 +215,69 @@ const UploadFilesForm = ({ message }) => {
         const filesData = new FormData();
         filesData.append("file", file);
         filesData.append('data', newData);
-        
-        if(cert !== null || file !== null){
-            console.log(newData);
-            signingProcess(filesData);
+
+        if(!user){
+    
+            const certsData = new FormData();
+            certsData.append("cert", cert);
+            certsData.append('data', new Blob([JSON.stringify({
+                "certMetadata": certMetadata,
+            })], {
+                type: "application/json"
+            }));
+            
+            await axios.post(`/certs`, certsData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
+                responseType:"application/x-pkcs12"
+            })
+            .then(async res => {
+                // console.log("Response Data",res.data);
+                const data = res.data;
+                if(data.Error){
+                    if(data.Error.message === "The specified network password is not correct."){
+                        await message("La clave del Certificado es incorrecta", "error");
+                    }
+                }
+    
+                storage.ref().child('/certificates').listAll()
+                .then(async res => {
+                    const certNames = res.items.filter(item => item.name === data.Filename);
+                    if(certNames.length === 0){
+                        await uploadDoc(`/certificates/${certMetadata.name}`, cert, certMetadata.name);
+                    }
+                    goTo('/certificates');
+                    message(`Se ha añadido un nuevo Certificado Digital: ${data.Filename}`, "success")
+                })                        
+                .catch(err => {
+                    alert(err.message);
+                })
+            })
         }
-    }    
+
+        if(cert !== null || file !== null){
+            console.log(certMetadata);
+            signingProcess(filesData, certMetadata);
+        }
+    }   
+
+    const uploadDoc = async (url, doc, filename) => {
+        console.log(url);
+        const metadata = {
+            contentType: 'application/x-pkcs12',
+            size: doc.size
+        };
+          
+        // Create storage ref & put the file in it
+        storage.ref(url).put(doc, metadata)
+            .on("state_changed" , 
+            console.log(`success uploading ${filename}`),
+                // console.log(`${filename} Uploaded`)
+            message(`Se ha añadido un nuevo Certificado Digital: ${filename}`, "success")
+        );
+    }
+
     const storageDoc = async (url, doc, filename) => {
         console.log(url);
         storage.ref(url).put(doc)
@@ -229,22 +313,34 @@ const UploadFilesForm = ({ message }) => {
             </div>
             <div className="relative items-stretch w-full flex-nowrap border-none">
                 <label htmlFor="">Seleccione un certificado para firmar el documento</label>
-                <div className="form-row text-center w-full form-fields">
-                    <select className='form-select mb-5 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none' name="id_cert" key="id_cert" onChange={handleCreatedCert} > 
-                        <option key='Seleccione un certificado' value="Seleccione un certificado">Seleccione un certificado</option>
-                        {certs.map( (cert, index) => (
-                            <option key={index} value={cert.Filename}>{cert.Signers}</option>
-                        ))}
-                    </select>
-                </div>
+                <UserContext.Consumer>
+                    {user =>{
+                        if(user !== null){
+                            return(
+                                <div className="form-row text-center w-full form-fields">
+                                    <select className='form-select mb-5 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none' name="id_cert" key="id_cert" onChange={handleCreatedCert} > 
+                                        <option key='Seleccione un certificado' value="Seleccione un certificado">Seleccione un certificado</option>
+                                        {certs.map( (cert, index) => (
+                                            <option key={index} value={cert.Filename}>{cert.Signers}</option>
+                                        ))}
+                                    </select>
+                                </div>
+                            )
+                        }else if(user === null){
+                            return(
+                                <input type="file" id='file-selector' className='box-border p-3 w-2/3 leading-6 text-justify' onChange={handleUploadedCert} accept=".pfx"/>
+                            )
+                        }
+                    }}
+                </UserContext.Consumer>
             </div> 
             <div className="input-div">
                 <label htmlFor="">Inserte la clave del Certificado</label>
                 <PassInput handlePass={setCertPass}/>
             </div>
             <div className="relative">
-                <button onClick={() => goTo('/documents')} className='leading-6 text-center cursor-pointer rounded-md p-2 border bg-gray-200 hover:bg-gray-300' >cancel</button>
-                <button className='btn-primary absolute right-0 top-0' onClick={signDoc} disabled={file===null || !cert || !certPass}>Firmar</button>
+                <button onClick={() => goTo('/documents')} className='leading-6 text-center cursor-pointer rounded-md p-2 border bg-gray-200 hover:bg-gray-300' >Regresar</button>
+                <button className='btn-primary absolute right-0 top-0' onClick={signDoc} disabled={file===null || !cert || !certPass}>Firmar Documento</button>
             </div>
         </>
     )

@@ -11,18 +11,10 @@ function UploadCert() {
         navigate(route);
     }
 
-    // const createdCert = async (message) =>{
-    //     await goTo('/certificates');
-    //     await toast(message, {
-    //         type: 'success',
-    //         autoClose: 2000
-    //     });
-    // }
-
     const message = async (msg, type) =>{
         type === "success" ? goTo('/certificates') : console.log("Alert");
         console.log(msg);
-        await toast(msg, {
+        toast(msg, {
             type: type,
             autoClose: 2000
         });

@@ -14,7 +14,7 @@ function ValidateFile({type}) {
     //     navigate(route);
     // }
     const message = async (msg, type) =>{
-        await toast(msg, {
+        toast(msg, {
             type: type,
             autoClose: 2000
         });

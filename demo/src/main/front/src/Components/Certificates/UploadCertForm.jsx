@@ -95,7 +95,6 @@ const UploadFilesForm = (props) => {
             responseType:"application/x-pkcs12"
         })
         .then(async res => {
-            console.log("Response Data",res.data);
             const data = res.data;
             if(data.Error){
                 if(data.Error.message === "The specified network password is not correct."){
@@ -113,7 +112,7 @@ const UploadFilesForm = (props) => {
                             }
                           })
                           .then(async res => {
-                            console.log(res.data);
+                            // console.log(res.data);
                           })
                         storage.ref().child('/certificates').listAll()
                         .then(async res => {
@@ -129,7 +128,8 @@ const UploadFilesForm = (props) => {
                         })
                     }
                 })
-            }else{
+            }
+            else{
                 await props.message("La clave del Certificado es incorrecta", "error");
             }
         })
@@ -153,8 +153,8 @@ const UploadFilesForm = (props) => {
                     <PassInput handlePass={handlePass}/>
                 </div>
             <div className="relative mt-2">
-                    <button onClick={() => goTo('/certificates')} className='leading-6 text-center cursor-pointer rounded-md p-2 border bg-gray-200 hover:bg-gray-300' >cancel</button>
-                    <button className='btn-primary absolute right-0 top-0' onClick={uploadCert} disabled={ !cert }>Upload</button>
+                    <button onClick={() => goTo('/certificates')} className='leading-6 text-center cursor-pointer rounded-md p-2 border bg-gray-200 hover:bg-gray-300' >Regresar</button>
+                    <button className='btn-primary absolute right-0 top-0' onClick={uploadCert} disabled={ !cert }>Subir Certificado</button>
             </div>
 
         </>

@@ -17,8 +17,7 @@ public class CertificateConfig implements ICertificateConfig{
 		responseCert.put("Created_at", timeStampMillis);
 		responseCert.put("LastModified", certMetadata.get("lastModified"));
 		responseCert.put("Size", certMetadata.get("size"));
-		responseCert.put("type", certMetadata.get("type"));
-		
+		responseCert.put("Type", certMetadata.get("type"));
 		return responseCert;
 	}
 	

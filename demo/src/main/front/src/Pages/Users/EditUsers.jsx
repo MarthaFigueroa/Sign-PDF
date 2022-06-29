@@ -12,7 +12,7 @@ const EditUsers = () => {
             <div className="">
                 <div className="row">
                     <ToastContainer />
-                    <div className="flex w-full justify-center content-center mx-auto">
+                    <div className="flex w-full justify-center content-center mx-auto mt-5">
                         <div className="">
                             <EditUser />
                         </div>

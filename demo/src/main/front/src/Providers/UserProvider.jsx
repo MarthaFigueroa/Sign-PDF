@@ -4,13 +4,16 @@ import { getAuth } from "firebase/auth";
 
 export const UserContext = createContext()
 const UserProvider = (props) => {
+  
   const [user, setuser] = useState(null);
+  
   useEffect(() => {
     let auth = getAuth(app);
     // const users = [];
     auth.onAuthStateChanged(async (user) => {
     if(user !== null){
       const { displayName, email, photoURL, uuid }  = user;
+      let photoUrl2 = photoURL+auth.getCurrentAccessToken;
       firestore.collection('users').where("email", '==', email).get()
       .then(async (querySnapshot) => {
         const matchedDocs = querySnapshot.size
@@ -19,13 +22,12 @@ const UserProvider = (props) => {
               console.log(doc.data());
               // users.push({...doc.data(), id: doc.id});
               setuser({...doc.data(), id: doc.id});          
-          })
-          // setuser(users);          
+          })       
         }else{
           setuser({
             displayName, 
             email, 
-            photoURL, 
+            photoUrl2, 
             uuid
           });
         }

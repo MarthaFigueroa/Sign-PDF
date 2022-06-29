@@ -1,57 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { storage } from '../../Config/config'
-import { toast } from 'react-toastify';
+import React from 'react';
 import Searchbar from '../Partials/Searchbar';
-import axios from '../../axios.js';
 import Card from '../Partials/Card';
 
-const ListCert = () => {
-  const [certs, setCerts] = useState([]);
+const ListCert = ({certs, onDeleteCert}) => {
 
-  const onDeleteCert = async (id, filename) =>{
-      console.log(id);
-      const confirmation = window.confirm("Are you sure you want to delete this certificate?");
-      if(confirmation===true){
-
-          await axios.post(`/deleteCertificate/${id}`, {
-            headers: {
-              Accept: "application/json ,text/plain, */*"
-            }
-          })
-          .then(async res => {
-            console.log(res.data);
-            let imageRef = storage.refFromURL(`gs://validacion-de-documentos.appspot.com/certificates/${filename}`);
-            await imageRef.delete();
-            toast('¡El certificado ha sido eliminado exitosamente!', {
-                type: 'error',
-                autoClose: 2000
-            });
-            setCerts(res.data);
-          })
-      }
-  }
-
-  const getCerts = async() =>{
-    await axios.get(`/certificates`, {
-      headers: {
-          Accept: "application/json ,text/plain, */*"
-      }
-    })
-    .then(async res => {
-      console.log(res.data);
-      setCerts(res.data);
-    })
-    // const certificates = [];
-    // firestore.collection('certificates').onSnapshot(async snapshot => {
-    //   snapshot.forEach(async (cert, index) => {
-    //     certificates.push({...cert.data(), id: cert.id}); 
-    //   });
-    //   await setCerts(certificates);
-    // });
-  }
-  useEffect(() => {
-    getCerts();
-  }, []);
   return (
     <div className='content'>
       <Searchbar type='cert'/>

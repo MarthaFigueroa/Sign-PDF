@@ -24,11 +24,15 @@
         @apply md:flex-nowrap;
     }
     .navbar{
-        @apply relative flex text-center right-0 pl-1;
+        @apply relative flex text-center right-0 pl-1 bg-white;
     }
 
     .collapse{
         @apply hidden;
+    }
+
+    .nav-link{
+        @apply inline-flex items-center;
     }
 
     /* .navbar-collapse {

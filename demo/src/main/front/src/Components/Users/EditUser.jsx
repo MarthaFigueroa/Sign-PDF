@@ -1,15 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import EditUserForm from './EditUserForm';
 import { firestore } from '../../Config/config';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
+import { UserContext } from "../../Providers/UserProvider";
 import axios from '../../axios.js';
 
 const Link = () => {
 
     const { id } = useParams();
     const [user, setUser] = useState([]);
+    const currUser = useContext(UserContext);
+
 
     const navigate = useNavigate();
 
@@ -31,11 +34,13 @@ const Link = () => {
         // await firestore.collection('users').doc(id).update(userObject);
     }
 
-    const message = async (msg, type) =>{
-        type === "success" ? goTo('/users') : console.log("Alert");
-        // goTo('/documents');
-        console.log(msg);
-        await toast(msg, {
+    const message = (msg, type) =>{
+        if(currUser.role === "admin" && type === "success"){
+            goTo('/users');
+        }else if(currUser.role === "user" && type === "success"){
+            goTo('/profile');
+        }
+        toast(msg, {
             type: type,
             autoClose: 2000
         });

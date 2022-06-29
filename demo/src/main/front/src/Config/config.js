@@ -11,7 +11,8 @@ import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   sendPasswordResetEmail,
-  signOut
+  signOut,
+  // signInWithRedirect
 } from "firebase/auth";
 
 const firebaseConfig = {
@@ -42,12 +43,13 @@ googleProvider.setCustomParameters({
 const signInWithGoogle = async () => {
   try {
     await signInWithPopup(auth, googleProvider)
+    // await signInWithRedirect(auth, googleProvider)
     .then(credential =>  {
       const user = credential.user;
       let role = user;
       firestore.collection("users").where("uid", "==", user.uid).get()
       .then(async (querySnapshot) => {
-        const matchedDocs = querySnapshot.size
+        const matchedDocs = querySnapshot.size;
         if (matchedDocs === 0) {
           const data = {
             uid: user.uid,
@@ -67,17 +69,14 @@ const signInWithGoogle = async () => {
           })
           .then(async res => {
             console.log(res.data);
-            storagePhoto(user.photoURL, user.name);
             window.location.href = "/profile";
           })
         }
       })
     })
     .catch(error => {
-      // console.log("Errorrr",error.message);
       if(error.message === 'Firebase: Error (auth/user-disabled).'){
         messageAlert("Este usuario seleccionado se encuentra deshabilitado.", "error");
-        // alert("Este usuario ha sido deshabilitado.");
       }
     });
   } catch (err) {
@@ -93,15 +92,6 @@ const messageAlert = async (msg, type) =>{
     autoClose: 2000
   });
 }
-
-const storagePhoto = async (url, user) => {
-  console.log(url);
-  storage.ref(`/profilePicture/${user}`).put(url)
-      .on("state_changed" , 
-      console.log(`success uploading ${url}`),
-      messageAlert(`Se ha almacenado la foto de perfil: ${url}`, "success")
-  );
-}   
 
 const logInWithEmailAndPassword = async (email, password) => {
   try {

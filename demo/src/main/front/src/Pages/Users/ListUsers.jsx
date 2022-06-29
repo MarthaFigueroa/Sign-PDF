@@ -3,8 +3,8 @@ import NavBar from '../../Components/Partials/Navbar'
 import ListUser from '../../Components/Users/ListUser';
 import {ToastContainer} from 'react-toastify';
 import { useNavigate } from "react-router-dom";
-import axios from '../../axios.js';
 import { UserContext } from '../../Providers/UserProvider';
+import axios from '../../axios.js';
 
 const ListUsers = () => {
 
@@ -13,7 +13,7 @@ const ListUsers = () => {
     const [users, setUsers] = useState([]);
 
     useEffect(() => {
-        async function validateUser(user){
+        function validateUser(user){
             if(user !== null){
                 if (user.role === "admin") {
                     const getUsers = async() =>{
@@ -24,7 +24,8 @@ const ListUsers = () => {
                         })
                         .then(async res => {
                             console.log(res.data);
-                            setUsers(res.data);
+                            const usersArr = res.data;
+                            setUsers(usersArr);
                         })
                     }
                     getUsers();
