@@ -56,9 +56,7 @@ public class FirebaseStorageStrategy {
     public static ResponseEntity<?> upload(MultipartFile multipartFile, String fileName, String imageName) {
 
         try {
-        	
-//            fileName = UUID.randomUUID().toString().concat(getExtension(fileName));  // to generated random string values for file name. 
-            File file = convertToFile(multipartFile, fileName);                      // to convert multipartFile to File
+        	File file = convertToFile(multipartFile, fileName);                      // to convert multipartFile to File
             Object TEMP_URL = uploadFile(file, fileName, multipartFile, imageName);                                   // to get uploaded file link
             file.delete();                                                                // to delete the copy of uploaded file stored in the project folder
             HashMap<String, Object> responseObject = new HashMap<String, Object>();
@@ -68,7 +66,6 @@ public class FirebaseStorageStrategy {
             e.printStackTrace();
             return ResponseEntity.ok("Unsuccessfully Uploaded! "+e.getMessage());
         } catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return ResponseEntity.ok("Unsuccessfully Uploaded! "+e);
 		}
@@ -85,7 +82,6 @@ public class FirebaseStorageStrategy {
     }
     
     private static String uploadFile(File file, String fileName, MultipartFile multipartFile, String imageName) throws IOException {
-//    	logger.info("Uploading Signed File named: {}", fileName);
         BlobId blobId = BlobId.of(bucketName, imageName+"/"+fileName);
         BlobInfo blobInfo = BlobInfo.newBuilder(blobId)
         		.setContentType("application/pdf")
@@ -100,6 +96,4 @@ public class FirebaseStorageStrategy {
         logger.info("Uploaded Signed File in: {}", url);
         return url;
     }
-
-
 }

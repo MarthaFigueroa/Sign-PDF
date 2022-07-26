@@ -17,7 +17,6 @@ function PassInput(props) {
     
     const handlePasswordChange = (event) => {
         const pass = document.getElementById("cert-pass-selector").value;
-        console.log(pass);
         props.handlePass(pass);
     };
   return (

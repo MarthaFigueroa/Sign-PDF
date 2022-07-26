@@ -9,7 +9,6 @@ const UserProvider = (props) => {
   
   useEffect(() => {
     let auth = getAuth(app);
-    // const users = [];
     auth.onAuthStateChanged(async (user) => {
     if(user !== null){
       const { displayName, email, photoURL, uuid }  = user;
@@ -19,8 +18,6 @@ const UserProvider = (props) => {
         const matchedDocs = querySnapshot.size
         if (matchedDocs) {
           querySnapshot.forEach((doc) => {
-              console.log(doc.data());
-              // users.push({...doc.data(), id: doc.id});
               setuser({...doc.data(), id: doc.id});          
           })       
         }else{

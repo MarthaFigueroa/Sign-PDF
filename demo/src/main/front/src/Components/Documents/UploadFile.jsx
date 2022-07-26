@@ -8,14 +8,11 @@ function UploadFile({type}) {
     const navigate = useNavigate();
 
     const goTo = (route) =>{
-        console.log("kkk");
         navigate(route);
     }
 
     const message = async (msg, type) =>{
-        type === "success" ? goTo('/documents') : console.log("Alert");
-        // goTo('/documents');
-        console.log(msg);
+        if(type === "success") goTo('/documents');
         toast(msg, {
             type: type,
             autoClose: 2000
@@ -26,10 +23,11 @@ function UploadFile({type}) {
         <>
             <div className="p-3 bg-icon-group text-white flex justify-center rounded-t-xl font-bold text-xl border-b-2">Firmar un Documento</div>
             <div className="flex p-2">
-                <div className='w-full'>
+                <div id='signingFile' className='w-full'>
                     <UploadFilesForm message={message} type={type}/>
                 </div>
             </div>
+
         </>
     )
   

@@ -33,7 +33,6 @@ const ListUser = ({users}) => {
                 }
               })
               .then(async res => {
-                console.log(res.data);
                 setUsers(res.data);
                 toast('¡El usuario ha sido deshabilitado!', {
                     type: 'error',
@@ -51,7 +50,6 @@ const ListUser = ({users}) => {
                 }
               })
               .then(async res => {
-                console.log(res.data);
                 setUsers(res.data);
                 toast('¡El usuario ha sido habilitado exitosamente!', {
                     type: 'success',

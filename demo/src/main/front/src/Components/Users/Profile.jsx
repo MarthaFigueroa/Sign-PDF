@@ -13,16 +13,12 @@ const Profile = () => {
     const [currentUser, setUsers] = useState("");
 
     async function onDisableProfile(id, uuid){
-        console.log(id);
         if(window.confirm("Está seguro que desea deshabilitar este usuario?")){
             // await firestore.collection('users').doc(id).delete();
             await axios.post(`/disableUser/${id}/${uuid}`, {
                 headers: {
                     Accept: "application/json ,text/plain, */*"
                 }
-              })
-              .then(async res => {
-                console.log(res.data);
               })
             toast('¡El usuario ha sido deshabilitado!', {
                 type: 'error',
@@ -34,7 +30,6 @@ const Profile = () => {
 
     useEffect(() => {
         if(user){
-            // console.log(user);
             firestore.collection("users").where("uid", "==", user.uid).get()
             .then(async querySnapshot => {
                 const matchedDocs = querySnapshot.size;
@@ -43,7 +38,6 @@ const Profile = () => {
                     usersArr.push({...user.data(), id: user.id});
                 });
                 if (matchedDocs) {
-                    console.log(usersArr[0]);
                     setUsers(usersArr[0]);
                 }
             })

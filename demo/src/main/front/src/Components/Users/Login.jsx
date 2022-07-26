@@ -11,13 +11,11 @@ const Login = () => {
     const currentUser = useContext(UserContext);
 
     useEffect(() => {
-        console.log("User", currentUser);
         if (currentUser === null) {
           navigate("/");
           return;
         }
         if (currentUser !== null) {
-            console.log("ojfknc",currentUser);
             navigate("/documents");
         }
     }, [currentUser, navigate]); //loading

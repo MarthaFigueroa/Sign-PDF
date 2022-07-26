@@ -21,17 +21,13 @@ const Link = () => {
     }
 
     const editUser = async(userObject)=>{
-        console.log(userObject);
         await axios.post(`/editUser/${id}`, userObject, {
             headers: {
-                // 'Content-Type': 'multipart/form-data',
                 Accept: "application/json ,text/plain, */*"
             }
           })
           .then(async res => {
-            console.log(res.data);
           })
-        // await firestore.collection('users').doc(id).update(userObject);
     }
 
     const message = (msg, type) =>{
@@ -48,7 +44,6 @@ const Link = () => {
     
     useEffect(() => {
         const getUser = async() =>{
-            console.log(id);
             await firestore.collection('users').doc(id).get().then(snapshot => setUser(snapshot.data()))
         }
         getUser();

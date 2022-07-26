@@ -14,43 +14,33 @@ const UploadFilesForm = ({ message }) => {
     const [certPass , setCertPass] = useState([]);
     const user = useContext(UserContext);
     const navigate = useNavigate();
+    const counts = {};
 
     const goTo = (route) =>{
         navigate(route);
     }
     const handleCreatedCert = async (e) =>{
         const filename = e.target.value;
-        console.log(filename);
-
         if(filename !== "Seleccione un certificado"){
             const certName = certs.filter(cert => cert.Filename === filename);
-            console.log(certName);
             setCert(certName);
         }else{
             setCert(null);
         }
     }    
     const handleUploadedCert = async (e) =>{
-        console.log(e.target.files[0]);
-        
         setCert(e.target.files[0]);
     }
     const handleUploadedFile = (e) =>{
-        // e.preventDefault();
-        console.log(e.target.files[0]);
         firestore.collection('documents').where("OriginalFile.Filename", '==', e.target.files[0].name).get()
         .then(async (querySnapshot) => {
             // total matched documents
             const matchedDocs = querySnapshot.size
             if (matchedDocs) {
-                // querySnapshot.docs.forEach(async doc => {
-                //     console.log(doc.id, "=>", doc.data())
-                // })
                 await message("El documento que desea firmar ya existe", "warning");
                 setExistingFile(true);
                 setFile(null);
             } else {
-                console.log("0 documents matched the query");
                 setExistingFile(false);
                 setFile(e.target.files[0]);
             }
@@ -80,25 +70,29 @@ const UploadFilesForm = ({ message }) => {
                     Accept: "application/json ,text/plain, */*"
                 },
             }).then(async res => {
-                console.log("Response Data File",res.data);
                 goTo('/documents');
             });
         }, [])
     }
     const signingProcess = async (filesData, certMetadata) =>{
+        let loadingDiv = document.createElement('div');
+        loadingDiv.className = "loader mx-auto";
+        document.getElementById("signingFile").appendChild(loadingDiv);
+        
         await axios.post(`/sign`, filesData, {
             headers: {
                 'Content-Type': 'multipart/form-data',
             }
         })
         .then(async res => {
-            // console.log("Response Data",res.data);
             if(res.data.Error){
                 if(res.data.Error.message === "The specified network password is not correct." || res.data.Error === "The specified network password is not correct."){
                     await message("La clave del Certificado es incorrecta", "error");
+                    loadingDiv.style.display = "none";
                 }
             }else if(!res.data.preSigned){
-                // console.log("Response File Data",res.data.FileData);
+                console.log("Not Signed");
+
                 const FileData = res.data.FileData;
     
                 const OriginalFile = {
@@ -127,11 +121,8 @@ const UploadFilesForm = ({ message }) => {
                     OriginalFile,
                     SignedFile
                 }
-    
-                console.log("Doc Data",docData);
                 firestore.collection('certificates').where("Filename", '==', certMetadata.name).get()
                 .then(async (querySnapshot) => {
-                    // total matched documents
                     const matchedDocs = querySnapshot.size
                     if (!matchedDocs) {
                         let imageRef = storage.refFromURL(`gs://validacion-de-documentos.appspot.com/certificates/${certMetadata.name}`);
@@ -143,9 +134,6 @@ const UploadFilesForm = ({ message }) => {
                     headers: {
                         'Content-Type': 'application/json',
                     }
-                })
-                .then(async res => {
-                    // console.log("Response Data",res.data);
                 })
                 const signed = res.data.FileData.Signed_filename;
                 
@@ -163,14 +151,15 @@ const UploadFilesForm = ({ message }) => {
                 .catch(err => {
                     alert(err.message);
                 })
-                console.log(arr);
                 await message(`Se ha firmado un nuevo Documento: ${file.name}`, "success")
                 
             }else{
+                console.log("Signed");
                 await message("El documento que ha intentado firmar ya está firmado", "warning");
+                loadingDiv.style.display = "none";
             }
         },(error) => { 
-            console.log("F:",error) 
+            console.error(error); 
         })
     }
     const signDoc = async ()=>{
@@ -210,11 +199,10 @@ const UploadFilesForm = ({ message }) => {
             type: "application/json"
         })
 
-        console.log("Cert:",cert);
-        console.log("file:",file);
         const filesData = new FormData();
         filesData.append("file", file);
         filesData.append('data', newData);
+        console.log(file);
 
         if(!user){
     
@@ -233,7 +221,6 @@ const UploadFilesForm = ({ message }) => {
                 responseType:"application/x-pkcs12"
             })
             .then(async res => {
-                // console.log("Response Data",res.data);
                 const data = res.data;
                 if(data.Error){
                     if(data.Error.message === "The specified network password is not correct."){
@@ -257,13 +244,10 @@ const UploadFilesForm = ({ message }) => {
         }
 
         if(cert !== null || file !== null){
-            console.log(certMetadata);
             signingProcess(filesData, certMetadata);
         }
     }   
-
     const uploadDoc = async (url, doc, filename) => {
-        console.log(url);
         const metadata = {
             contentType: 'application/x-pkcs12',
             size: doc.size
@@ -272,20 +256,17 @@ const UploadFilesForm = ({ message }) => {
         // Create storage ref & put the file in it
         storage.ref(url).put(doc, metadata)
             .on("state_changed" , 
-            console.log(`success uploading ${filename}`),
-                // console.log(`${filename} Uploaded`)
             message(`Se ha añadido un nuevo Certificado Digital: ${filename}`, "success")
         );
     }
-
     const storageDoc = async (url, doc, filename) => {
-        console.log(url);
         storage.ref(url).put(doc)
             .on("state_changed" , 
             console.log(`success uploading ${filename}`),
             message(`Se ha firmado un nuevo Documento: ${filename}`, "success")
         );
     }    
+
     useEffect(() => {
         const getCerts = () =>{
             const certificates = [];
@@ -320,9 +301,12 @@ const UploadFilesForm = ({ message }) => {
                                 <div className="form-row text-center w-full form-fields">
                                     <select className='form-select mb-5 block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none' name="id_cert" key="id_cert" onChange={handleCreatedCert} > 
                                         <option key='Seleccione un certificado' value="Seleccione un certificado">Seleccione un certificado</option>
-                                        {certs.map( (cert, index) => (
-                                            <option key={index} value={cert.Filename}>{cert.Signers}</option>
-                                        ))}
+                                        {certs.map( (cert, index) => {
+                                            counts[cert.Signers] = (counts[cert.Signers] || 0) + 1; 
+                                            return(
+                                                <option key={index} value={cert.Filename}>{counts[cert.Signers] > 1? cert.Signers+" "+index : cert.Signers }</option>
+                                            )
+                                        })}
                                     </select>
                                 </div>
                             )

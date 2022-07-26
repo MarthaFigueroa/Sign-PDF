@@ -14,12 +14,10 @@ const ListCard = () => {
   const navigate = useNavigate();
 
   const goTo = useCallback((route) =>{
-      console.log("kkk");
       navigate(route);
   }, [navigate])
 
   const onDelete = async (id, filename) =>{
-      console.log(id);
       const confirmation = window.confirm("Are you sure you want to delete this document?");
       if(confirmation===true){
         await axios.post(`/deleteDocument/${id}`, {
@@ -28,7 +26,6 @@ const ListCard = () => {
           }
         })
         .then(async res => {
-          console.log(res.data);
           let imageRef = storage.refFromURL(`gs://validacion-de-documentos.appspot.com/originalDocuments/${filename}`);
           let signedImageRef = storage.refFromURL(`gs://validacion-de-documentos.appspot.com/signedDocuments/Signed_${filename}`);
           await imageRef.delete();
@@ -50,7 +47,6 @@ const ListCard = () => {
         }
       })
       .then(async res => {
-        console.log(res.data);
         setDocs(res.data);
       })
     }

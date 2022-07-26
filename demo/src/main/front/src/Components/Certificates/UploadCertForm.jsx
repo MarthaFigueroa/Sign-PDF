@@ -7,14 +7,12 @@ import axios from '../../axios.js';
 import PassInput from '../Partials/PassInput';
 const UploadFilesForm = (props) => {
     
-    // const [docs , setDocs] = useState([]);
     const [cert , setCert] = useState([]);
     const [existingCert , setExistingCert] = useState(false);
     const navigate = useNavigate();
     const [certPass , setCertPass] = useState([]);
 
     const goTo = (route) =>{
-        console.log("kkk");
         navigate(route);
     }
 
@@ -23,20 +21,15 @@ const UploadFilesForm = (props) => {
     }
 
     const handleUploadedCert = (e) =>{
-        console.log(e.target.files[0]);
         firestore.collection('certificates').where("Filename", '==', e.target.files[0].name).get()
         .then(async (querySnapshot) => {
             // total matched documents
             const matchedDocs = querySnapshot.size
             if (matchedDocs) {
-                // querySnapshot.docs.forEach(async doc => {
-                //     console.log(doc.id, "=>", doc.data())
-                // })
                 await props.message("El certificado con el que desea firmar ya existe", "warning");
                 setExistingCert(true);
                 setCert(null);
             } else {
-                console.log("0 certificates matched the query");
                 setExistingCert(false);
                 setCert(e.target.files[0]);
             }
@@ -44,12 +37,6 @@ const UploadFilesForm = (props) => {
     }
     
     const uploadDoc = async (url, doc, filename) => {
-        console.log(url);
-        // const storageRef = ref(storage, url);
-        // // 'file' comes from the Blob or File API
-        // uploadBytes(storageRef, doc).then((snapshot) => {
-        //     console.log('Uploaded a blob or file named!', filename);
-        // });
         const metadata = {
             contentType: 'application/x-pkcs12',
             size: doc.size
@@ -59,7 +46,6 @@ const UploadFilesForm = (props) => {
         storage.ref(url).put(doc, metadata)
             .on("state_changed" , 
             console.log(`success uploading ${filename}`),
-                // console.log(`${filename} Uploaded`)
             props.message(`Se ha añadido un nuevo Certificado Digital: ${filename}`, "success")
         );
     }
@@ -68,7 +54,10 @@ const UploadFilesForm = (props) => {
         if(cert === null)
         return;
 
-        console.log(cert);
+        let loadingDiv = document.createElement('div');
+        loadingDiv.className = "loader mx-auto";
+
+        document.getElementById("signingFile").appendChild(loadingDiv);
 
         const certMetadata = {
             name: String(cert.name),
@@ -78,7 +67,6 @@ const UploadFilesForm = (props) => {
             certPass: String(certPass)
         }
 
-        console.log(certMetadata);
 
         const certsData = new FormData();
         certsData.append("cert", cert);
@@ -104,15 +92,11 @@ const UploadFilesForm = (props) => {
                 firestore.collection('certificates').where("Filename", '==', data.Filename && "Signers", '==', data.Signers).get()
                 .then(async (querySnapshot) => {
                     const matchedDocs = querySnapshot.size;
-                    console.log(matchedDocs);
                     if (matchedDocs === 0) {
                         await axios.post(`/createCertificate`, data, {
                             headers: {
                                 Accept: "application/json ,text/plain, */*"
                             }
-                          })
-                          .then(async res => {
-                            // console.log(res.data);
                           })
                         storage.ref().child('/certificates').listAll()
                         .then(async res => {

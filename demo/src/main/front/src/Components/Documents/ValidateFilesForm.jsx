@@ -17,16 +17,12 @@ const UploadFilesForm = ({ message, setDocs }) => {
     }
 
     const verifyCSV = async (CSV, type) =>{
-        console.log(CSV);
-
+        CSV = CSV.replace(/ /g,"");
         await firestore.collection('documents').where("SignedFile.CSV", '==', CSV).get()
         .then(async (querySnapshot) => {
             const matchedDocs = querySnapshot.size;
-            console.log(matchedDocs);
-            console.log(querySnapshot);
             const docs = [];
             querySnapshot.forEach((doc, index) => {
-                console.log(doc.data());
                 docs.push({...doc.data(), id: doc.id}); 
             })
             setDocs(null);
@@ -36,7 +32,6 @@ const UploadFilesForm = ({ message, setDocs }) => {
                     await message(`El CSV ingresado es válido para el documento ${docs[0].OriginalFile.Filename}!`, "success");
                 }
             } else {
-                console.log("0 documents matched the query");
                 await message("El CSV ingresado no es válido o no se ha encontrado un documento con ese CSV", "error");
             }
         })
@@ -51,12 +46,10 @@ const UploadFilesForm = ({ message, setDocs }) => {
         filesData.append("file", file);
         await axios.post(`/verifyDoc`, filesData, {
             headers: {
-                // 'Content-Type': 'multipart/form-data',
                 Accept: "application/json ,text/plain, */*"
             }
         })
         .then(async res => {
-            console.log(res.data);
             await setCSV(res.data.CSV);
             if(res.data.Signed){
                 await message(`El documento ingresado es válido!`, "success");
@@ -66,7 +59,7 @@ const UploadFilesForm = ({ message, setDocs }) => {
                 await message(`El documento ingresado no está firmado!`, "error");
             }
             },(error) => { 
-                console.log("F:",error) 
+                console.error(error); 
             })
     }
 

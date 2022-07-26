@@ -12,8 +12,7 @@ function UploadCert() {
     }
 
     const message = async (msg, type) =>{
-        type === "success" ? goTo('/certificates') : console.log("Alert");
-        console.log(msg);
+        if(type === "success") goTo('/certificates');
         toast(msg, {
             type: type,
             autoClose: 2000
@@ -24,7 +23,7 @@ function UploadCert() {
         <>
             <div className="p-3 bg-icon-group text-white flex justify-center rounded-t-xl font-bold text-xl border-b-2">Subir un Nuevo Certificado Digital</div>
             <div className="flex p-2">
-                <div className='w-full'>
+                <div id='signingFile' className='w-full'>
                     <UploadCertsForm message={message}/>
                 </div>
             </div>

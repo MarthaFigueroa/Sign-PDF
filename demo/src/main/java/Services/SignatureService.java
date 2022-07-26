@@ -36,7 +36,6 @@ public class SignatureService implements ISignatureService{
 		Path certFilePath = Path.of("certificates/"+certName).toAbsolutePath();
 		FirebaseStorageStrategy.downloadFile(certName, certFilePath, "certificates");
 		Path path = Paths.get("originalDocs/"+fileName);
-		
     	try {
     		HashMap<String, Object> responseObject = new HashMap<String, Object>();
     			Files.copy(file.getInputStream(), path, StandardCopyOption.REPLACE_EXISTING);
@@ -51,19 +50,13 @@ public class SignatureService implements ISignatureService{
 	    					System.out.println(responseObject.get("FileData"));
 	    					HashMap<String, Object> responseFile = (HashMap<String, Object>) responseObject.get("FileData");
 	    					logger.info("Signed File named: {}", responseFile.get("Signed_filename"));    
-//	    					dataResponse = documentsRepository.createDocument((HashMap<String, Object>) responseObject.get("FileData"));
-//	    					System.out.println(dataResponse);
 	    				}    			
 	    			}      				
     			}else {
     				HashMap<String, Object> message = new HashMap<String, Object>();
     				message.put("message", "The specified network password is not correct.");
     				responseObject.put("Error", message.put("message", "The specified network password is not correct."));
-    			}
-//    		}else {
-//				responseObject = downloaded;
-//			}  
-			
+    			}			
 			return responseObject;
 		} catch (IOException e) {
 			HashMap<String, Object> responseObject = new HashMap<String, Object>();

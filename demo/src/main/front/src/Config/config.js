@@ -1,5 +1,4 @@
 import firebase from 'firebase/compat/app';
-// import firebase from 'firebase/app';
 import 'firebase/compat/firestore';
 import "firebase/compat/storage";
 import axios from '../axios.js';
@@ -11,8 +10,7 @@ import {
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   sendPasswordResetEmail,
-  signOut,
-  // signInWithRedirect
+  signOut
 } from "firebase/auth";
 
 const firebaseConfig = {
@@ -25,15 +23,9 @@ const firebaseConfig = {
   measurementId: "G-V7QXD3BDVX"
 };
 
-
 // Initialize Firebase
-// if (!firebase.apps.length) {
   const app = firebase.initializeApp(firebaseConfig);
   let auth = getAuth(app);
-// } else {
-//   firebase.app();
-
-// }
 
 const googleProvider = new GoogleAuthProvider();
 googleProvider.setCustomParameters({
@@ -43,7 +35,6 @@ googleProvider.setCustomParameters({
 const signInWithGoogle = async () => {
   try {
     await signInWithPopup(auth, googleProvider)
-    // await signInWithRedirect(auth, googleProvider)
     .then(credential =>  {
       const user = credential.user;
       let role = user;
@@ -68,7 +59,6 @@ const signInWithGoogle = async () => {
             }
           })
           .then(async res => {
-            console.log(res.data);
             window.location.href = "/profile";
           })
         }
@@ -86,7 +76,6 @@ const signInWithGoogle = async () => {
 };
 
 const messageAlert = async (msg, type) =>{
-  console.log(msg);
   toast(msg, {
     type: type,
     autoClose: 2000
@@ -98,7 +87,6 @@ const logInWithEmailAndPassword = async (email, password) => {
     await signInWithEmailAndPassword(auth, email, password);
   } catch (err) {
     console.error(err);
-    // alert(err.message);
     toast(err.message, {
       type: 'error',
       autoClose: 2000
@@ -110,9 +98,6 @@ const registerWithEmailAndPassword = async (name, email, password, role) => {
   try {
     const res = await createUserWithEmailAndPassword(auth, email, password);
     const user = res.user;
-    console.log(user);
-    // const createdAt = todayEpochTime(new Date());
-
     const data = {
       uid: user.uid,
       name,
@@ -141,21 +126,11 @@ const sendPasswordReset = async (email) => {
 
 const logout = () => {
   const auth = getAuth();
-  console.log(auth.currentUser, "logged out.");
   signOut(auth);
-  // deleteAllCookies();
   localStorage.clear();
-  // firebase.auth().signOut()
   window.location.href = "/";
-  // .then(function() {
-  //   console.log('Signout Succesfull')
-  // }, function(error) {
-  //     console.log('Signout Failed')  
-  // });
 };
 
-
-// const fb = firebase.initializeApp(firebaseConfig);
 const storage = firebase.storage();
 const firestore = firebase.firestore();
 export {

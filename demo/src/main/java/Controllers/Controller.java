@@ -2,9 +2,6 @@ package Controllers;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-//import java.io.InputStream;
-//import java.net.URL;
-//import java.util.ArrayList;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -12,7 +9,6 @@ import java.nio.file.StandardCopyOption;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import org.json.simple.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,7 +26,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
-
 import Repositories.CertificatesRepository;
 import Repositories.DocumentsRepository;
 import Repositories.FirebaseStorageStrategy;
@@ -39,6 +34,7 @@ import lombok.extern.slf4j.Slf4j;
 import Services.CertificateConfig;
 import Services.FileService;
 import Services.SignatureService;
+
 @Slf4j
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
@@ -108,7 +104,6 @@ public class Controller {
     public static List<Map<String, Object>> createDocument(@RequestBody JSONObject data) throws Exception {
 	  	logger.info("Uploading Documents");
 	  	DocumentsRepository documentsRepository = new DocumentsRepository();
-//	  	System.out.println(documentsRepository.createDocument(data));
 	  	return documentsRepository.createDocument(data);
     }
 
@@ -129,13 +124,9 @@ public class Controller {
 	
 	@GetMapping("/file/{filename}")
     public ResponseEntity<?> getFile(@PathVariable String filename) throws IOException{
-//		String destFilePath = FileService.getAbsolutePath("./originalDocs")[1]+"/originalDocs/"+filename; 
-//		HashMap<String, Object> downloaded = FirebaseStorageStrategy.downloadFile(filename, destFilePath, "signedDocuments");
-//		return ResponseEntity.ok(downloaded);
     	File file = new File("signedDocs/"+filename);
     	InputStreamResource resource = new InputStreamResource(new FileInputStream(file));   
     	return ResponseEntity.ok()
-//    			.header("Content-Disposition", "attachment; filename=" + filename)
     			.lastModified(file.lastModified())
     			.contentLength(file.length())
 			    .body(resource);  
@@ -146,8 +137,6 @@ public class Controller {
     public ResponseEntity<?> setCertificates(@RequestBody MultipartFile cert, @RequestPart("data") @Validated JSONObject data) throws IOException {
 		HashMap<String, Object>  certMetadata = (HashMap<String, Object> ) data.get("certMetadata");
 		String certName = (String) certMetadata.get("name");
-//		String certFilePath = FileService.getAbsolutePath("certificates/"+certName)[0]; 
-//		Path certPath = Path.of("certificates/"+certName).toAbsolutePath();
 		Path certPath = Paths.get("certificates/"+certName);
 		System.out.println(certPath);
 		

@@ -18,9 +18,7 @@ const handleMouseDownPassword = (event) => {
 
 const handlePasswordChange = (event) => {
     const pass = document.getElementById("cert-pass-selector").value;
-    console.log(pass);
     props.handlePass(pass);
-	// setValues({ ...values, [prop]: event.target.value });
 };
 
 return (

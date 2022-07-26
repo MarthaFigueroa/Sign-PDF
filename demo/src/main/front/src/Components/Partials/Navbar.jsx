@@ -14,7 +14,6 @@ function Navbar() {
 
     function toggleMenu(e) {
         e.preventDefault();
-        console.log("Prueba");
         setIsMenu(!isMenu);
     }
 
@@ -32,7 +31,6 @@ function Navbar() {
 
     useEffect(() => {
         if(user){
-            // console.log(user);
             firestore.collection("users").where("uid", "==", user.uid).get()
             .then(async querySnapshot => {
                 const matchedDocs = querySnapshot.size;
@@ -41,7 +39,6 @@ function Navbar() {
                     usersArr.push({...user.data(), id: user.id});
                 });
                 if (matchedDocs) {
-                    console.log(usersArr[0]);
                     setUsers(usersArr[0]);
                 }
             })

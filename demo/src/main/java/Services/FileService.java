@@ -84,6 +84,7 @@ public class FileService implements IFileService{
 				logger.info("This document is already signed");
 				Signed.put("preSigned", true);
 				Signed.put("SignedRes", "This document is already signed");
+				pdfSign.close();
 				return Signed;
 			}
 		} catch (Exception e) {

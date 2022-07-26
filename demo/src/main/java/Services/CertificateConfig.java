@@ -11,7 +11,6 @@ public class CertificateConfig implements ICertificateConfig{
 	public HashMap<String, Object> setCertRes(HashMap<String, Object> responseCert, HashMap<String, Object> certMetadata) {
 		Instant instant = Instant.now();
 		long timeStampMillis = instant.toEpochMilli();
-//		responseCert.put("Signers", signer);
 		responseCert.put("File", downloadURL+"certificates%2F"+certMetadata.get("name")+"?alt=media");
 		responseCert.put("Filename", certMetadata.get("name"));
 		responseCert.put("Created_at", timeStampMillis);

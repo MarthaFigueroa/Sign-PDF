@@ -4,10 +4,32 @@ import * as IconsAi from "react-icons/ai";
 import * as IconsRi from "react-icons/ri";
 import * as IconsFa from "react-icons/fa";
 import TimeAgo from 'react-timeago';
+import { toast } from 'react-toastify';
 import image from "./../../public/img/certificado.jpg";
+import documentImage from "./../../public/img/documentImage.png";
 import { UserContext } from "../../Providers/UserProvider";
 
 const Card = ({ doc, url, onDelete, index, type, onDisableUser, onEnableUser }) => {
+
+  const copy = (id) => {
+    const csv = document.getElementById(id);
+    var selection = window.getSelection();
+    var range = document.createRange();
+    range.selectNodeContents(csv);
+    selection.removeAllRanges();
+    selection.addRange(range);
+    document.execCommand("Copy");
+    message("¡Se ha copiado el CSV al portapapeles!", "success");
+    // alert("Copied div content to clipboard");
+  }
+
+  const message = async (msg, type) =>{
+    toast(msg, {
+        position: "bottom-right",
+        type: type,
+        autoClose: 2000
+    });
+}
 
   useEffect(() => {
     const pdfPreview = (url) =>{
@@ -35,8 +57,6 @@ const Card = ({ doc, url, onDelete, index, type, onDisableUser, onEnableUser }) 
             var canvas = document.createElement('canvas');
             canvas.id = index;
             var context = canvas.getContext('2d');
-            // canvas.height = 224;
-            // canvas.width = 420;
             if(type === "validate"){
               canvas.height = 224;
               canvas.width = 420;
@@ -56,6 +76,13 @@ const Card = ({ doc, url, onDelete, index, type, onDisableUser, onEnableUser }) 
       }, function (reason) {
         // PDF loading error
         console.error(reason);
+        if(reason){
+          var div = document.getElementById(doc.id);
+          var image = document.createElement("img");
+          image.src = documentImage;
+          div.appendChild(image);
+        }
+
       });
     }
 
@@ -66,7 +93,6 @@ const Card = ({ doc, url, onDelete, index, type, onDisableUser, onEnableUser }) 
 
     if(type === "doc" || type === "validate"){
       pdfPreview(url, doc, index);
-      console.log("Render :)");
       // formatterDate(doc.OriginalFile.Created_at);
     }
   }, [url, doc, index, type])
@@ -116,15 +142,15 @@ const Card = ({ doc, url, onDelete, index, type, onDisableUser, onEnableUser }) 
                           </button>
                         </>
                       )
-                    }  
+                    }
                   }
                 }
               }}
             </UserContext.Consumer>
           </div>
         
-          {/* Functions */}
           <div className={type==="user"? "mt-20": ""}>
+            {/* Time */}
             <div className="flex relative mb-5">
               <div className="flex absolute right-2">
                 {(()=>{
@@ -160,6 +186,7 @@ const Card = ({ doc, url, onDelete, index, type, onDisableUser, onEnableUser }) 
               })()}
               </div>
             </div>
+          {/* Functions */}
             <div className="relative bottom-0 left-0 -mb-4 mx-auto flex flex-row justify-center pt-2">
               {(() =>{
                 if(type === "cert"){
@@ -220,11 +247,19 @@ const Card = ({ doc, url, onDelete, index, type, onDisableUser, onEnableUser }) 
             {/* Information */}
             <div className="pt-10 pb-6 w-full px-4">
               {(() =>{
-                if (type === "doc" || type === "validate") {
+                if (type === "doc") {
                   return(
                     <>
                       <h1 className="font-medium leading-none text-base tracking-wider text-black-400">{doc.OriginalFile.Filename}</h1>
-                      <h2 className="font-medium leading-none text-base tracking-wider text-black-400 hidden">CSV: {doc.SignedFile.CSV}</h2>
+                      {/* <h2 className="font-medium leading-none text-base tracking-wider text-black-400 hidden"> {doc.SignedFile.CSV}</h2> */}
+                      <b>CSV:</b> <h2 id={"csv_"+doc.id} className="font-medium leading-none text-base tracking-wider text-black-400 break-words" onClick={() => copy("csv_"+doc.id)}>{doc.SignedFile.CSV} <IconsRi.RiFileCopy2Line className="inline text-2xl"/></h2>
+                    </>
+                  )
+                }else if (type === "validate") {
+                  return(
+                    <>
+                      <h1 className="font-medium leading-none text-base tracking-wider text-black-400"><b>Documento:</b> {doc.OriginalFile.Filename}</h1>
+                      <b>CSV:</b> <h2 id={"csv_"+doc.id} className="font-medium leading-none text-base tracking-wider text-black-400 break-words" onClick={() => copy("csv_"+doc.id)}>{doc.SignedFile.CSV} <IconsRi.RiFileCopy2Line className="inline text-2xl"/></h2>
                     </>
                   )
                 }else if (type === "cert") {

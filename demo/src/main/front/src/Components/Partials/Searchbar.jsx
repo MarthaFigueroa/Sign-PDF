@@ -11,7 +11,6 @@ const Searchbar = ({type, setCSV}) => {
         filter = input.value.toUpperCase(); 
         ul = document.getElementById("List"); 
         li = ul.getElementsByTagName("li");        
-        // console.log(li.length);
         div = document.getElementsByClassName("docs-div");
         for (i = 0; i < li.length; i++) {  
         h2 = li[i].getElementsByTagName("h2")[0]; 

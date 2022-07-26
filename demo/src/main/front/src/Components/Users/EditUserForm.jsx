@@ -12,7 +12,6 @@ const EditUserForm = ({editUser, message, id}) => {
 
     const handleSubmit = async(e) =>{
         e.preventDefault();
-        console.log(user);
         await editUser(user);
         await message(`Se ha actualizado el usuario: ${user.name}`, "success");
     }
@@ -25,14 +24,12 @@ const EditUserForm = ({editUser, message, id}) => {
 
     const handleInputChange = (e) =>{
         const { name, value } = e.target;
-        console.log(name, value);
         setValues({...values, [name]: value});
         setUser({...user, [name]: value});
     }
 
     useEffect(() => {
         const getObject = () =>{
-            console.log(id);
             firestore.collection('users').doc(id).get().then(snapshot => setUser(snapshot.data()))
         }
         getObject();

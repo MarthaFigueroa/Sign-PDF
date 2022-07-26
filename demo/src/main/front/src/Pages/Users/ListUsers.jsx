@@ -23,7 +23,6 @@ const ListUsers = () => {
                             }
                         })
                         .then(async res => {
-                            console.log(res.data);
                             const usersArr = res.data;
                             setUsers(usersArr);
                         })
@@ -35,7 +34,6 @@ const ListUsers = () => {
                 }
             }
         }
-        console.log("User", user);
         validateUser(user);
           
     }, [user, navigate]);
