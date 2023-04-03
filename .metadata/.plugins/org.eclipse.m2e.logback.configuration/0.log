@@ -17541,3 +17541,785 @@ org.eclipse.core.runtime.CoreException: Could not resolve artifact com.google.fi
 2022-04-28 16:38:06,068 [Worker-98: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2022-04-28 16:38:06,068 [Worker-98: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
 2022-04-28 16:38:06,068 [Worker-98: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\Martha Marquez\Documents\ProyectoValidaciones\Sign-PDF\demo\src\test\resources
+2022-09-12 13:29:48,024 [Worker-7: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2022-09-12 13:29:53,186 [Worker-12: Building] WARN  o.a.m.r.i.DefaultArtifactDescriptorReader - The artifact com.lowagie:itext:jar:4.2.0 has been relocated to com.itextpdf:itextpdf:jar:5.5.6: After release 2.1.7, iText moved from the MPLicense to the AGPLicense.
+			The groupId changed from com.lowagie to com.itextpdf and the artifactId from itext to itextpdf.
+			See http://itextpdf.com/functionalitycomparison for more information.
+2022-09-12 13:29:55,995 [Worker-12: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-09-12 13:29:55,998 [Worker-12: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-09-12 13:29:56,004 [Worker-12: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-09-12 13:29:56,044 [Worker-12: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-09-12 13:29:56,064 [Worker-12: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-09-12 13:29:56,065 [Worker-12: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-09-12 13:29:56,065 [Worker-12: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/martha/Documents/SignPDF/Sign-PDF/demo/src/test/resources
+2022-09-12 13:29:57,487 [Worker-0: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-09-12 13:29:57,488 [Worker-0: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-09-12 13:29:57,506 [Worker-0: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-09-12 13:29:57,507 [Worker-0: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-09-12 13:29:57,516 [Worker-0: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-09-12 13:29:57,516 [Worker-0: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-09-12 13:29:57,516 [Worker-0: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/martha/Documents/SignPDF/Sign-PDF/demo/src/test/resources
+2022-09-12 17:02:47,135 [Worker-30: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-09-12 17:02:47,136 [Worker-30: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-09-12 17:02:47,139 [Worker-30: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-09-12 17:02:47,139 [Worker-30: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-09-12 17:02:47,148 [Worker-30: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-09-12 17:02:47,148 [Worker-30: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-09-12 17:02:47,148 [Worker-30: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/martha/Documents/SignPDF/Sign-PDF/demo/src/test/resources
+2022-09-13 10:04:16,508 [Worker-6: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2022-09-13 10:04:21,679 [Worker-10: reload maven project] WARN  o.a.m.r.i.DefaultArtifactDescriptorReader - The artifact com.lowagie:itext:jar:4.2.0 has been relocated to com.itextpdf:itextpdf:jar:5.5.6: After release 2.1.7, iText moved from the MPLicense to the AGPLicense.
+			The groupId changed from com.lowagie to com.itextpdf and the artifactId from itext to itextpdf.
+			See http://itextpdf.com/functionalitycomparison for more information.
+2022-09-13 10:07:58,876 [Worker-43: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-09-13 10:07:58,876 [Worker-43: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-09-13 10:07:58,890 [Worker-43: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-09-13 10:07:58,913 [Worker-43: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-09-13 10:07:58,930 [Worker-43: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-09-13 10:07:58,930 [Worker-43: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-09-13 10:07:58,930 [Worker-43: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/martha/Documents/SignPDF/Sign-PDF/demo/src/test/resources
+2022-09-13 10:35:34,478 [Worker-13: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.example:Validaciones:0.0.1-SNAPSHOT @ /Users/martha/Documents/SignPDF/Sign-PDF/demo/pom.xml.
+2022-09-13 10:35:35,552 [Worker-13: Building] WARN  o.a.m.r.i.DefaultArtifactDescriptorReader - The artifact org.apache.commons:commons-io:jar:1.3.2 has been relocated to commons-io:commons-io:jar:1.3.2: https://issues.sonatype.org/browse/MVNCENTRAL-244
+2022-09-13 10:35:35,590 [Worker-13: Building] WARN  o.a.m.r.i.DefaultArtifactDescriptorReader - The artifact com.lowagie:itext:jar:4.2.0 has been relocated to com.itextpdf:itextpdf:jar:5.5.6: After release 2.1.7, iText moved from the MPLicense to the AGPLicense.
+			The groupId changed from com.lowagie to com.itextpdf and the artifactId from itext to itextpdf.
+			See http://itextpdf.com/functionalitycomparison for more information.
+2022-09-13 10:35:37,060 [Worker-13: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-09-13 10:35:37,061 [Worker-13: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-09-13 10:35:37,065 [Worker-13: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-09-13 10:35:37,065 [Worker-13: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-09-13 10:35:37,069 [Worker-13: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-09-13 10:35:37,069 [Worker-13: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-09-13 10:35:37,069 [Worker-13: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/martha/Documents/SignPDF/Sign-PDF/demo/src/test/resources
+2022-09-13 10:35:38,439 [Worker-48: Download sources and javadoc] WARN  o.a.m.r.i.DefaultArtifactDescriptorReader - The artifact org.apache.commons:commons-io:jar:1.3.2 has been relocated to commons-io:commons-io:jar:1.3.2: https://issues.sonatype.org/browse/MVNCENTRAL-244
+2022-09-13 10:35:38,452 [Worker-48: Download sources and javadoc] WARN  o.a.m.r.i.DefaultArtifactDescriptorReader - The artifact com.lowagie:itext:jar:4.2.0 has been relocated to com.itextpdf:itextpdf:jar:5.5.6: After release 2.1.7, iText moved from the MPLicense to the AGPLicense.
+			The groupId changed from com.lowagie to com.itextpdf and the artifactId from itext to itextpdf.
+			See http://itextpdf.com/functionalitycomparison for more information.
+2022-09-13 10:35:39,881 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/com/aspose/aspose-words/22.3/aspose-words-22.3-sources.jar
+2022-09-13 10:35:40,204 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/aspose/aspose-words/22.3/aspose-words-22.3-sources.jar
+2022-09-13 10:35:40,243 [Worker-48: Download sources and javadoc] ERROR o.e.m.j.internal.DownloadSourcesJob - Could not download sources for com.aspose:aspose-words:22.3:jdk17
+org.eclipse.core.runtime.CoreException: Could not resolve artifact com.aspose:aspose-words:jar:sources:22.3
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.lambda$4(MavenImpl.java:828) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:182) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:117) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:103) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.resolve(MavenImpl.java:796) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.resolve(MavenImpl.java:773) ~[na:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.download(DownloadSourcesJob.java:311) ~[na:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadAttachments(DownloadSourcesJob.java:285) ~[na:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadMaven(DownloadSourcesJob.java:255) ~[na:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadFilesAndPopulateToUpdate(DownloadSourcesJob.java:223) ~[na:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.lambda$0(DownloadSourcesJob.java:152) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:182) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:156) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:103) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.execute(MavenImpl.java:1416) ~[na:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.run(DownloadSourcesJob.java:152) ~[na:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63) ~[org.eclipse.core.jobs_3.13.0.v20220512-1935.jar:na]
+2022-09-13 10:35:41,130 [Worker-50: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-09-13 10:35:41,131 [Worker-50: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-09-13 10:35:41,132 [Worker-50: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-09-13 10:35:41,151 [Worker-50: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-09-13 10:35:41,158 [Worker-50: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-09-13 10:35:41,159 [Worker-50: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-09-13 10:35:41,159 [Worker-50: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/martha/Documents/SignPDF/Sign-PDF/demo/src/test/resources
+2022-09-13 10:35:41,196 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repository.aspose.com/repo/com/aspose/aspose-words/22.3/aspose-words-22.3-javadoc.jar
+2022-09-13 10:35:42,769 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/com/aspose/aspose-words/22.3/aspose-words-22.3-javadoc.jar
+2022-09-13 10:35:42,957 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded javadoc for com.aspose:aspose-words:22.3:shaping-harfbuzz-plugin
+2022-09-13 10:35:44,148 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/org/jogamp/jogl/jogl-all-main/2.3.2/jogl-all-main-2.3.2-sources.jar
+2022-09-13 10:35:44,297 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/jogamp/jogl/jogl-all-main/2.3.2/jogl-all-main-2.3.2-sources.jar
+2022-09-13 10:35:44,330 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/jogamp/jogl/jogl-all-main/2.3.2/jogl-all-main-2.3.2-sources.jar
+2022-09-13 10:35:44,508 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.jogamp.jogl:jogl-all-main:2.3.2
+2022-09-13 10:35:45,275 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/org/jogamp/jogl/jogl-all/2.3.2/jogl-all-2.3.2-sources.jar
+2022-09-13 10:35:45,992 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/jogamp/jogl/jogl-all/2.3.2/jogl-all-2.3.2-sources.jar
+2022-09-13 10:35:48,580 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/jogamp/jogl/jogl-all/2.3.2/jogl-all-2.3.2-sources.jar
+2022-09-13 10:35:48,640 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.jogamp.jogl:jogl-all:2.3.2
+2022-09-13 10:35:48,648 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.jogamp.jogl:jogl-all:2.3.2:natives-android-aarch64
+2022-09-13 10:35:48,650 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.jogamp.jogl:jogl-all:2.3.2:natives-android-armv6
+2022-09-13 10:35:48,652 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.jogamp.jogl:jogl-all:2.3.2:natives-linux-amd64
+2022-09-13 10:35:48,656 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.jogamp.jogl:jogl-all:2.3.2:natives-linux-armv6
+2022-09-13 10:35:48,658 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.jogamp.jogl:jogl-all:2.3.2:natives-linux-armv6hf
+2022-09-13 10:35:48,660 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.jogamp.jogl:jogl-all:2.3.2:natives-linux-i586
+2022-09-13 10:35:48,661 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.jogamp.jogl:jogl-all:2.3.2:natives-macosx-universal
+2022-09-13 10:35:48,665 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.jogamp.jogl:jogl-all:2.3.2:natives-solaris-amd64
+2022-09-13 10:35:48,668 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.jogamp.jogl:jogl-all:2.3.2:natives-solaris-i586
+2022-09-13 10:35:48,670 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.jogamp.jogl:jogl-all:2.3.2:natives-windows-amd64
+2022-09-13 10:35:48,673 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.jogamp.jogl:jogl-all:2.3.2:natives-windows-i586
+2022-09-13 10:35:49,458 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/org/jogamp/gluegen/gluegen-rt-main/2.3.2/gluegen-rt-main-2.3.2-sources.jar
+2022-09-13 10:35:49,526 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/jogamp/gluegen/gluegen-rt-main/2.3.2/gluegen-rt-main-2.3.2-sources.jar
+2022-09-13 10:35:49,555 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/jogamp/gluegen/gluegen-rt-main/2.3.2/gluegen-rt-main-2.3.2-sources.jar
+2022-09-13 10:35:49,633 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.jogamp.gluegen:gluegen-rt-main:2.3.2
+2022-09-13 10:35:50,411 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/org/jogamp/gluegen/gluegen-rt/2.3.2/gluegen-rt-2.3.2-sources.jar
+2022-09-13 10:35:50,611 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/jogamp/gluegen/gluegen-rt/2.3.2/gluegen-rt-2.3.2-sources.jar
+2022-09-13 10:35:51,206 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/jogamp/gluegen/gluegen-rt/2.3.2/gluegen-rt-2.3.2-sources.jar
+2022-09-13 10:35:51,280 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.jogamp.gluegen:gluegen-rt:2.3.2
+2022-09-13 10:35:51,292 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.jogamp.gluegen:gluegen-rt:2.3.2:natives-android-aarch64
+2022-09-13 10:35:51,294 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.jogamp.gluegen:gluegen-rt:2.3.2:natives-android-armv6
+2022-09-13 10:35:51,295 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.jogamp.gluegen:gluegen-rt:2.3.2:natives-linux-amd64
+2022-09-13 10:35:51,297 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.jogamp.gluegen:gluegen-rt:2.3.2:natives-linux-armv6
+2022-09-13 10:35:51,298 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.jogamp.gluegen:gluegen-rt:2.3.2:natives-linux-armv6hf
+2022-09-13 10:35:51,301 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.jogamp.gluegen:gluegen-rt:2.3.2:natives-linux-i586
+2022-09-13 10:35:51,303 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.jogamp.gluegen:gluegen-rt:2.3.2:natives-macosx-universal
+2022-09-13 10:35:51,304 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.jogamp.gluegen:gluegen-rt:2.3.2:natives-solaris-amd64
+2022-09-13 10:35:51,306 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.jogamp.gluegen:gluegen-rt:2.3.2:natives-solaris-i586
+2022-09-13 10:35:51,308 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.jogamp.gluegen:gluegen-rt:2.3.2:natives-windows-amd64
+2022-09-13 10:35:51,310 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.jogamp.gluegen:gluegen-rt:2.3.2:natives-windows-i586
+2022-09-13 10:35:52,138 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/com/google/firebase/firebase-admin/8.1.0/firebase-admin-8.1.0-sources.jar
+2022-09-13 10:35:52,224 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/google/firebase/firebase-admin/8.1.0/firebase-admin-8.1.0-sources.jar
+2022-09-13 10:35:52,341 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/google/firebase/firebase-admin/8.1.0/firebase-admin-8.1.0-sources.jar
+2022-09-13 10:35:52,417 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for com.google.firebase:firebase-admin:8.1.0
+2022-09-13 10:35:53,185 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/com/google/api-client/google-api-client/1.32.1/google-api-client-1.32.1-sources.jar
+2022-09-13 10:35:53,315 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/google/api-client/google-api-client/1.32.1/google-api-client-1.32.1-sources.jar
+2022-09-13 10:35:53,401 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/google/api-client/google-api-client/1.32.1/google-api-client-1.32.1-sources.jar
+2022-09-13 10:35:53,546 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for com.google.api-client:google-api-client:1.32.1
+2022-09-13 10:35:54,286 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/com/google/oauth-client/google-oauth-client/1.31.5/google-oauth-client-1.31.5-sources.jar
+2022-09-13 10:35:54,370 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/google/oauth-client/google-oauth-client/1.31.5/google-oauth-client-1.31.5-sources.jar
+2022-09-13 10:35:54,424 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/google/oauth-client/google-oauth-client/1.31.5/google-oauth-client-1.31.5-sources.jar
+2022-09-13 10:35:54,491 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for com.google.oauth-client:google-oauth-client:1.31.5
+2022-09-13 10:35:55,209 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/com/google/http-client/google-http-client-gson/1.39.2/google-http-client-gson-1.39.2-sources.jar
+2022-09-13 10:35:55,328 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/google/http-client/google-http-client-gson/1.39.2/google-http-client-gson-1.39.2-sources.jar
+2022-09-13 10:35:55,358 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/google/http-client/google-http-client-gson/1.39.2/google-http-client-gson-1.39.2-sources.jar
+2022-09-13 10:35:55,448 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for com.google.http-client:google-http-client-gson:1.39.2
+2022-09-13 10:35:56,128 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/com/google/http-client/google-http-client-apache-v2/1.39.2/google-http-client-apache-v2-1.39.2-sources.jar
+2022-09-13 10:35:56,336 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/google/http-client/google-http-client-apache-v2/1.39.2/google-http-client-apache-v2-1.39.2-sources.jar
+2022-09-13 10:35:56,473 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/google/http-client/google-http-client-apache-v2/1.39.2/google-http-client-apache-v2-1.39.2-sources.jar
+2022-09-13 10:35:56,575 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for com.google.http-client:google-http-client-apache-v2:1.39.2
+2022-09-13 10:35:57,359 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/org/apache/httpcomponents/httpcore/4.4.15/httpcore-4.4.15-sources.jar
+2022-09-13 10:35:57,428 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/httpcomponents/httpcore/4.4.15/httpcore-4.4.15-sources.jar
+2022-09-13 10:35:57,542 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/httpcomponents/httpcore/4.4.15/httpcore-4.4.15-sources.jar
+2022-09-13 10:35:57,598 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.apache.httpcomponents:httpcore:4.4.15
+2022-09-13 10:35:58,302 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13-sources.jar
+2022-09-13 10:35:58,414 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13-sources.jar
+2022-09-13 10:35:58,531 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/httpcomponents/httpclient/4.5.13/httpclient-4.5.13-sources.jar
+2022-09-13 10:35:58,620 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.apache.httpcomponents:httpclient:4.5.13
+2022-09-13 10:35:59,417 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/com/google/api-client/google-api-client-gson/1.32.1/google-api-client-gson-1.32.1-sources.jar
+2022-09-13 10:35:59,513 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/google/api-client/google-api-client-gson/1.32.1/google-api-client-gson-1.32.1-sources.jar
+2022-09-13 10:35:59,714 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/google/api-client/google-api-client-gson/1.32.1/google-api-client-gson-1.32.1-sources.jar
+2022-09-13 10:35:59,794 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for com.google.api-client:google-api-client-gson:1.32.1
+2022-09-13 10:36:00,515 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/com/google/http-client/google-http-client/1.39.2/google-http-client-1.39.2-sources.jar
+2022-09-13 10:36:00,595 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/google/http-client/google-http-client/1.39.2/google-http-client-1.39.2-sources.jar
+2022-09-13 10:36:00,666 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/google/http-client/google-http-client/1.39.2/google-http-client-1.39.2-sources.jar
+2022-09-13 10:36:00,739 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for com.google.http-client:google-http-client:1.39.2
+2022-09-13 10:36:01,467 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2-sources.jar
+2022-09-13 10:36:01,547 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2-sources.jar
+2022-09-13 10:36:01,597 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2-sources.jar
+2022-09-13 10:36:01,732 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for com.google.code.findbugs:jsr305:3.0.2
+2022-09-13 10:36:02,414 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/com/google/j2objc/j2objc-annotations/1.3/j2objc-annotations-1.3-sources.jar
+2022-09-13 10:36:02,490 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/google/j2objc/j2objc-annotations/1.3/j2objc-annotations-1.3-sources.jar
+2022-09-13 10:36:02,519 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/google/j2objc/j2objc-annotations/1.3/j2objc-annotations-1.3-sources.jar
+2022-09-13 10:36:02,601 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for com.google.j2objc:j2objc-annotations:1.3
+2022-09-13 10:36:03,317 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/io/opencensus/opencensus-api/0.28.0/opencensus-api-0.28.0-sources.jar
+2022-09-13 10:36:03,404 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/io/opencensus/opencensus-api/0.28.0/opencensus-api-0.28.0-sources.jar
+2022-09-13 10:36:03,471 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/io/opencensus/opencensus-api/0.28.0/opencensus-api-0.28.0-sources.jar
+2022-09-13 10:36:03,563 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for io.opencensus:opencensus-api:0.28.0
+2022-09-13 10:36:04,326 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/io/opencensus/opencensus-contrib-http-util/0.28.0/opencensus-contrib-http-util-0.28.0-sources.jar
+2022-09-13 10:36:04,408 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/io/opencensus/opencensus-contrib-http-util/0.28.0/opencensus-contrib-http-util-0.28.0-sources.jar
+2022-09-13 10:36:04,440 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/io/opencensus/opencensus-contrib-http-util/0.28.0/opencensus-contrib-http-util-0.28.0-sources.jar
+2022-09-13 10:36:04,477 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for io.opencensus:opencensus-contrib-http-util:0.28.0
+2022-09-13 10:36:05,147 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/com/google/api/api-common/1.10.4/api-common-1.10.4-sources.jar
+2022-09-13 10:36:05,233 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/google/api/api-common/1.10.4/api-common-1.10.4-sources.jar
+2022-09-13 10:36:05,274 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/google/api/api-common/1.10.4/api-common-1.10.4-sources.jar
+2022-09-13 10:36:05,328 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for com.google.api:api-common:1.10.4
+2022-09-13 10:36:06,070 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/javax/annotation/javax.annotation-api/1.3.2/javax.annotation-api-1.3.2-sources.jar
+2022-09-13 10:36:06,148 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/javax/annotation/javax.annotation-api/1.3.2/javax.annotation-api-1.3.2-sources.jar
+2022-09-13 10:36:06,184 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/javax/annotation/javax.annotation-api/1.3.2/javax.annotation-api-1.3.2-sources.jar
+2022-09-13 10:36:06,300 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for javax.annotation:javax.annotation-api:1.3.2
+2022-09-13 10:36:07,189 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/com/google/auto/value/auto-value-annotations/1.8.1/auto-value-annotations-1.8.1-sources.jar
+2022-09-13 10:36:07,258 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/google/auto/value/auto-value-annotations/1.8.1/auto-value-annotations-1.8.1-sources.jar
+2022-09-13 10:36:07,319 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/google/auto/value/auto-value-annotations/1.8.1/auto-value-annotations-1.8.1-sources.jar
+2022-09-13 10:36:07,386 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for com.google.auto.value:auto-value-annotations:1.8.1
+2022-09-13 10:36:08,091 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/com/google/auth/google-auth-library-oauth2-http/0.26.0/google-auth-library-oauth2-http-0.26.0-sources.jar
+2022-09-13 10:36:08,180 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/google/auth/google-auth-library-oauth2-http/0.26.0/google-auth-library-oauth2-http-0.26.0-sources.jar
+2022-09-13 10:36:08,252 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/google/auth/google-auth-library-oauth2-http/0.26.0/google-auth-library-oauth2-http-0.26.0-sources.jar
+2022-09-13 10:36:08,353 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for com.google.auth:google-auth-library-oauth2-http:0.26.0
+2022-09-13 10:36:09,153 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/com/google/auth/google-auth-library-credentials/0.26.0/google-auth-library-credentials-0.26.0-sources.jar
+2022-09-13 10:36:09,229 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/google/auth/google-auth-library-credentials/0.26.0/google-auth-library-credentials-0.26.0-sources.jar
+2022-09-13 10:36:09,262 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/google/auth/google-auth-library-credentials/0.26.0/google-auth-library-credentials-0.26.0-sources.jar
+2022-09-13 10:36:09,329 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for com.google.auth:google-auth-library-credentials:0.26.0
+2022-09-13 10:36:09,982 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/com/google/cloud/google-cloud-firestore/2.6.1/google-cloud-firestore-2.6.1-sources.jar
+2022-09-13 10:36:10,086 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/google/cloud/google-cloud-firestore/2.6.1/google-cloud-firestore-2.6.1-sources.jar
+2022-09-13 10:36:10,225 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/google/cloud/google-cloud-firestore/2.6.1/google-cloud-firestore-2.6.1-sources.jar
+2022-09-13 10:36:10,288 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for com.google.cloud:google-cloud-firestore:2.6.1
+2022-09-13 10:36:10,980 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/com/google/cloud/google-cloud-core-grpc/1.95.4/google-cloud-core-grpc-1.95.4-sources.jar
+2022-09-13 10:36:11,081 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/google/cloud/google-cloud-core-grpc/1.95.4/google-cloud-core-grpc-1.95.4-sources.jar
+2022-09-13 10:36:11,116 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/google/cloud/google-cloud-core-grpc/1.95.4/google-cloud-core-grpc-1.95.4-sources.jar
+2022-09-13 10:36:11,178 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for com.google.cloud:google-cloud-core-grpc:1.95.4
+2022-09-13 10:36:11,909 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/io/grpc/grpc-core/1.39.0/grpc-core-1.39.0-sources.jar
+2022-09-13 10:36:11,986 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/io/grpc/grpc-core/1.39.0/grpc-core-1.39.0-sources.jar
+2022-09-13 10:36:12,155 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/io/grpc/grpc-core/1.39.0/grpc-core-1.39.0-sources.jar
+2022-09-13 10:36:12,218 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for io.grpc:grpc-core:1.39.0
+2022-09-13 10:36:12,926 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/com/google/android/annotations/4.1.1.4/annotations-4.1.1.4-sources.jar
+2022-09-13 10:36:13,026 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/google/android/annotations/4.1.1.4/annotations-4.1.1.4-sources.jar
+2022-09-13 10:36:13,063 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/google/android/annotations/4.1.1.4/annotations-4.1.1.4-sources.jar
+2022-09-13 10:36:13,121 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for com.google.android:annotations:4.1.1.4
+2022-09-13 10:36:13,849 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/org/codehaus/mojo/animal-sniffer-annotations/1.20/animal-sniffer-annotations-1.20-sources.jar
+2022-09-13 10:36:13,933 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/codehaus/mojo/animal-sniffer-annotations/1.20/animal-sniffer-annotations-1.20-sources.jar
+2022-09-13 10:36:13,965 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/codehaus/mojo/animal-sniffer-annotations/1.20/animal-sniffer-annotations-1.20-sources.jar
+2022-09-13 10:36:14,040 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.codehaus.mojo:animal-sniffer-annotations:1.20
+2022-09-13 10:36:14,698 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/io/perfmark/perfmark-api/0.23.0/perfmark-api-0.23.0-sources.jar
+2022-09-13 10:36:14,767 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/io/perfmark/perfmark-api/0.23.0/perfmark-api-0.23.0-sources.jar
+2022-09-13 10:36:14,814 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/io/perfmark/perfmark-api/0.23.0/perfmark-api-0.23.0-sources.jar
+2022-09-13 10:36:14,878 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for io.perfmark:perfmark-api:0.23.0
+2022-09-13 10:36:15,546 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/commons-codec/commons-codec/1.15/commons-codec-1.15-sources.jar
+2022-09-13 10:36:15,631 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/commons-codec/commons-codec/1.15/commons-codec-1.15-sources.jar
+2022-09-13 10:36:15,723 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/commons-codec/commons-codec/1.15/commons-codec-1.15-sources.jar
+2022-09-13 10:36:15,854 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for commons-codec:commons-codec:1.15
+2022-09-13 10:36:16,497 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/com/google/api/grpc/proto-google-cloud-firestore-v1/2.6.1/proto-google-cloud-firestore-v1-2.6.1-sources.jar
+2022-09-13 10:36:16,588 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/google/api/grpc/proto-google-cloud-firestore-v1/2.6.1/proto-google-cloud-firestore-v1-2.6.1-sources.jar
+2022-09-13 10:36:16,684 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/google/api/grpc/proto-google-cloud-firestore-v1/2.6.1/proto-google-cloud-firestore-v1-2.6.1-sources.jar
+2022-09-13 10:36:16,745 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for com.google.api.grpc:proto-google-cloud-firestore-v1:2.6.1
+2022-09-13 10:36:17,435 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/com/google/cloud/proto-google-cloud-firestore-bundle-v1/2.6.1/proto-google-cloud-firestore-bundle-v1-2.6.1-sources.jar
+2022-09-13 10:36:17,617 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/google/cloud/proto-google-cloud-firestore-bundle-v1/2.6.1/proto-google-cloud-firestore-bundle-v1-2.6.1-sources.jar
+2022-09-13 10:36:17,664 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/google/cloud/proto-google-cloud-firestore-bundle-v1/2.6.1/proto-google-cloud-firestore-bundle-v1-2.6.1-sources.jar
+2022-09-13 10:36:17,724 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for com.google.cloud:proto-google-cloud-firestore-bundle-v1:2.6.1
+2022-09-13 10:36:18,453 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/io/opencensus/opencensus-contrib-grpc-util/0.28.0/opencensus-contrib-grpc-util-0.28.0-sources.jar
+2022-09-13 10:36:18,540 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/io/opencensus/opencensus-contrib-grpc-util/0.28.0/opencensus-contrib-grpc-util-0.28.0-sources.jar
+2022-09-13 10:36:18,572 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/io/opencensus/opencensus-contrib-grpc-util/0.28.0/opencensus-contrib-grpc-util-0.28.0-sources.jar
+2022-09-13 10:36:18,622 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for io.opencensus:opencensus-contrib-grpc-util:0.28.0
+2022-09-13 10:36:19,375 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/io/grpc/grpc-protobuf/1.39.0/grpc-protobuf-1.39.0-sources.jar
+2022-09-13 10:36:19,454 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/io/grpc/grpc-protobuf/1.39.0/grpc-protobuf-1.39.0-sources.jar
+2022-09-13 10:36:19,495 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/io/grpc/grpc-protobuf/1.39.0/grpc-protobuf-1.39.0-sources.jar
+2022-09-13 10:36:19,554 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for io.grpc:grpc-protobuf:1.39.0
+2022-09-13 10:36:20,300 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/io/grpc/grpc-protobuf-lite/1.39.0/grpc-protobuf-lite-1.39.0-sources.jar
+2022-09-13 10:36:20,383 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/io/grpc/grpc-protobuf-lite/1.39.0/grpc-protobuf-lite-1.39.0-sources.jar
+2022-09-13 10:36:20,423 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/io/grpc/grpc-protobuf-lite/1.39.0/grpc-protobuf-lite-1.39.0-sources.jar
+2022-09-13 10:36:20,477 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for io.grpc:grpc-protobuf-lite:1.39.0
+2022-09-13 10:36:21,150 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/io/grpc/grpc-context/1.39.0/grpc-context-1.39.0-sources.jar
+2022-09-13 10:36:21,219 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/io/grpc/grpc-context/1.39.0/grpc-context-1.39.0-sources.jar
+2022-09-13 10:36:21,246 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/io/grpc/grpc-context/1.39.0/grpc-context-1.39.0-sources.jar
+2022-09-13 10:36:21,304 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for io.grpc:grpc-context:1.39.0
+2022-09-13 10:36:22,054 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/com/google/protobuf/protobuf-java/3.17.3/protobuf-java-3.17.3-sources.jar
+2022-09-13 10:36:22,162 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/google/protobuf/protobuf-java/3.17.3/protobuf-java-3.17.3-sources.jar
+2022-09-13 10:36:22,327 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/google/protobuf/protobuf-java/3.17.3/protobuf-java-3.17.3-sources.jar
+2022-09-13 10:36:22,413 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for com.google.protobuf:protobuf-java:3.17.3
+2022-09-13 10:36:23,166 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/com/google/api/grpc/proto-google-common-protos/2.3.2/proto-google-common-protos-2.3.2-sources.jar
+2022-09-13 10:36:23,244 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/google/api/grpc/proto-google-common-protos/2.3.2/proto-google-common-protos-2.3.2-sources.jar
+2022-09-13 10:36:23,497 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/google/api/grpc/proto-google-common-protos/2.3.2/proto-google-common-protos-2.3.2-sources.jar
+2022-09-13 10:36:23,554 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for com.google.api.grpc:proto-google-common-protos:2.3.2
+2022-09-13 10:36:24,291 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/com/google/api/gax/1.66.0/gax-1.66.0-sources.jar
+2022-09-13 10:36:24,358 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/google/api/gax/1.66.0/gax-1.66.0-sources.jar
+2022-09-13 10:36:24,444 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/google/api/gax/1.66.0/gax-1.66.0-sources.jar
+2022-09-13 10:36:24,496 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for com.google.api:gax:1.66.0
+2022-09-13 10:36:25,212 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/io/grpc/grpc-api/1.39.0/grpc-api-1.39.0-sources.jar
+2022-09-13 10:36:25,317 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/io/grpc/grpc-api/1.39.0/grpc-api-1.39.0-sources.jar
+2022-09-13 10:36:25,379 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/io/grpc/grpc-api/1.39.0/grpc-api-1.39.0-sources.jar
+2022-09-13 10:36:25,429 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for io.grpc:grpc-api:1.39.0
+2022-09-13 10:36:26,135 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/com/google/api/gax-grpc/1.66.0/gax-grpc-1.66.0-sources.jar
+2022-09-13 10:36:26,208 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/google/api/gax-grpc/1.66.0/gax-grpc-1.66.0-sources.jar
+2022-09-13 10:36:26,265 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/google/api/gax-grpc/1.66.0/gax-grpc-1.66.0-sources.jar
+2022-09-13 10:36:26,319 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for com.google.api:gax-grpc:1.66.0
+2022-09-13 10:36:27,056 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/io/grpc/grpc-auth/1.39.0/grpc-auth-1.39.0-sources.jar
+2022-09-13 10:36:27,232 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/io/grpc/grpc-auth/1.39.0/grpc-auth-1.39.0-sources.jar
+2022-09-13 10:36:27,251 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/io/grpc/grpc-auth/1.39.0/grpc-auth-1.39.0-sources.jar
+2022-09-13 10:36:27,305 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for io.grpc:grpc-auth:1.39.0
+2022-09-13 10:36:28,079 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/io/grpc/grpc-netty-shaded/1.39.0/grpc-netty-shaded-1.39.0-sources.jar
+2022-09-13 10:36:28,160 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/io/grpc/grpc-netty-shaded/1.39.0/grpc-netty-shaded-1.39.0-sources.jar
+2022-09-13 10:36:28,276 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/io/grpc/grpc-netty-shaded/1.39.0/grpc-netty-shaded-1.39.0-sources.jar
+2022-09-13 10:36:28,332 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for io.grpc:grpc-netty-shaded:1.39.0
+2022-09-13 10:36:29,054 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/io/grpc/grpc-alts/1.39.0/grpc-alts-1.39.0-sources.jar
+2022-09-13 10:36:29,169 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/io/grpc/grpc-alts/1.39.0/grpc-alts-1.39.0-sources.jar
+2022-09-13 10:36:29,208 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/io/grpc/grpc-alts/1.39.0/grpc-alts-1.39.0-sources.jar
+2022-09-13 10:36:29,266 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for io.grpc:grpc-alts:1.39.0
+2022-09-13 10:36:29,959 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/io/grpc/grpc-grpclb/1.39.0/grpc-grpclb-1.39.0-sources.jar
+2022-09-13 10:36:30,064 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/io/grpc/grpc-grpclb/1.39.0/grpc-grpclb-1.39.0-sources.jar
+2022-09-13 10:36:30,092 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/io/grpc/grpc-grpclb/1.39.0/grpc-grpclb-1.39.0-sources.jar
+2022-09-13 10:36:30,206 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for io.grpc:grpc-grpclb:1.39.0
+2022-09-13 10:36:30,951 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/org/conscrypt/conscrypt-openjdk-uber/2.5.1/conscrypt-openjdk-uber-2.5.1-sources.jar
+2022-09-13 10:36:31,042 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/conscrypt/conscrypt-openjdk-uber/2.5.1/conscrypt-openjdk-uber-2.5.1-sources.jar
+2022-09-13 10:36:31,124 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/conscrypt/conscrypt-openjdk-uber/2.5.1/conscrypt-openjdk-uber-2.5.1-sources.jar
+2022-09-13 10:36:31,368 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.conscrypt:conscrypt-openjdk-uber:2.5.1
+2022-09-13 10:36:32,187 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1-sources.jar
+2022-09-13 10:36:32,265 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1-sources.jar
+2022-09-13 10:36:32,294 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/google/guava/failureaccess/1.0.1/failureaccess-1.0.1-sources.jar
+2022-09-13 10:36:32,380 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for com.google.guava:failureaccess:1.0.1
+2022-09-13 10:36:33,082 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava-sources.jar
+2022-09-13 10:36:33,181 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava-sources.jar
+2022-09-13 10:36:33,226 [Worker-48: Download sources and javadoc] ERROR o.e.m.j.internal.DownloadSourcesJob - Could not download sources for com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava
+org.eclipse.core.runtime.CoreException: Could not resolve artifact com.google.guava:listenablefuture:jar:sources:9999.0-empty-to-avoid-conflict-with-guava
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.lambda$4(MavenImpl.java:828) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:182) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:117) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:103) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.resolve(MavenImpl.java:796) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.resolve(MavenImpl.java:773) ~[na:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.download(DownloadSourcesJob.java:311) ~[na:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadAttachments(DownloadSourcesJob.java:285) ~[na:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadMaven(DownloadSourcesJob.java:255) ~[na:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadFilesAndPopulateToUpdate(DownloadSourcesJob.java:223) ~[na:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.lambda$0(DownloadSourcesJob.java:152) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:182) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:156) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:103) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.execute(MavenImpl.java:1416) ~[na:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.run(DownloadSourcesJob.java:152) ~[na:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63) ~[org.eclipse.core.jobs_3.13.0.v20220512-1935.jar:na]
+2022-09-13 10:36:33,916 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/org/checkerframework/checker-compat-qual/2.5.5/checker-compat-qual-2.5.5-sources.jar
+2022-09-13 10:36:34,025 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/checkerframework/checker-compat-qual/2.5.5/checker-compat-qual-2.5.5-sources.jar
+2022-09-13 10:36:34,060 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/checkerframework/checker-compat-qual/2.5.5/checker-compat-qual-2.5.5-sources.jar
+2022-09-13 10:36:34,132 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.checkerframework:checker-compat-qual:2.5.5
+2022-09-13 10:36:34,841 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/com/google/errorprone/error_prone_annotations/2.7.1/error_prone_annotations-2.7.1-sources.jar
+2022-09-13 10:36:34,933 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/google/errorprone/error_prone_annotations/2.7.1/error_prone_annotations-2.7.1-sources.jar
+2022-09-13 10:36:34,970 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/google/errorprone/error_prone_annotations/2.7.1/error_prone_annotations-2.7.1-sources.jar
+2022-09-13 10:36:35,039 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for com.google.errorprone:error_prone_annotations:2.7.1
+2022-09-13 10:36:35,695 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/org/threeten/threetenbp/1.5.1/threetenbp-1.5.1-sources.jar
+2022-09-13 10:36:35,795 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/threeten/threetenbp/1.5.1/threetenbp-1.5.1-sources.jar
+2022-09-13 10:36:36,116 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/threeten/threetenbp/1.5.1/threetenbp-1.5.1-sources.jar
+2022-09-13 10:36:36,174 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.threeten:threetenbp:1.5.1
+2022-09-13 10:36:36,838 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/io/grpc/grpc-stub/1.39.0/grpc-stub-1.39.0-sources.jar
+2022-09-13 10:36:36,937 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/io/grpc/grpc-stub/1.39.0/grpc-stub-1.39.0-sources.jar
+2022-09-13 10:36:36,957 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/io/grpc/grpc-stub/1.39.0/grpc-stub-1.39.0-sources.jar
+2022-09-13 10:36:37,029 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for io.grpc:grpc-stub:1.39.0
+2022-09-13 10:36:37,718 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/com/google/cloud/google-cloud-core/1.95.4/google-cloud-core-1.95.4-sources.jar
+2022-09-13 10:36:37,866 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/google/cloud/google-cloud-core/1.95.4/google-cloud-core-1.95.4-sources.jar
+2022-09-13 10:36:37,916 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/google/cloud/google-cloud-core/1.95.4/google-cloud-core-1.95.4-sources.jar
+2022-09-13 10:36:37,988 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for com.google.cloud:google-cloud-core:1.95.4
+2022-09-13 10:36:38,669 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/com/google/api/grpc/proto-google-iam-v1/1.0.14/proto-google-iam-v1-1.0.14-sources.jar
+2022-09-13 10:36:38,835 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/google/api/grpc/proto-google-iam-v1/1.0.14/proto-google-iam-v1-1.0.14-sources.jar
+2022-09-13 10:36:38,893 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/google/api/grpc/proto-google-iam-v1/1.0.14/proto-google-iam-v1-1.0.14-sources.jar
+2022-09-13 10:36:39,004 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for com.google.api.grpc:proto-google-iam-v1:1.0.14
+2022-09-13 10:36:39,678 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/com/google/code/gson/gson/2.8.9/gson-2.8.9-sources.jar
+2022-09-13 10:36:39,841 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/google/code/gson/gson/2.8.9/gson-2.8.9-sources.jar
+2022-09-13 10:36:39,925 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/google/code/gson/gson/2.8.9/gson-2.8.9-sources.jar
+2022-09-13 10:36:40,003 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for com.google.code.gson:gson:2.8.9
+2022-09-13 10:36:40,648 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/com/google/protobuf/protobuf-java-util/3.17.3/protobuf-java-util-3.17.3-sources.jar
+2022-09-13 10:36:40,738 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/google/protobuf/protobuf-java-util/3.17.3/protobuf-java-util-3.17.3-sources.jar
+2022-09-13 10:36:40,855 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/google/protobuf/protobuf-java-util/3.17.3/protobuf-java-util-3.17.3-sources.jar
+2022-09-13 10:36:40,908 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for com.google.protobuf:protobuf-java-util:3.17.3
+2022-09-13 10:36:41,557 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/com/google/guava/guava/30.1.1-android/guava-30.1.1-android-sources.jar
+2022-09-13 10:36:41,671 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/google/guava/guava/30.1.1-android/guava-30.1.1-android-sources.jar
+2022-09-13 10:36:42,159 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/google/guava/guava/30.1.1-android/guava-30.1.1-android-sources.jar
+2022-09-13 10:36:42,235 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for com.google.guava:guava:30.1.1-android
+2022-09-13 10:36:43,133 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/io/netty/netty-codec-http/4.1.73.Final/netty-codec-http-4.1.73.Final-sources.jar
+2022-09-13 10:36:43,207 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/io/netty/netty-codec-http/4.1.73.Final/netty-codec-http-4.1.73.Final-sources.jar
+2022-09-13 10:36:43,315 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/io/netty/netty-codec-http/4.1.73.Final/netty-codec-http-4.1.73.Final-sources.jar
+2022-09-13 10:36:43,367 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for io.netty:netty-codec-http:4.1.73.Final
+2022-09-13 10:36:44,056 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/io/netty/netty-common/4.1.73.Final/netty-common-4.1.73.Final-sources.jar
+2022-09-13 10:36:44,137 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/io/netty/netty-common/4.1.73.Final/netty-common-4.1.73.Final-sources.jar
+2022-09-13 10:36:44,254 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/io/netty/netty-common/4.1.73.Final/netty-common-4.1.73.Final-sources.jar
+2022-09-13 10:36:44,322 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for io.netty:netty-common:4.1.73.Final
+2022-09-13 10:36:45,089 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/io/netty/netty-buffer/4.1.73.Final/netty-buffer-4.1.73.Final-sources.jar
+2022-09-13 10:36:45,206 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/io/netty/netty-buffer/4.1.73.Final/netty-buffer-4.1.73.Final-sources.jar
+2022-09-13 10:36:45,280 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/io/netty/netty-buffer/4.1.73.Final/netty-buffer-4.1.73.Final-sources.jar
+2022-09-13 10:36:45,340 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for io.netty:netty-buffer:4.1.73.Final
+2022-09-13 10:36:46,106 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/io/netty/netty-codec/4.1.73.Final/netty-codec-4.1.73.Final-sources.jar
+2022-09-13 10:36:46,207 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/io/netty/netty-codec/4.1.73.Final/netty-codec-4.1.73.Final-sources.jar
+2022-09-13 10:36:46,284 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/io/netty/netty-codec/4.1.73.Final/netty-codec-4.1.73.Final-sources.jar
+2022-09-13 10:36:46,338 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for io.netty:netty-codec:4.1.73.Final
+2022-09-13 10:36:47,128 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/io/netty/netty-handler/4.1.73.Final/netty-handler-4.1.73.Final-sources.jar
+2022-09-13 10:36:47,341 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/io/netty/netty-handler/4.1.73.Final/netty-handler-4.1.73.Final-sources.jar
+2022-09-13 10:36:47,466 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/io/netty/netty-handler/4.1.73.Final/netty-handler-4.1.73.Final-sources.jar
+2022-09-13 10:36:47,556 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for io.netty:netty-handler:4.1.73.Final
+2022-09-13 10:36:48,254 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/io/netty/netty-resolver/4.1.73.Final/netty-resolver-4.1.73.Final-sources.jar
+2022-09-13 10:36:48,354 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/io/netty/netty-resolver/4.1.73.Final/netty-resolver-4.1.73.Final-sources.jar
+2022-09-13 10:36:48,387 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/io/netty/netty-resolver/4.1.73.Final/netty-resolver-4.1.73.Final-sources.jar
+2022-09-13 10:36:48,439 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for io.netty:netty-resolver:4.1.73.Final
+2022-09-13 10:36:49,176 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/io/netty/netty-tcnative-classes/2.0.46.Final/netty-tcnative-classes-2.0.46.Final-sources.jar
+2022-09-13 10:36:49,261 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/io/netty/netty-tcnative-classes/2.0.46.Final/netty-tcnative-classes-2.0.46.Final-sources.jar
+2022-09-13 10:36:49,293 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/io/netty/netty-tcnative-classes/2.0.46.Final/netty-tcnative-classes-2.0.46.Final-sources.jar
+2022-09-13 10:36:49,344 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for io.netty:netty-tcnative-classes:2.0.46.Final
+2022-09-13 10:36:50,102 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/io/netty/netty-transport/4.1.73.Final/netty-transport-4.1.73.Final-sources.jar
+2022-09-13 10:36:50,183 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/io/netty/netty-transport/4.1.73.Final/netty-transport-4.1.73.Final-sources.jar
+2022-09-13 10:36:50,263 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/io/netty/netty-transport/4.1.73.Final/netty-transport-4.1.73.Final-sources.jar
+2022-09-13 10:36:50,322 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for io.netty:netty-transport:4.1.73.Final
+2022-09-13 10:36:51,020 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/com/google/cloud/google-cloud-storage/1.96.0/google-cloud-storage-1.96.0-sources.jar
+2022-09-13 10:36:51,207 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/google/cloud/google-cloud-storage/1.96.0/google-cloud-storage-1.96.0-sources.jar
+2022-09-13 10:36:51,350 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/google/cloud/google-cloud-storage/1.96.0/google-cloud-storage-1.96.0-sources.jar
+2022-09-13 10:36:51,426 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for com.google.cloud:google-cloud-storage:1.96.0
+2022-09-13 10:36:52,254 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/com/google/cloud/google-cloud-core-http/1.90.0/google-cloud-core-http-1.90.0-sources.jar
+2022-09-13 10:36:52,492 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/google/cloud/google-cloud-core-http/1.90.0/google-cloud-core-http-1.90.0-sources.jar
+2022-09-13 10:36:52,524 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/google/cloud/google-cloud-core-http/1.90.0/google-cloud-core-http-1.90.0-sources.jar
+2022-09-13 10:36:52,629 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for com.google.cloud:google-cloud-core-http:1.90.0
+2022-09-13 10:36:53,291 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/com/google/http-client/google-http-client-appengine/1.31.0/google-http-client-appengine-1.31.0-sources.jar
+2022-09-13 10:36:53,451 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/google/http-client/google-http-client-appengine/1.31.0/google-http-client-appengine-1.31.0-sources.jar
+2022-09-13 10:36:53,486 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/google/http-client/google-http-client-appengine/1.31.0/google-http-client-appengine-1.31.0-sources.jar
+2022-09-13 10:36:53,559 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for com.google.http-client:google-http-client-appengine:1.31.0
+2022-09-13 10:36:54,302 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/com/google/api/gax-httpjson/0.65.1/gax-httpjson-0.65.1-sources.jar
+2022-09-13 10:36:54,407 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/google/api/gax-httpjson/0.65.1/gax-httpjson-0.65.1-sources.jar
+2022-09-13 10:36:54,466 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/google/api/gax-httpjson/0.65.1/gax-httpjson-0.65.1-sources.jar
+2022-09-13 10:36:54,530 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for com.google.api:gax-httpjson:0.65.1
+2022-09-13 10:36:55,180 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/com/google/apis/google-api-services-storage/v1-rev20190910-1.30.3/google-api-services-storage-v1-rev20190910-1.30.3-sources.jar
+2022-09-13 10:36:55,453 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/google/apis/google-api-services-storage/v1-rev20190910-1.30.3/google-api-services-storage-v1-rev20190910-1.30.3-sources.jar
+2022-09-13 10:36:56,023 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/google/apis/google-api-services-storage/v1-rev20190910-1.30.3/google-api-services-storage-v1-rev20190910-1.30.3-sources.jar
+2022-09-13 10:36:56,175 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for com.google.apis:google-api-services-storage:v1-rev20190910-1.30.3
+2022-09-13 10:36:56,859 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/org/assertj/assertj-core/3.21.0/assertj-core-3.21.0-sources.jar
+2022-09-13 10:36:56,954 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/assertj/assertj-core/3.21.0/assertj-core-3.21.0-sources.jar
+2022-09-13 10:36:57,167 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/assertj/assertj-core/3.21.0/assertj-core-3.21.0-sources.jar
+2022-09-13 10:36:57,230 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.assertj:assertj-core:3.21.0
+2022-09-13 10:36:57,895 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/org/hamcrest/hamcrest/2.2/hamcrest-2.2-sources.jar
+2022-09-13 10:36:57,975 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/hamcrest/hamcrest/2.2/hamcrest-2.2-sources.jar
+2022-09-13 10:36:58,029 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/hamcrest/hamcrest/2.2/hamcrest-2.2-sources.jar
+2022-09-13 10:36:58,112 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.hamcrest:hamcrest:2.2
+2022-09-13 10:36:58,802 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/org/junit/jupiter/junit-jupiter/5.8.2/junit-jupiter-5.8.2-sources.jar
+2022-09-13 10:36:58,949 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/junit/jupiter/junit-jupiter/5.8.2/junit-jupiter-5.8.2-sources.jar
+2022-09-13 10:36:58,984 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/junit/jupiter/junit-jupiter/5.8.2/junit-jupiter-5.8.2-sources.jar
+2022-09-13 10:36:59,071 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.junit.jupiter:junit-jupiter:5.8.2
+2022-09-13 10:36:59,780 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/org/junit/jupiter/junit-jupiter-api/5.8.2/junit-jupiter-api-5.8.2-sources.jar
+2022-09-13 10:36:59,872 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/junit/jupiter/junit-jupiter-api/5.8.2/junit-jupiter-api-5.8.2-sources.jar
+2022-09-13 10:36:59,941 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/junit/jupiter/junit-jupiter-api/5.8.2/junit-jupiter-api-5.8.2-sources.jar
+2022-09-13 10:37:00,048 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.junit.jupiter:junit-jupiter-api:5.8.2
+2022-09-13 10:37:00,690 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0-sources.jar
+2022-09-13 10:37:00,790 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0-sources.jar
+2022-09-13 10:37:00,821 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/opentest4j/opentest4j/1.2.0/opentest4j-1.2.0-sources.jar
+2022-09-13 10:37:00,909 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.opentest4j:opentest4j:1.2.0
+2022-09-13 10:37:01,706 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/org/junit/platform/junit-platform-commons/1.8.2/junit-platform-commons-1.8.2-sources.jar
+2022-09-13 10:37:01,852 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/junit/platform/junit-platform-commons/1.8.2/junit-platform-commons-1.8.2-sources.jar
+2022-09-13 10:37:01,899 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/junit/platform/junit-platform-commons/1.8.2/junit-platform-commons-1.8.2-sources.jar
+2022-09-13 10:37:02,062 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.junit.platform:junit-platform-commons:1.8.2
+2022-09-13 10:37:02,712 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2-sources.jar
+2022-09-13 10:37:02,881 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2-sources.jar
+2022-09-13 10:37:02,945 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2-sources.jar
+2022-09-13 10:37:03,024 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.apiguardian:apiguardian-api:1.1.2
+2022-09-13 10:37:03,710 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/org/junit/jupiter/junit-jupiter-params/5.8.2/junit-jupiter-params-5.8.2-sources.jar
+2022-09-13 10:37:03,814 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/junit/jupiter/junit-jupiter-params/5.8.2/junit-jupiter-params-5.8.2-sources.jar
+2022-09-13 10:37:03,880 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/junit/jupiter/junit-jupiter-params/5.8.2/junit-jupiter-params-5.8.2-sources.jar
+2022-09-13 10:37:03,962 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.junit.jupiter:junit-jupiter-params:5.8.2
+2022-09-13 10:37:04,668 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/org/junit/jupiter/junit-jupiter-engine/5.8.2/junit-jupiter-engine-5.8.2-sources.jar
+2022-09-13 10:37:04,805 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/junit/jupiter/junit-jupiter-engine/5.8.2/junit-jupiter-engine-5.8.2-sources.jar
+2022-09-13 10:37:04,868 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/junit/jupiter/junit-jupiter-engine/5.8.2/junit-jupiter-engine-5.8.2-sources.jar
+2022-09-13 10:37:04,958 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.junit.jupiter:junit-jupiter-engine:5.8.2
+2022-09-13 10:37:05,640 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/org/junit/platform/junit-platform-engine/1.8.2/junit-platform-engine-1.8.2-sources.jar
+2022-09-13 10:37:05,758 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/junit/platform/junit-platform-engine/1.8.2/junit-platform-engine-1.8.2-sources.jar
+2022-09-13 10:37:05,863 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/junit/platform/junit-platform-engine/1.8.2/junit-platform-engine-1.8.2-sources.jar
+2022-09-13 10:37:06,054 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.junit.platform:junit-platform-engine:1.8.2
+2022-09-13 10:37:06,759 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/org/mockito/mockito-core/4.0.0/mockito-core-4.0.0-sources.jar
+2022-09-13 10:37:06,914 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/mockito/mockito-core/4.0.0/mockito-core-4.0.0-sources.jar
+2022-09-13 10:37:07,165 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/mockito/mockito-core/4.0.0/mockito-core-4.0.0-sources.jar
+2022-09-13 10:37:07,227 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.mockito:mockito-core:4.0.0
+2022-09-13 10:37:07,862 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/net/bytebuddy/byte-buddy/1.11.22/byte-buddy-1.11.22-sources.jar
+2022-09-13 10:37:07,946 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/net/bytebuddy/byte-buddy/1.11.22/byte-buddy-1.11.22-sources.jar
+2022-09-13 10:37:08,145 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/net/bytebuddy/byte-buddy/1.11.22/byte-buddy-1.11.22-sources.jar
+2022-09-13 10:37:08,306 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for net.bytebuddy:byte-buddy:1.11.22
+2022-09-13 10:37:08,966 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/net/bytebuddy/byte-buddy-agent/1.11.22/byte-buddy-agent-1.11.22-sources.jar
+2022-09-13 10:37:09,092 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/net/bytebuddy/byte-buddy-agent/1.11.22/byte-buddy-agent-1.11.22-sources.jar
+2022-09-13 10:37:09,159 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/net/bytebuddy/byte-buddy-agent/1.11.22/byte-buddy-agent-1.11.22-sources.jar
+2022-09-13 10:37:09,254 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for net.bytebuddy:byte-buddy-agent:1.11.22
+2022-09-13 10:37:09,941 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/org/objenesis/objenesis/3.2/objenesis-3.2-sources.jar
+2022-09-13 10:37:10,041 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/objenesis/objenesis/3.2/objenesis-3.2-sources.jar
+2022-09-13 10:37:10,083 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/objenesis/objenesis/3.2/objenesis-3.2-sources.jar
+2022-09-13 10:37:10,265 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.objenesis:objenesis:3.2
+2022-09-13 10:37:11,103 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/org/mockito/mockito-junit-jupiter/4.0.0/mockito-junit-jupiter-4.0.0-sources.jar
+2022-09-13 10:37:11,248 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/mockito/mockito-junit-jupiter/4.0.0/mockito-junit-jupiter-4.0.0-sources.jar
+2022-09-13 10:37:11,287 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/mockito/mockito-junit-jupiter/4.0.0/mockito-junit-jupiter-4.0.0-sources.jar
+2022-09-13 10:37:11,443 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.mockito:mockito-junit-jupiter:4.0.0
+2022-09-13 10:37:12,220 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/org/skyscreamer/jsonassert/1.5.0/jsonassert-1.5.0-sources.jar
+2022-09-13 10:37:12,344 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/skyscreamer/jsonassert/1.5.0/jsonassert-1.5.0-sources.jar
+2022-09-13 10:37:12,380 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/skyscreamer/jsonassert/1.5.0/jsonassert-1.5.0-sources.jar
+2022-09-13 10:37:12,459 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.skyscreamer:jsonassert:1.5.0
+2022-09-13 10:37:13,146 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1-sources.jar
+2022-09-13 10:37:13,233 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1-sources.jar
+2022-09-13 10:37:13,262 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1-sources.jar
+2022-09-13 10:37:13,346 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for com.vaadin.external.google:android-json:0.0.20131108.vaadin1
+2022-09-13 10:37:14,010 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/org/xmlunit/xmlunit-core/2.8.4/xmlunit-core-2.8.4-sources.jar
+2022-09-13 10:37:14,098 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/xmlunit/xmlunit-core/2.8.4/xmlunit-core-2.8.4-sources.jar
+2022-09-13 10:37:14,143 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/xmlunit/xmlunit-core/2.8.4/xmlunit-core-2.8.4-sources.jar
+2022-09-13 10:37:14,216 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.xmlunit:xmlunit-core:2.8.4
+2022-09-13 10:37:14,982 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/org/springframework/spring-mock/2.0.8/spring-mock-2.0.8-sources.jar
+2022-09-13 10:37:15,063 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/springframework/spring-mock/2.0.8/spring-mock-2.0.8-sources.jar
+2022-09-13 10:37:15,080 [Worker-48: Download sources and javadoc] ERROR o.e.m.j.internal.DownloadSourcesJob - Could not download sources for org.springframework:spring-mock:2.0.8
+org.eclipse.core.runtime.CoreException: Could not resolve artifact org.springframework:spring-mock:jar:sources:2.0.8
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.lambda$4(MavenImpl.java:828) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:182) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:117) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:103) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.resolve(MavenImpl.java:796) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.resolve(MavenImpl.java:773) ~[na:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.download(DownloadSourcesJob.java:311) ~[na:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadAttachments(DownloadSourcesJob.java:285) ~[na:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadMaven(DownloadSourcesJob.java:255) ~[na:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadFilesAndPopulateToUpdate(DownloadSourcesJob.java:223) ~[na:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.lambda$0(DownloadSourcesJob.java:152) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:182) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:156) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:103) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.execute(MavenImpl.java:1416) ~[na:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.run(DownloadSourcesJob.java:152) ~[na:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63) ~[org.eclipse.core.jobs_3.13.0.v20220512-1935.jar:na]
+2022-09-13 10:37:15,762 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/commons-logging/commons-logging/1.1/commons-logging-1.1-sources.jar
+2022-09-13 10:37:15,887 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/commons-logging/commons-logging/1.1/commons-logging-1.1-sources.jar
+2022-09-13 10:37:15,942 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/commons-logging/commons-logging/1.1/commons-logging-1.1-sources.jar
+2022-09-13 10:37:16,053 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for commons-logging:commons-logging:1.1
+2022-09-13 10:37:16,731 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/log4j/log4j/1.2.12/log4j-1.2.12-sources.jar
+2022-09-13 10:37:16,830 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/log4j/log4j/1.2.12/log4j-1.2.12-sources.jar
+2022-09-13 10:37:16,836 [Worker-48: Download sources and javadoc] ERROR o.e.m.j.internal.DownloadSourcesJob - Could not download sources for log4j:log4j:1.2.12
+org.eclipse.core.runtime.CoreException: Could not resolve artifact log4j:log4j:jar:sources:1.2.12
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.lambda$4(MavenImpl.java:828) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:182) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:117) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:103) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.resolve(MavenImpl.java:796) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.resolve(MavenImpl.java:773) ~[na:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.download(DownloadSourcesJob.java:311) ~[na:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadAttachments(DownloadSourcesJob.java:285) ~[na:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadMaven(DownloadSourcesJob.java:255) ~[na:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadFilesAndPopulateToUpdate(DownloadSourcesJob.java:223) ~[na:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.lambda$0(DownloadSourcesJob.java:152) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:182) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:156) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:103) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.execute(MavenImpl.java:1416) ~[na:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.run(DownloadSourcesJob.java:152) ~[na:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63) ~[org.eclipse.core.jobs_3.13.0.v20220512-1935.jar:na]
+2022-09-13 10:37:17,747 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/logkit/logkit/1.0.1/logkit-1.0.1-sources.jar
+2022-09-13 10:37:17,837 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/logkit/logkit/1.0.1/logkit-1.0.1-sources.jar
+2022-09-13 10:37:17,880 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/logkit/logkit/1.0.1/logkit-1.0.1-sources.jar
+2022-09-13 10:37:17,992 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for logkit:logkit:1.0.1
+2022-09-13 10:37:18,668 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/avalon-framework/avalon-framework/4.1.3/avalon-framework-4.1.3-sources.jar
+2022-09-13 10:37:18,772 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/avalon-framework/avalon-framework/4.1.3/avalon-framework-4.1.3-sources.jar
+2022-09-13 10:37:18,779 [Worker-48: Download sources and javadoc] ERROR o.e.m.j.internal.DownloadSourcesJob - Could not download sources for avalon-framework:avalon-framework:4.1.3
+org.eclipse.core.runtime.CoreException: Could not resolve artifact avalon-framework:avalon-framework:jar:sources:4.1.3
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.lambda$4(MavenImpl.java:828) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:182) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:117) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:103) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.resolve(MavenImpl.java:796) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.resolve(MavenImpl.java:773) ~[na:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.download(DownloadSourcesJob.java:311) ~[na:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadAttachments(DownloadSourcesJob.java:285) ~[na:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadMaven(DownloadSourcesJob.java:255) ~[na:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadFilesAndPopulateToUpdate(DownloadSourcesJob.java:223) ~[na:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.lambda$0(DownloadSourcesJob.java:152) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:182) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:156) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:103) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.execute(MavenImpl.java:1416) ~[na:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.run(DownloadSourcesJob.java:152) ~[na:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63) ~[org.eclipse.core.jobs_3.13.0.v20220512-1935.jar:na]
+2022-09-13 10:37:19,034 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/javax/servlet/servlet-api/2.3/servlet-api-2.3-sources.jar
+2022-09-13 10:37:19,141 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/javax/servlet/servlet-api/2.3/servlet-api-2.3-sources.jar
+2022-09-13 10:37:19,468 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/javax/servlet/servlet-api/2.3/servlet-api-2.3-sources.jar
+2022-09-13 10:37:19,558 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for javax.servlet:servlet-api:2.3
+2022-09-13 10:37:20,292 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/junit/junit/4.13.2/junit-4.13.2-sources.jar
+2022-09-13 10:37:20,389 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/junit/junit/4.13.2/junit-4.13.2-sources.jar
+2022-09-13 10:37:20,765 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/junit/junit/4.13.2/junit-4.13.2-sources.jar
+2022-09-13 10:37:20,934 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for junit:junit:4.13.2
+2022-09-13 10:37:21,650 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/org/hamcrest/hamcrest-core/2.2/hamcrest-core-2.2-sources.jar
+2022-09-13 10:37:21,767 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/hamcrest/hamcrest-core/2.2/hamcrest-core-2.2-sources.jar
+2022-09-13 10:37:21,801 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/hamcrest/hamcrest-core/2.2/hamcrest-core-2.2-sources.jar
+2022-09-13 10:37:21,869 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.hamcrest:hamcrest-core:2.2
+2022-09-13 10:37:22,561 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/org/springframework/spring-test/5.3.15/spring-test-5.3.15-sources.jar
+2022-09-13 10:37:22,659 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/springframework/spring-test/5.3.15/spring-test-5.3.15-sources.jar
+2022-09-13 10:37:23,276 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/springframework/spring-test/5.3.15/spring-test-5.3.15-sources.jar
+2022-09-13 10:37:23,349 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.springframework:spring-test:5.3.15
+2022-09-13 10:37:24,103 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/javax/persistence/javax.persistence-api/2.2/javax.persistence-api-2.2-sources.jar
+2022-09-13 10:37:24,203 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/javax/persistence/javax.persistence-api/2.2/javax.persistence-api-2.2-sources.jar
+2022-09-13 10:37:24,653 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/javax/persistence/javax.persistence-api/2.2/javax.persistence-api-2.2-sources.jar
+2022-09-13 10:37:24,712 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for javax.persistence:javax.persistence-api:2.2
+2022-09-13 10:37:25,427 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/commons-io/commons-io/1.3.2/commons-io-1.3.2-sources.jar
+2022-09-13 10:37:25,527 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/commons-io/commons-io/1.3.2/commons-io-1.3.2-sources.jar
+2022-09-13 10:37:25,908 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/commons-io/commons-io/1.3.2/commons-io-1.3.2-sources.jar
+2022-09-13 10:37:26,014 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for commons-io:commons-io:1.3.2
+2022-09-13 10:37:26,760 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/org/projectlombok/lombok/1.18.22/lombok-1.18.22-sources.jar
+2022-09-13 10:37:26,882 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/projectlombok/lombok/1.18.22/lombok-1.18.22-sources.jar
+2022-09-13 10:37:27,593 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/projectlombok/lombok/1.18.22/lombok-1.18.22-sources.jar
+2022-09-13 10:37:27,679 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.projectlombok:lombok:1.18.22
+2022-09-13 10:37:28,401 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/com/itextpdf/itextpdf/5.5.6/itextpdf-5.5.6-sources.jar
+2022-09-13 10:37:28,604 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/itextpdf/itextpdf/5.5.6/itextpdf-5.5.6-sources.jar
+2022-09-13 10:37:30,229 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/itextpdf/itextpdf/5.5.6/itextpdf-5.5.6-sources.jar
+2022-09-13 10:37:30,292 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for com.itextpdf:itextpdf:5.5.6
+2022-09-13 10:37:30,949 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/org/apache/pdfbox/pdfbox/2.0.24/pdfbox-2.0.24-sources.jar
+2022-09-13 10:37:31,085 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/pdfbox/pdfbox/2.0.24/pdfbox-2.0.24-sources.jar
+2022-09-13 10:37:32,326 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/pdfbox/pdfbox/2.0.24/pdfbox-2.0.24-sources.jar
+2022-09-13 10:37:32,405 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.apache.pdfbox:pdfbox:2.0.24
+2022-09-13 10:37:33,109 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/org/apache/pdfbox/fontbox/2.0.24/fontbox-2.0.24-sources.jar
+2022-09-13 10:37:33,224 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/org/apache/pdfbox/fontbox/2.0.24/fontbox-2.0.24-sources.jar
+2022-09-13 10:37:33,986 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/apache/pdfbox/fontbox/2.0.24/fontbox-2.0.24-sources.jar
+2022-09-13 10:37:34,046 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for org.apache.pdfbox:fontbox:2.0.24
+2022-09-13 10:37:34,685 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/com/google/api-client/google-api-client-jackson2/1.20.0/google-api-client-jackson2-1.20.0-sources.jar
+2022-09-13 10:37:34,801 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/google/api-client/google-api-client-jackson2/1.20.0/google-api-client-jackson2-1.20.0-sources.jar
+2022-09-13 10:37:34,828 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/google/api-client/google-api-client-jackson2/1.20.0/google-api-client-jackson2-1.20.0-sources.jar
+2022-09-13 10:37:34,900 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for com.google.api-client:google-api-client-jackson2:1.20.0
+2022-09-13 10:37:35,536 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/com/google/http-client/google-http-client-jackson2/1.20.0/google-http-client-jackson2-1.20.0-sources.jar
+2022-09-13 10:37:35,735 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/google/http-client/google-http-client-jackson2/1.20.0/google-http-client-jackson2-1.20.0-sources.jar
+2022-09-13 10:37:35,794 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/google/http-client/google-http-client-jackson2/1.20.0/google-http-client-jackson2-1.20.0-sources.jar
+2022-09-13 10:37:35,866 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for com.google.http-client:google-http-client-jackson2:1.20.0
+2022-09-13 10:37:36,588 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/com/googlecode/json-simple/json-simple/1.1.1/json-simple-1.1.1-sources.jar
+2022-09-13 10:37:36,700 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloading https://repo.maven.apache.org/maven2/com/googlecode/json-simple/json-simple/1.1.1/json-simple-1.1.1-sources.jar
+2022-09-13 10:37:36,808 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/googlecode/json-simple/json-simple/1.1.1/json-simple-1.1.1-sources.jar
+2022-09-13 10:37:36,933 [Worker-48: Download sources and javadoc] INFO  o.e.m.j.internal.DownloadSourcesJob - Downloaded sources for com.googlecode.json-simple:json-simple:1.1.1
+2022-09-13 10:37:37,577 [Worker-48: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-09-13 10:37:37,578 [Worker-48: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-09-13 10:37:37,579 [Worker-48: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-09-13 10:37:37,579 [Worker-48: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-09-13 10:37:37,583 [Worker-48: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-09-13 10:37:37,583 [Worker-48: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-09-13 10:37:37,583 [Worker-48: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/martha/Documents/SignPDF/Sign-PDF/demo/src/test/resources
+2022-09-13 12:55:54,351 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava-javadoc.jar
+2022-09-13 12:55:54,516 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/com/google/guava/listenablefuture/9999.0-empty-to-avoid-conflict-with-guava/listenablefuture-9999.0-empty-to-avoid-conflict-with-guava-javadoc.jar
+2022-09-13 12:55:54,522 [Worker-48: Download sources and javadoc] ERROR o.e.m.j.internal.DownloadSourcesJob - Could not download javadoc for com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava
+org.eclipse.core.runtime.CoreException: Could not resolve artifact com.google.guava:listenablefuture:jar:javadoc:9999.0-empty-to-avoid-conflict-with-guava
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.lambda$4(MavenImpl.java:828) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:182) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:117) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:103) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.resolve(MavenImpl.java:796) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.resolve(MavenImpl.java:773) ~[na:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.download(DownloadSourcesJob.java:311) ~[na:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadAttachments(DownloadSourcesJob.java:297) ~[na:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadMaven(DownloadSourcesJob.java:255) ~[na:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadFilesAndPopulateToUpdate(DownloadSourcesJob.java:223) ~[na:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.lambda$0(DownloadSourcesJob.java:152) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:182) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:156) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:103) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.execute(MavenImpl.java:1416) ~[na:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.run(DownloadSourcesJob.java:152) ~[na:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63) ~[org.eclipse.core.jobs_3.13.0.v20220512-1935.jar:na]
+2022-09-13 12:55:55,297 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/org/springframework/spring-mock/2.0.8/spring-mock-2.0.8-javadoc.jar
+2022-09-13 12:55:55,374 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/org/springframework/spring-mock/2.0.8/spring-mock-2.0.8-javadoc.jar
+2022-09-13 12:55:55,377 [Worker-48: Download sources and javadoc] ERROR o.e.m.j.internal.DownloadSourcesJob - Could not download javadoc for org.springframework:spring-mock:2.0.8
+org.eclipse.core.runtime.CoreException: Could not resolve artifact org.springframework:spring-mock:jar:javadoc:2.0.8
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.lambda$4(MavenImpl.java:828) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:182) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:117) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:103) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.resolve(MavenImpl.java:796) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.resolve(MavenImpl.java:773) ~[na:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.download(DownloadSourcesJob.java:311) ~[na:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadAttachments(DownloadSourcesJob.java:297) ~[na:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadMaven(DownloadSourcesJob.java:255) ~[na:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadFilesAndPopulateToUpdate(DownloadSourcesJob.java:223) ~[na:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.lambda$0(DownloadSourcesJob.java:152) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:182) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:156) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:103) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.execute(MavenImpl.java:1416) ~[na:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.run(DownloadSourcesJob.java:152) ~[na:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63) ~[org.eclipse.core.jobs_3.13.0.v20220512-1935.jar:na]
+2022-09-13 12:55:56,038 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/log4j/log4j/1.2.12/log4j-1.2.12-javadoc.jar
+2022-09-13 12:55:56,106 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/log4j/log4j/1.2.12/log4j-1.2.12-javadoc.jar
+2022-09-13 12:55:56,110 [Worker-48: Download sources and javadoc] ERROR o.e.m.j.internal.DownloadSourcesJob - Could not download javadoc for log4j:log4j:1.2.12
+org.eclipse.core.runtime.CoreException: Could not resolve artifact log4j:log4j:jar:javadoc:1.2.12
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.lambda$4(MavenImpl.java:828) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:182) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:117) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:103) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.resolve(MavenImpl.java:796) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.resolve(MavenImpl.java:773) ~[na:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.download(DownloadSourcesJob.java:311) ~[na:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadAttachments(DownloadSourcesJob.java:297) ~[na:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadMaven(DownloadSourcesJob.java:255) ~[na:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadFilesAndPopulateToUpdate(DownloadSourcesJob.java:223) ~[na:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.lambda$0(DownloadSourcesJob.java:152) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:182) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:156) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:103) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.execute(MavenImpl.java:1416) ~[na:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.run(DownloadSourcesJob.java:152) ~[na:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63) ~[org.eclipse.core.jobs_3.13.0.v20220512-1935.jar:na]
+2022-09-13 12:55:56,888 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repository.aspose.com/repo/avalon-framework/avalon-framework/4.1.3/avalon-framework-4.1.3-javadoc.jar
+2022-09-13 12:55:57,168 [Worker-48: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/avalon-framework/avalon-framework/4.1.3/avalon-framework-4.1.3-javadoc.jar
+2022-09-13 12:55:57,173 [Worker-48: Download sources and javadoc] ERROR o.e.m.j.internal.DownloadSourcesJob - Could not download javadoc for avalon-framework:avalon-framework:4.1.3
+org.eclipse.core.runtime.CoreException: Could not resolve artifact avalon-framework:avalon-framework:jar:javadoc:4.1.3
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.lambda$4(MavenImpl.java:828) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:182) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:117) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:103) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.resolve(MavenImpl.java:796) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.resolve(MavenImpl.java:773) ~[na:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.download(DownloadSourcesJob.java:311) ~[na:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadAttachments(DownloadSourcesJob.java:297) ~[na:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadMaven(DownloadSourcesJob.java:255) ~[na:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadFilesAndPopulateToUpdate(DownloadSourcesJob.java:223) ~[na:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.lambda$0(DownloadSourcesJob.java:152) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:182) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:156) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:103) ~[na:na]
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.execute(MavenImpl.java:1416) ~[na:na]
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.run(DownloadSourcesJob.java:152) ~[na:na]
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63) ~[org.eclipse.core.jobs_3.13.0.v20220512-1935.jar:na]
+2022-09-29 18:01:33,669 [Worker-9: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2022-09-29 18:01:44,359 [Worker-8: Launching Application] WARN  o.a.m.r.i.DefaultArtifactDescriptorReader - The artifact org.apache.commons:commons-io:jar:1.3.2 has been relocated to commons-io:commons-io:jar:1.3.2: https://issues.sonatype.org/browse/MVNCENTRAL-244
+2022-09-29 18:01:44,442 [Worker-8: Launching Application] WARN  o.a.m.r.i.DefaultArtifactDescriptorReader - The artifact com.lowagie:itext:jar:4.2.0 has been relocated to com.itextpdf:itextpdf:jar:5.5.6: After release 2.1.7, iText moved from the MPLicense to the AGPLicense.
+			The groupId changed from com.lowagie to com.itextpdf and the artifactId from itext to itextpdf.
+			See http://itextpdf.com/functionalitycomparison for more information.
+2022-09-29 18:19:31,679 [Worker-30: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-09-29 18:19:31,680 [Worker-30: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-09-29 18:19:31,686 [Worker-30: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-09-29 18:19:31,715 [Worker-30: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-09-29 18:19:31,721 [Worker-30: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-09-29 18:19:31,721 [Worker-30: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-09-29 18:19:31,721 [Worker-30: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/martha/Documents/SignPDF/Sign-PDF/demo/src/test/resources
+2022-09-30 16:24:03,795 [Worker-36: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-09-30 16:24:03,797 [Worker-36: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-09-30 16:24:03,807 [Worker-36: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-09-30 16:24:03,828 [Worker-36: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-09-30 16:24:03,831 [Worker-36: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-09-30 16:24:03,831 [Worker-36: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-09-30 16:24:03,831 [Worker-36: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/martha/Documents/SignPDF/Sign-PDF/demo/src/test/resources
+2022-09-30 16:24:38,880 [Worker-41: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-09-30 16:24:38,881 [Worker-41: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-09-30 16:24:38,881 [Worker-41: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-09-30 16:24:38,899 [Worker-41: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-09-30 16:24:38,903 [Worker-41: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-09-30 16:24:38,904 [Worker-41: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-09-30 16:24:38,904 [Worker-41: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/martha/Documents/SignPDF/Sign-PDF/demo/src/test/resources
+2022-10-04 14:17:18,507 [Worker-36: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-10-04 14:17:18,511 [Worker-36: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-10-04 14:17:18,515 [Worker-36: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-10-04 14:17:18,567 [Worker-36: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-04 14:17:18,584 [Worker-36: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-10-04 14:17:18,584 [Worker-36: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-10-04 14:17:18,584 [Worker-36: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/martha/Documents/SignPDF/Sign-PDF/demo/src/test/resources
+2022-10-04 14:52:36,112 [Worker-51: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-10-04 14:52:36,114 [Worker-51: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-10-04 14:52:36,115 [Worker-51: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-10-04 14:52:36,158 [Worker-51: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-04 14:52:36,162 [Worker-51: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-10-04 14:52:36,162 [Worker-51: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-10-04 14:52:36,162 [Worker-51: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/martha/Documents/SignPDF/Sign-PDF/demo/src/test/resources
+2022-10-04 15:01:18,630 [Worker-57: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-10-04 15:01:18,640 [Worker-57: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-10-04 15:01:18,643 [Worker-57: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-10-04 15:01:18,669 [Worker-57: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-04 15:01:18,680 [Worker-57: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-10-04 15:01:18,680 [Worker-57: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-10-04 15:01:18,680 [Worker-57: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/martha/Documents/SignPDF/Sign-PDF/demo/src/test/resources
+2022-10-04 15:02:56,912 [Worker-57: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-10-04 15:02:56,914 [Worker-57: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-10-04 15:02:56,917 [Worker-57: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-10-04 15:02:56,951 [Worker-57: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-04 15:02:56,957 [Worker-57: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-10-04 15:02:56,957 [Worker-57: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-10-04 15:02:56,957 [Worker-57: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/martha/Documents/SignPDF/Sign-PDF/demo/src/test/resources
+2022-10-04 15:04:20,520 [Worker-50: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-10-04 15:04:20,524 [Worker-50: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-10-04 15:04:20,544 [Worker-50: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-10-04 15:04:20,569 [Worker-50: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-04 15:04:20,620 [Worker-50: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-10-04 15:04:20,620 [Worker-50: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-10-04 15:04:20,620 [Worker-50: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/martha/Documents/SignPDF/Sign-PDF/demo/src/test/resources
+2022-10-04 15:05:52,116 [Worker-62: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-10-04 15:05:52,118 [Worker-62: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-10-04 15:05:52,122 [Worker-62: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-10-04 15:05:52,139 [Worker-62: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-04 15:05:52,141 [Worker-62: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-10-04 15:05:52,141 [Worker-62: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-10-04 15:05:52,141 [Worker-62: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/martha/Documents/SignPDF/Sign-PDF/demo/src/test/resources
+2022-10-04 15:07:11,301 [Worker-61: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-10-04 15:07:11,302 [Worker-61: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-10-04 15:07:11,304 [Worker-61: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-04 15:07:11,305 [Worker-61: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-04 15:07:11,308 [Worker-61: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-10-04 15:07:11,308 [Worker-61: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-10-04 15:07:11,309 [Worker-61: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/martha/Documents/SignPDF/Sign-PDF/demo/src/test/resources
+2022-10-04 16:31:54,593 [Worker-67: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-10-04 16:31:54,596 [Worker-67: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-10-04 16:31:54,599 [Worker-67: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2022-10-04 16:31:54,621 [Worker-67: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2022-10-04 16:31:54,623 [Worker-67: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2022-10-04 16:31:54,623 [Worker-67: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered properties files.
+2022-10-04 16:31:54,623 [Worker-67: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /Users/martha/Documents/SignPDF/Sign-PDF/demo/src/test/resources
+2022-10-06 15:09:01,504 [Worker-4: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2023-03-10 11:30:14,024 [Worker-9: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2023-03-10 11:33:04,253 [Worker-27: Launching Application] WARN  o.a.m.r.i.DefaultArtifactDescriptorReader - The artifact org.apache.commons:commons-io:jar:1.3.2 has been relocated to commons-io:commons-io:jar:1.3.2: https://issues.sonatype.org/browse/MVNCENTRAL-244
+2023-03-10 11:33:04,279 [Worker-27: Launching Application] WARN  o.a.m.r.i.DefaultArtifactDescriptorReader - The artifact com.lowagie:itext:jar:4.2.0 has been relocated to com.itextpdf:itextpdf:jar:5.5.6: After release 2.1.7, iText moved from the MPLicense to the AGPLicense.
+			The groupId changed from com.lowagie to com.itextpdf and the artifactId from itext to itextpdf.
+			See http://itextpdf.com/functionalitycomparison for more information.
+2023-03-20 10:16:35,703 [Worker-6: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2023-03-20 10:16:46,273 [Worker-12: Launching Application] WARN  o.a.m.r.i.DefaultArtifactDescriptorReader - The artifact org.apache.commons:commons-io:jar:1.3.2 has been relocated to commons-io:commons-io:jar:1.3.2: https://issues.sonatype.org/browse/MVNCENTRAL-244
+2023-03-20 10:16:46,323 [Worker-12: Launching Application] WARN  o.a.m.r.i.DefaultArtifactDescriptorReader - The artifact com.lowagie:itext:jar:4.2.0 has been relocated to com.itextpdf:itextpdf:jar:5.5.6: After release 2.1.7, iText moved from the MPLicense to the AGPLicense.
+			The groupId changed from com.lowagie to com.itextpdf and the artifactId from itext to itextpdf.
+			See http://itextpdf.com/functionalitycomparison for more information.
+2023-03-31 12:09:51,684 [Worker-9: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2023-03-31 12:10:02,954 [Worker-13: Launching Application] WARN  o.a.m.r.i.DefaultArtifactDescriptorReader - The artifact org.apache.commons:commons-io:jar:1.3.2 has been relocated to commons-io:commons-io:jar:1.3.2: https://issues.sonatype.org/browse/MVNCENTRAL-244
+2023-03-31 12:10:03,327 [Worker-13: Launching Application] WARN  o.a.m.r.i.DefaultArtifactDescriptorReader - The artifact com.lowagie:itext:jar:4.2.0 has been relocated to com.itextpdf:itextpdf:jar:5.5.6: After release 2.1.7, iText moved from the MPLicense to the AGPLicense.
+			The groupId changed from com.lowagie to com.itextpdf and the artifactId from itext to itextpdf.
+			See http://itextpdf.com/functionalitycomparison for more information.

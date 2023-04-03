@@ -47,7 +47,7 @@ public class FirebaseStorageStrategy {
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			HashMap<String, Object> responseObject = new HashMap<String, Object>();
-			logger.info("This document doesn't exist!");
+			logger.info("This document doesn't exist!", e.getMessage());
 			responseObject.put("Exists", false);
 			return responseObject;
 		}

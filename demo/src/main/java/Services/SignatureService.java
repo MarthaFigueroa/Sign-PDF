@@ -39,6 +39,7 @@ public class SignatureService implements ISignatureService{
     	try {
     		HashMap<String, Object> responseObject = new HashMap<String, Object>();
     			Files.copy(file.getInputStream(), path, StandardCopyOption.REPLACE_EXISTING);
+    			System.out.println("Paso");
     			CertificateConfig certificateConfig = new CertificateConfig();
     			responseCert = certificateConfig.setCertData(certMetadata, certName);
     			if(responseCert.get("Signers")!= null) {
@@ -71,6 +72,7 @@ public class SignatureService implements ISignatureService{
 		HashMap<String, Object> responseObject = new HashMap<String, Object>();
 		FileService fileService = new FileService();
 		filename = fileService.getAbsolutePath(dir, filename)[0];
+		System.out.println(filename);
 		pdfSign.bindPdf(filename);
 		if (pdfSign.containsSignature()) {
 			System.out.println("CSV: "+pdfSign.getLocation("Signature1"));

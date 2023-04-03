@@ -73,18 +73,18 @@ const EditUserForm = ({editUser, message, id}) => {
                                             <input id="email" type="text" name="email" placeholder="Email" className="h-12 border rounded-r-lg w-full mb-3 leading-6 text-justify pl-1" onChange={handleInputChange} defaultValue={user.email || ""}/>
                                         </div> */}
                                         <UserContext.Consumer>
-                                            {user =>{
-                                                if(user !== null){
-                                                    if(user.role === "admin"){
+                                            {currentUser =>{
+                                                if(currentUser !== null){
+                                                    if(currentUser.role === "admin"){
                                                         return(
                                                             <>
                                                                 <div className="input-group">
                                                                     {/* input-group-text */}
                                                                     <label htmlFor="role" className="flex leading-6 text-center mb-6 bg-slate-400 border-none h-12 p-2 rounded-l-lg text-white">
                                                                         {/* <i className="material-icons m-auto">person</i> */}
-                                                                    <span className="m-auto px-2 text-white text-xl">
-                                                                        <IconsRi.RiUserSettingsFill />
-                                                                    </span>
+                                                                        <span className="m-auto px-2 text-white text-xl">
+                                                                            <IconsRi.RiUserSettingsFill />
+                                                                        </span>
                                                                     </label>
                                                                     <input id="role" type="text" name="role" placeholder="Rol del usuario" className="h-12 border rounded-r-lg w-full mb-3 leading-6 text-justify pl-1" onChange={handleInputChange} defaultValue={user.role || ""}/>
                                                                 </div>

@@ -104,7 +104,6 @@ const Card = ({ doc, url, onDelete, index, type, onDisableUser, onEnableUser }) 
           {(()=>{
             if(type === "cert"){
               return(
-                // <></>
                 <div id={doc.id} className="rounded-t-2xl overflow-hidden relative w-full justify-center flex">
                   <img className="h-auto signersIcon w-full" width={200} src={image} alt="Signers User" />
                 </div>

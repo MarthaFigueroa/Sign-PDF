@@ -88,6 +88,7 @@ const UploadFilesForm = ({ message }) => {
             if(res.data.Error){
                 if(res.data.Error.message === "The specified network password is not correct." || res.data.Error === "The specified network password is not correct."){
                     await message("La clave del Certificado es incorrecta", "error");
+                    console.log("PPP");
                     loadingDiv.style.display = "none";
                 }
             }else if(!res.data.preSigned){

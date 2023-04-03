@@ -32,7 +32,6 @@ public class FileService implements IFileService{
 		return paths;
 	}
 	
-	@SuppressWarnings("resource")
 	public HashMap<String, Object> addSignature(String filename, String certName, HashMap<String, Object> certMetadata, 
 			HashMap<String, Object> docMetadata, HashMap<String, Object> responseCert) throws IOException  {
 		SignatureService signatureService = new SignatureService();
